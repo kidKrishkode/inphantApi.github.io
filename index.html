@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Console</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 10;
+        width: 100%;
+        font-family: Consolas, 'Courier New', monospace;
+    }
+    h1{
+        text-align: center;
+        color: #0c8ff0;
+        font-family: sans-serif;
+    }
+</style>
+<body>
+    <h1>API Console</h1>
+</body>
+<script src="./erudaApi.js"></script>
+<!-- <script src="D:\.vscode\Vs programmes\softApi\erudaApi.js"></script> -->
+<script>
+    const requestUrl = 'https://kidKrishkode.github.io/softApi.github.io/erudaApi.js?operation=add&operand1=5&operand2=2';
+    const response = handleRequest(requestUrl);
+    console.log(response);
+    document.body.innerHTML += '<br> result: '+response.result;
+    document.body.innerHTML += '<br><br> location: '+window.location.href;
+    // const requestUrl = 'https://kidKrishkode.github.io/softApi.github.io/erudaApi.js?lang=en&message=Hello i am krishnendu';
+    // const response = voiceOver(requestUrl);
+</script>
+</html>
