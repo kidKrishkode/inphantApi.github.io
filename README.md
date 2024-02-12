@@ -1,6 +1,6 @@
 SoftApi - Free and Easy-to-Use API System by kidKrishkode
 ---------------------------------------------------------------
-Welcome to SoftApi, a powerful and free API system provided by kidKrishkode for public use. Our API system is completely free and designed to be accessible to everyone, with no need for any monetary transactions. 
+Welcome to SoftApi, a powerful and free API system provided by kidKrishkode for public use, Our API system is completely free and designed to be accessible to everyone, with no need for any monetary transactions. 
 
 ## Features
 SoftApi offers a wide range of features and functionalities through various plugins. These plugins are easy to integrate and can enhance your applications in real-life scenarios. Some of the available plugins include:
@@ -30,4 +30,4 @@ SoftApi is not an open-source project. While it is freely available for public u
 ## Contact Us
 If you have any questions, feedback, or suggestions regarding SoftApi, please feel free to contact us at krishnendumitra24@gmail.com. We're here to help!
 
-Thank you for choosing SoftApi. Happy coding! 🚀🔌👩‍💻
+Thank you for choosing SoftApi. Feel Free 🚀🔌👩‍💻
