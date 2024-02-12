@@ -1,11 +1,51 @@
-const softFileName = 'erudaApi';
-const softFileExe = 'js';
-const softApiPath = [
-    `https://kidKrishkode.github.io/softApi.github.io/${softFileName}.${softFileExe}`,      //hosted
-    `D:/.vscode/Vs%20programmes/softApi/${softFileName}.${softFileExe}`,                    //local
-    `http://127.0.0.1:5500/${softFileName}.${softFileExe}`,                                 //live
-    ``,                                                                                     //mobile
-];
+try{
+    if(host != undefined){
+        use++;
+    }else{
+        use--;
+    }
+}catch(e){
+    console.warn("Please at first mention softSTDlib.min.js library!");
+}
+function erudaApi_linkChecker(requestUrl){
+    try{
+        softFileName = 'erudaApi';
+        softFileExe = 'js';
+        softApiPath = [
+            `https://${host}/softApi.github.io/${softFileName}.${softFileExe}`,                     //hosted
+            `D:/.vscode/Vs%20programmes/softApi/${softFileName}.${softFileExe}`,                    //local
+            `http://127.0.0.1:5500/${softFileName}.${softFileExe}`,                                 //live
+            ``,                                                                                     //mobile
+        ];
+    }catch(err){
+        console.log("Please make sure you are add softSTDlib.min.js library at first?");
+        return null;
+    }
+    if(requestUrl==''||requestUrl==undefined){
+        console.error("Error 404!\nUrlSyntexError: Request url not found! (reading 'url')\n\tat softApi.github.io");
+        return false;
+    }else{
+        document.body.innerHTML += requestUrl+'<br>';
+        const parts = requestUrl.split('?');
+        const beforeQuestionMark = parts[0];
+        for(let i = 0; i < softApiPath.length; i++){
+            const regex = new RegExp('^' + softApiPath[i].replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$');
+            if(regex.test(beforeQuestionMark)){
+                return true;
+            }
+        }
+        return false;
+    }
+}
+function erudaApi_linkNotPerfect(){
+    try{
+        if(host!=undefined){
+            console.error("Error 400!\nUrlSyntexError: Requested url not perfectly react! (reading 'authKey')\n\tat softApi.github.io");
+        }
+    }catch(e){
+        console.error("Error 404!\nFrameWorkError: Library files are not found to compile! (reading 'Files')\n\tat softApi.github.io");
+    }
+}
 function add(list){
     let ans=0;
     for(let i=0; i<list.length; i++){
@@ -56,7 +96,7 @@ function fact(value){
     return value;
 }
 function mathCalc(requestUrl){
-    if(linkChecker(requestUrl)){
+    if(erudaApi_linkChecker(requestUrl)){
         const url = new URL(requestUrl);
         const params = url.searchParams;
         let list = 0, operation;
@@ -91,13 +131,13 @@ function mathCalc(requestUrl){
             return list;
         }
     }else{
-        linkNotPerfect();
+        erudaApi_linkNotPerfect();
     }
 }
 function factorial(requestUrl){
     const url = new URL(requestUrl);
     const params = url.searchParams;
-    if(linkChecker(requestUrl)){
+    if(erudaApi_linkChecker(requestUrl)){
         if(params.get('operation')){
             console.error("Error 200!\nExtraParamsUrl: Operation not need for this expression! (reading 'url')\n\tat softApi.github.io");
         }
@@ -113,7 +153,7 @@ function factorial(requestUrl){
             return list;
         }
     }else{
-        linkNotPerfect();
+        erudaApi_linkNotPerfect();
     }
 }
 function mathValueCatch(requestUrl){
@@ -179,31 +219,11 @@ function message(){
     alert("Hello, my self api, nice to meet you.");
 }
 // Example usage:
-// const requestUrl = 'https://kidKrishkode.github.io/softApi.github.io/erudaApi.js?operation=add&operand1=5&operand2=2';
+// const requestUrl = 'https://${host}/softApi.github.io/erudaApi.js?operation=add&operand1=5&operand2=2';
 // const response = mathCalc(requestUrl);
 // console.log(response);
-function linkChecker(requestUrl){
-    if(requestUrl==''||requestUrl==undefined){
-        console.error("Error 404!\nUrlSyntexError: Request url not found! (reading 'url')\n\tat softApi.github.io");
-        return false;
-    }else{
-        document.body.innerHTML += requestUrl+'<br>';
-        const parts = requestUrl.split('?');
-        const beforeQuestionMark = parts[0];
-        for(let i = 0; i < softApiPath.length; i++){
-            const regex = new RegExp('^' + softApiPath[i].replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$');
-            if(regex.test(beforeQuestionMark)){
-                return true;
-            }
-        }
-        return false;
-    }
-}
-function linkNotPerfect(){
-    console.error("Error 400!\nUrlSyntexError: Requested url not perfectly react! (reading 'authKey')\n\tat softApi.github.io");
-}
 function voiceOver(requestUrl){
-    if(linkChecker(requestUrl)){
+    if(erudaApi_linkChecker(requestUrl)){
         const url = new URL(requestUrl);
         const params = url.searchParams;
         const message = params.get('message');
@@ -220,7 +240,7 @@ function voiceOver(requestUrl){
             console.log("This device not support audio system");
         }
     }else{
-        linkNotPerfect();
+        erudaApi_linkNotPerfect();
     }
     return null;
 }

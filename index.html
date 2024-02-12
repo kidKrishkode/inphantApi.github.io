@@ -20,14 +20,31 @@
 <body>
     <h1>API Console</h1>
 </body>
+<!-- <script src="./softSTDlib.min.js"></script>
 <script src="./erudaApi.js"></script>
+<script src="./animaleApi.js"></script> -->
 <!-- <script src="D:\.vscode\Vs programmes\softApi\erudaApi.js"></script> -->
-<!-- <script src="https://kidKrishkode.github.io/softApi.github.io/erudaApi.js"></script> -->
+<script src="https://kidKrishkode.github.io/softApi.github.io/softSTDlib.min.js"></script>
+<script src="https://kidKrishkode.github.io/softApi.github.io/erudaApi.js"></script>
+<script src="https://kidKrishkode.github.io/softApi.github.io/animaleApi.js"></script>
 <script>
-    const requestUrl = `https://kidKrishkode.github.io/softApi.github.io/erudaApi.js?operation=add&operand1=5&operand2=2`;
-    const response = mathCalc(requestUrl);
+    let requestUrl = `https://kidKrishkode.github.io/softApi.github.io/erudaApi.js?operation=add&operand1=5&operand2=2`;
+    let response = mathCalc(requestUrl);
     console.log(response);
     document.body.innerHTML += '<br> result: '+response.result;
     document.body.innerHTML += '<br><br> location: '+window.location.href+'<br><br>';
+
+    //animale code
+function animale(){
+    RefreshAnimaleData();
+    requestUrl = `https://kidKrishkode.github.io/softApi.github.io/animaleApi.js?operation=get&name=Tiger`;
+    setTimeout(()=>{
+        response = getAnimaleData(requestUrl);
+        console.log(response);
+        document.body.innerHTML += '<br> result: '+response.result;
+        document.body.innerHTML += '<br><br> location: '+window.location.href+'<br><br>';
+    },100);
+}
+animale();
 </script>
 </html>
