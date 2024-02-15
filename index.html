@@ -2,33 +2,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API Console</title>
+    <title>inphantApi.github.io</title>
+    <link rel="icon" href="./fav-icon/logo-o-c.png">
+    <link rel="stylesheet" href="./Components/origin.css">
 </head>
-<style>
-    body{
-        margin: 0;
-        padding: 10;
-        width: 100%;
-        font-family: Consolas, 'Courier New', monospace;
-    }
-    h1{
-        text-align: center;
-        color: #0c8ff0;
-        font-family: sans-serif;
-    }
-</style>
+<style id="jsStyle"></style>
 <body>
     <h1>API Console</h1>
 </body>
-<!-- <script src="./softSTDlib.min.js"></script>
-<script src="./erudaApi.js"></script>
-<script src="./animaleApi.js"></script> -->
-<!-- <script src="D:\.vscode\Vs programmes\softApi\erudaApi.js"></script> -->
-<script src="https://kidKrishkode.github.io/softApi.github.io/softSTDlib.min.js"></script>
-<script src="https://kidKrishkode.github.io/softApi.github.io/erudaApi.js"></script>
-<script src="https://kidKrishkode.github.io/softApi.github.io/animaleApi.js"></script>
+<script src="./APIs/inphantSTDlib.min.js"></script>
+<script src="./APIs/erudaApi.js"></script>
+<script src="./APIs/animaleApi.js"></script>
+<!-- <script src="D:\.vscode\Vs programmes\inphantApi\APIs\erudaApi.js"></script> -->
+<!-- <script src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/inphantSTDlib.min.js"></script>
+<script src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/erudaApi.js"></script>
+<script src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/animaleApi.js"></script> -->
 <script>
-    let requestUrl = `https://kidKrishkode.github.io/softApi.github.io/erudaApi.js?operation=add&operand1=5&operand2=2`;
+    let requestUrl = `https://kidKrishkode.github.io/inphantApi.github.io/APIs/erudaApi.js?operation=add&operand1=5&operand2=2`;
     let response = mathCalc(requestUrl);
     console.log(response);
     document.body.innerHTML += '<br> result: '+response.result;
@@ -37,7 +27,7 @@
     //animale code
 function animale(){
     RefreshAnimaleData();
-    requestUrl = `https://kidKrishkode.github.io/softApi.github.io/animaleApi.js?operation=get&name=Tiger`;
+    requestUrl = `https://kidKrishkode.github.io/inphantApi.github.io/APIs/animaleApi.js?operation=get&name=Tiger`;
     setTimeout(()=>{
         response = getAnimaleData(requestUrl);
         console.log(response);
