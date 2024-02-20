@@ -1,0 +1,117 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Welcome to inphantApi, a powerful and free API system provided by kidKrishkode for public use, Our API system is completely free and designed to be accessible to everyone, with no need for any monetary transactions.">
+    <meta name="author" contant="Krishnendu Mitra">
+    <title version="1.0">Inphant Api</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="icon" href="./fav-icon/logo-o-c.png">
+    <link rel="stylesheet" href="./Components/origin.css">
+</head>
+<body id="root" onload="user();">
+    <header>
+        <div id="left_nav">
+            <div class="logo">Inphant Api</div>
+            <div class="collapses">
+                <ul class="menubar" style="color: grey;">
+                    <li class="menu-item" onclick="pageRout(0);"title="Home Page"id="p0">
+                        <a class="menu-link" aria-current="page">Home</a>
+                    </li>
+                    <li class="menu-item" onclick="pageRout(1);"title="API Page"id="p1">
+                        <a class="menu-link">APIs</a>
+                    </li>
+                    <li class="menu-item" onclick="pageRout(2);"title="Docs Page"id="p2">
+                        <a class="menu-link">Docs</a>
+                    </li>
+                    <li class="menu-item" onclick="pageRout(3);"title="About Page"id="p3">
+                        <a class="menu-link">About</a>
+                    </li>
+                    <li class="menu-item" onclick="pageRout(4);"title="Help Page"id="p4">
+                        <a class="menu-link">Help</a>
+                    </li>
+                    <li class="menu-item" onclick="colorTogule();"id="p5">
+                        <a class="menu-link sunicon" title="Dark/Light modes">&#x2600;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="right_nav">
+            <form class="right_search">
+                <input class="search-control" id="S1" type="search" placeholder="Search APIs" aria-label="Search" onkeyup="search('S1');" title="Search APIs"/>
+                <span class="btn" type="submit" onclick="search('S1');" title="Click for Search">Search</span>
+            </form>
+            <li class="menu-item" onclick="account();"id="p6"title="Account details">
+                <a class="menu-link">&#x1f464;</a>
+            </li>
+            <div class="hameburger" onclick="menubar();">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+    </header>
+    <div class="downMenu">
+        <div id="top_nav">
+            <div class="colide">
+                <ul class="menubar" style="color: grey;">
+                    <li class="menu-item" onclick="pageRout(0);" id="pm0">
+                        <a class="menu-link" aria-current="page">Home</a>
+                    </li>
+                    <li class="menu-item" onclick="pageRout(1);" id="pm1">
+                        <a class="menu-link">APIs</a>
+                    </li>
+                    <li class="menu-item" onclick="pageRout(2);" id="pm2">
+                        <a class="menu-link">Docs</a>
+                    </li>
+                    <li class="menu-item" onclick="pageRout(3);" id="pm3">
+                        <a class="menu-link">About</a>
+                    </li>
+                    <li class="menu-item" onclick="pageRout(4);" id="pm4">
+                        <a class="menu-link">Help</a>
+                    </li>
+                    <li class="menu-item" onclick="colorTogule();"id="pm5">
+                        <a class="menu-link sunicon">&#x2600;</a>
+                    </li>
+                    <li class="menu-item" onclick="account();"id="pm6">
+                        <a class="menu-link">&#x1f464;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="bottom_nav">
+            <form class="middle_search">
+                <input class="search-control" type="search" id="S2" placeholder="Search APIs" aria-label="Search" onkeyup="search('S2');"/>
+                <span class="btn" type="submit" onclick="search('S2');">Search</span>
+            </form>
+        </div>
+    </div>
+    <section id="HomePage">
+        <h1>WELCOME TO INPHANT API</h1>
+        <h4>
+            <div id="h40"><span>.</span></div>
+            <span id="h41">Welcome to our inphantApi's window</span>
+            <span id="h42">kidKrishkode provide brute force Apis</span>
+            <span id="h43">Top level interactive in free of cost</span>
+            <span id="h44">Explore new Apis in one click</span>
+            <span id="h45">Join with us, being eye witness of future</span>
+        </h4>
+        <p>We are providing you engineering level (final year)<br> projects with there source code, explore popular<br> project ideas with us.</p>
+        <div class="welbtn">
+            <div title="Download most populare projects in your device">
+                <button onclick="pageRout(2);"><span>Explore Now</span>Recommended For Most User</button>
+                <span class="support">Other Downloads | Free codes | Feedback</span>
+            </div>
+            <div title="Contact us for any requirments">
+                <button onclick="pageRout(3);"><span>Contact Us</span>Share your project ideas</button>
+                <span class="support">Help | Modification | Join us | Ratings</span>
+            </div>
+        </div>
+        <p>For information about modified releases, see the<br><a href="/">release schedule</a>.</p>
+    </section>
+</body>
+<script src="./Database/styledata.js"></script>
+<script src="./Components/default.js"></script>
+</html>

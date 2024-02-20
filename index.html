@@ -2,17 +2,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inphantApi.github.io</title>
+    <title>Inphant Api</title>
     <link rel="icon" href="./fav-icon/logo-o-c.png">
     <link rel="stylesheet" href="./Components/origin.css">
 </head>
 <style id="jsStyle"></style>
 <body>
-    <h1>API Console</h1>
+    <h1 onclick="mainPage();">API Console</h1>
 </body>
+<script>
+function mainPage(){
+    window.location = './main.html';
+}
+</script>
 <script src="./APIs/inphantSTDlib.min.js"></script>
 <script src="./APIs/erudaApi.js"></script>
 <script src="./APIs/animaleApi.js"></script>
+<script src="./APIs/speakApi.js"></script>
 <!-- <script src="D:\.vscode\Vs programmes\inphantApi\APIs\erudaApi.js"></script> -->
 <!-- <script src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/inphantSTDlib.min.js"></script>
 <script src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/erudaApi.js"></script>
@@ -27,7 +33,7 @@
     //animale code
 function animale(){
     RefreshAnimaleData();
-    requestUrl = `https://kidKrishkode.github.io/inphantApi.github.io/APIs/animaleApi.js?operation=get&name=Tiger`;
+    requestUrl = `https://kidKrishkode.github.io/inphantApi.github.io/APIs/animaleApi.js?method=get&name=Tiger`;
     setTimeout(()=>{
         response = getAnimaleData(requestUrl);
         console.log(response);
@@ -35,6 +41,10 @@ function animale(){
         document.body.innerHTML += '<br><br> location: '+window.location.href+'<br><br>';
     },100);
 }
-animale();
+// animale();
+message = "Krish is very handsome and intelligent boy, this statement is not true, accroding to his style of coding";
+requestUrl = `https://kidKrishkode.github.io/inphantApi.github.io/APIs/speakApi.js?operation=convert&from=text&to=voice&message=${message}&language=en&gender=male`;
+response = speechOver(requestUrl);
+console.log(response);
 </script>
 </html>
