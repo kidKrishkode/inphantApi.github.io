@@ -215,13 +215,6 @@ function mathValueCatch(requestUrl){
         return{error: "Doblue type of entry not valid, choose any one type!",result: null};
     }
 }
-function message(){
-    alert("Hello, my self api, nice to meet you.");
-}
-// Example usage:
-// const requestUrl = 'https://${host}/inphantApi.github.io/APIs/erudaApi.js?operation=add&operand1=5&operand2=2';
-// const response = mathCalc(requestUrl);
-// console.log(response);
 function voiceOver(requestUrl){
     if(erudaApi_linkChecker(requestUrl)){
         const url = new URL(requestUrl);
