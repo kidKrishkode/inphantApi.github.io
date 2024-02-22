@@ -1,5 +1,5 @@
 let nav = 0;
-let pageList = ["HomePage"];
+let pageList = ["HomePage","ApiPage","DocsPage","AboutPage","HelpPage"];
 let aboutList = ["abtn0","abtn1","abtn2"];
 let additionalList = ["SearchPage","AccountPage"];
 let cls = 1;
@@ -8,19 +8,23 @@ let ksm=0;
 function menubar(){
     if(nav==0){
         document.querySelector(".downMenu").style.display="block";
+        document.querySelector(".menu-header").style.borderBottomLeftRadius = "0px";
+        document.querySelector(".menu-header").style.borderBottomRightRadius = "0px";
         nav=1;
     }else{
         document.querySelector(".downMenu").style.display="none";
+        document.querySelector(".menu-header").style.borderBottomLeftRadius = "20px";
+        document.querySelector(".menu-header").style.borderBottomRightRadius = "20px";
         nav=0;
     }
 }
 function user(){
     const body = document.getElementById("root");
-    
-    // document.getElementById("year").textContent = new Date().getFullYear();
-    pageRout(0);
-    typing();
-    // ksmImg(ksm);
+	setTimeout(() => {
+		document.getElementById("loading").style.display = "none";
+        pageRout(1);
+	},2000);
+    document.getElementById("year").textContent = new Date().getFullYear();
 }
 function colorTogule(){
 	for(let j=0; j<colorLib[cls].collist.length; j++){
@@ -54,8 +58,7 @@ function pageRout(id){
         aboutList[3]="abtn3";
     	// aboutRout(0);
     }
-    // document.getElementById("SearchPage").style.display="none";
-    // document.getElementById("AccountPage").style.display="none";
+    nextProgress(id);
     SrcPg=0;
 }
 function PageNull(id){
@@ -84,4 +87,17 @@ function typing(){
             text=0;
         }
     },5000);
+}
+function nextProgress(id){
+    if(id==0){
+        typing();
+    }else if(id==1){
+        ProductListMaker();
+    }else if(id==2){
+        
+    }else if(id==3){
+        
+    }else{
+        console.warn("This rout have not identi");
+    }
 }
