@@ -8,11 +8,12 @@
     <title version="1.0">Inphant Api</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="icon" href="./fav-icon/logo-o-c.png">
+    <link rel="icon" href="./fav-icon/logo-r-c-o.png">
     <link rel="stylesheet" href="./Components/origin.css">
 </head>
+<style id="jsStyle"></style>
 <body id="root" onload="user();">
-    <header>
+    <header class="menu-header">
         <div id="left_nav">
             <div class="logo">Inphant Api</div>
             <div class="collapses">
@@ -92,26 +93,93 @@
         <h1>WELCOME TO INPHANT API</h1>
         <h4>
             <div id="h40"><span>.</span></div>
-            <span id="h41">Welcome to our inphantApi's window</span>
-            <span id="h42">kidKrishkode provide brute force Apis</span>
-            <span id="h43">Top level interactive in free of cost</span>
-            <span id="h44">Explore new Apis in one click</span>
-            <span id="h45">Join with us, being eye witness of future</span>
+            <span id="h41">Welcome to our Inphant Api's portal </span>
+            <span id="h42">kidKrishkode provides top level APIs </span>
+            <span id="h43">Access top-tier API services at no cost </span>
+            <span id="h44">Discover new APIs with just one click </span>
+            <span id="h45">Join us and witness the future firsthand </span>
         </h4>
-        <p>We are providing you engineering level (final year)<br> projects with there source code, explore popular<br> project ideas with us.</p>
+        <p>We are offering you advanced level (Vanilla)<br> APIs with their documentation, explore popular<br> API ideas with us.</p>
         <div class="welbtn">
-            <div title="Download most populare projects in your device">
-                <button onclick="pageRout(2);"><span>Explore Now</span>Recommended For Most User</button>
+            <div title="Plug in most populare api at your project">
+                <button onclick="pageRout(1);"><span>Explore Now</span>Recommended For Most User</button>
                 <span class="support">Other Downloads | Free codes | Feedback</span>
             </div>
             <div title="Contact us for any requirments">
-                <button onclick="pageRout(3);"><span>Contact Us</span>Share your project ideas</button>
+                <button onclick="pageRout(4);"><span>Contact Us</span>Share your project ideas</button>
                 <span class="support">Help | Modification | Join us | Ratings</span>
             </div>
         </div>
         <p>For information about modified releases, see the<br><a href="/">release schedule</a>.</p>
     </section>
+    <section id="ApiPage">
+        <div class="searchBox">
+            <div class="searchBar">
+                <div class="searchSelect">
+                    <select id="searchSelectList" onchange="searchbySelect('searchSelectList','drop');"><option>All</option><option>Free Api</option><option>Premium Api</option><option>Data support Api</option><option>Fast Api</option><option>Voluntiar's Api</option><option>Others</option></select>
+                </div>
+                <div class="searchText">
+                    <input type="text" placeholder="Search Inphant Api" id="searchData" onkeyup="search_product('searchData','drop');">
+                </div>
+                <div class="searchIcon">
+                    <i class="fa fa-search"></i>
+                </div>
+            </div>
+        </div>
+        <ol class="search-product-data" id="productList">
+            &times; No data found, internet slow;
+        </ol>
+    </section>
+    <section id="DocsPage">
+
+    </section>
+    <section id="AboutPage">
+
+    </section>
+    <section id="HelpPage">
+
+    </section>
+    <footer>
+        <div class="footer">
+            <h2>INPHANT API</h2>
+            <ul class="socials">
+                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+                <li><a href="#"><i class="fa fa-github"></i></a></li>
+                <li><a href="#"><i class="fa fa-linkedin-square"></i></a></li>
+                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+            </ul>
+            <p>
+                We emphasize our commitment to fostering a collaborative community for developers engaged in utilizing innovative APIs. Here, 
+                you'll discover a curated collection of impactful APIs spanning mathematics, weather, animals, currencies, text-to-voice, and more, 
+                tailored specifically for technology enthusiasts. At Inphant Api, we encourage knowledge sharing by providing a platform for developers 
+                to exchange API ideas, delve into relevant studies, and collectively contribute to the realm of technological advancement. Our mission 
+                extends beyond APIs – it's about nurturing an environment that inspires creativity and growth. As we embark on this educational journey 
+                together, your participation is not just welcomed; it's integral to the heartbeat of Inphant Api.
+                <br><center>Join us in shaping the future of technology.</center>
+            </p>
+            <div class="footer-copyright">
+                <p>copyright ©<a id="year">2023</a> Inphant Api <span>All rights under reserved</span></p>
+                <p style="cursor:pointer;">Privacy Statements</p>
+            </div>
+        </div>
+    </footer>
+    <div id="loading">
+        <div class="head">INPHANT API</div>
+        <div class="loader">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <footer>
+            <h6>from</h6>
+            <h5>kidKrishkode</h5>
+        </footer>
+    </div>
 </body>
 <script src="./Database/styledata.js"></script>
+<script src="./Database/productData.js"></script>
+<script src="./Database/asset.js"></script>
 <script src="./Components/default.js"></script>
+<script src="./Components/hex.js"></script>
 </html>
