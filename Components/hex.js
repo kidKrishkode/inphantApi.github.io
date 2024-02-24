@@ -13,13 +13,13 @@ function productCardMaker(id){
                         <div class="product-head">${card.name}</div>
                     </div>
                     <div class="product-description">${card.description}</div>
-                    <div class="product-owner">@${card.owner} - ${card.owner=='kidKrishkode'?'Owner':'Others'}</div>
+                    <div class="product-owner">@${card.owner} - ${card.owner=='kidKrishkode'?'Owner':'Voluntiar'}</div>
                 </div>
                 <div class="product-tags"></div>
                 <div class="product-component-bottom">
-                    <div class="product-info"><i class="fa fa-line-chart"></i>${(card.rating).toFixed(1)}/10</div>
-                    <div class="product-info"><i class="fa fa-calendar"></i>${card.modified}</div>
-                    <div class="product-info"><i class="fa fa-history"></i>391ms</div>
+                    <div class="product-info" title="Rating"><i class="fa fa-line-chart"></i>${(card.rating).toFixed(1)}/10</div>
+                    <div class="product-info" title="Modification"><i class="fa fa-calendar"></i>${card.modified}</div>
+                    <div class="product-info" title="Responce time"><i class="fa fa-history"></i>391ms</div>
                 </div>
             </div>
         </li>`;
@@ -81,4 +81,56 @@ function searchbySelect(selectlist,type){
             selectBox.innerHTML += `<option>${set2[i]}</option>`;
         }
     }
+}
+function search(id){
+    console.log("Welome to global search");
+}
+function updateLineNumbers(){
+    const code = codeElement.innerText;
+    const lines = code.split("\n");
+    const lineCount = lines.length;
+    lineNumbers.innerHTML = Array.from({ length: lineCount-1 }, (_, i) => i + 1).join("<br>");
+}
+function Rview(id){
+	const code = '<pre>'+document.getElementById(id).innerHTML+'</pre>';
+	document.getElementById("rewView").innerHTML=code;
+	document.querySelector(".rawport").style.display="block";
+}
+function Rclose(){
+	document.getElementById("rewView").innerHTML="";
+	document.querySelector(".rawport").style.display="none";
+}
+function Copy(id){
+	copyCode(id);
+}
+function copyCode(id){
+    const textToCopy = document.getElementById(id);
+    const tempTextarea = document.createElement("textarea");
+    tempTextarea.value = textToCopy.textContent;
+    document.body.appendChild(tempTextarea);
+    tempTextarea.select();
+    tempTextarea.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    document.body.removeChild(tempTextarea);
+    alert("Code has been copied to the clipboard!");
+}
+function downloadCode(id,name){
+    const textToDownload = document.getElementById(id).textContent;
+    // const fileName = "downloaded_file.txt";
+    const fileName = `${name}`;
+    const blob = new Blob([textToDownload], { type: "text/plain" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = fileName;
+    link.click();
+}
+function codeFeed(){
+    alert("Feedback is not possible");
+}
+let codeElement,lineNumbers;
+function ideDeploy(code,line){
+    codeElement = document.querySelector(code);
+    lineNumbers = document.querySelector(line);
+    codeElement.addEventListener("input", updateLineNumbers);
+    updateLineNumbers();
 }

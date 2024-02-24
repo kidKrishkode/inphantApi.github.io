@@ -4,7 +4,8 @@ let aboutList = ["abtn0","abtn1","abtn2"];
 let additionalList = ["SearchPage","AccountPage"];
 let cls = 1;
 let SrcPg=0;
-let ksm=0;
+let apiVisited=2000;
+let docVisited=0;
 function menubar(){
     if(nav==0){
         document.querySelector(".downMenu").style.display="block";
@@ -22,7 +23,7 @@ function user(){
     const body = document.getElementById("root");
 	setTimeout(() => {
 		document.getElementById("loading").style.display = "none";
-        pageRout(1);
+        pageRout(2);
 	},2000);
     document.getElementById("year").textContent = new Date().getFullYear();
 }
@@ -92,10 +93,33 @@ function nextProgress(id){
     if(id==0){
         typing();
     }else if(id==1){
-        ProductListMaker();
+        if(apiVisited==2000){
+            document.getElementById("loading").style.display = "block";
+        }
+        setTimeout(()=>{
+            if(apiVisited==2000){
+                apiVisited=1;
+            }
+            document.getElementById("loading").style.display = "none";
+            ProductListMaker();
+        },apiVisited);
     }else if(id==2){
-        
+        if(docVisited==0){
+            htmlCompiler('libReqExaHtml');
+            ideDeploy('.code','.line-numbers');
+            htmlCompiler('libInVanillaHtml');
+            ideDeploy('#libInVanillaHtml','#libInVanillaHtml-line');
+            htmlCompiler('plugSyntHtml');
+            ideDeploy('#plugSyntHtml','#plugSyntHtml-line');
+            htmlCompiler('plugExaInVanillaHtml');
+            ideDeploy('#plugExaInVanillaHtml','#plugExaInVanillaHtml-line');
+            jsCompiler('plugExaInVanillaJs');
+            ideDeploy('#plugExaInVanillaJs','#plugExaInVanillaJs-line');
+            docVisited++;
+        }
     }else if(id==3){
+        
+    }else if(id==4){
         
     }else{
         console.warn("This rout have not identi");

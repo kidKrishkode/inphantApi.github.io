@@ -590,6 +590,10 @@ ul{
     margin: 0px;
     display: list-item;
 }
+.drops{
+    width: 100%;
+    margin: 0px;
+}
 .product{
     width: 100%;
     margin: 20px auto;
@@ -698,6 +702,106 @@ ul{
 }
 .product-component-bottom .product-info i{
     margin: auto 4px;
+}
+.docs-content{
+    width: 95%;
+    margin: 10px auto;
+    padding: 0px;
+}
+.docs-content h2,#HelpPage .searchBox h2{
+    color: var(--ngtxt-color);
+    font-family: sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 0px;
+    margin: 2px 0px;
+}
+.docs-content h4{
+    color: var(--wtxt-color);
+    font-family: sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 0px;
+    margin: 2px 0px;
+}
+.docs-content p{
+    color: var(--gry-color);
+    font-size: 15px;
+    font-weight: 600;
+    padding: 0 4px;
+    line-height: 18px;
+    text-align: justify;
+}
+#HelpPage .searchBox{
+    background: url('../img/banner2.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: 0px;
+    padding: 40px 0px;
+    z-index: -2;
+}
+#HelpPage .searchBox h2{
+    color: red;
+    font-family: sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+}
+#HelpPage .searchText,#HelpPage .searchText input{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+#HelpPage .searchText:hover{
+    box-shadow: 0px 0px 3px 1px var(--ngtxt-color);
+    border: 2px solid grey;
+}
+#HelpPage .searchText input{
+    padding: 5px 12px;
+}
+.flo{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.left-help-component{
+    width: 50%;
+    background: pink;
+}
+.right-help-component{
+    width: 50%;
+    background: powderblue;
+    padding: 40px 0px;
+}
+.right-help-component-box{
+    width: 45%;
+    border: 2px solid green;
+    margin: 20px 0px;
+    padding: 5px 0px;
+}
+.right-help-component-box-icon{
+    width: 30%;
+}
+.right-help-component-box-icon i{
+    text-align: center;
+    margin: auto 0px;
+    font-size: 20px;
+}
+.right-help-component-box-info{
+    width: 70%;
+    font-family: sans-serif;
+}
+.right-help-component-box-info h5{
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0px;
+    padding: 0px;
+    text-transform: uppercase;
+}
+.right-help-component-box-info p{
+    font-size: 12px;
+    padding: 0%;
+    margin: 0%;
+    line-height: 16px;
 }
 @media only screen and (max-width: 900px){
     #loading .head{
@@ -877,5 +981,13 @@ ul{
         position: relative;
         top: 2px;
         left: 60%;
+    }
+    #HelpPage .searchBar{
+        width: 100%;
+        margin: 0px 5%;
+    }
+    .help-component{
+        display: flex;
+        flex-direction: column;
     }
 }
