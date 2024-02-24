@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="icon" href="./fav-icon/logo-r-c-o.png">
     <link rel="stylesheet" href="./Components/origin.css">
+    <link rel="stylesheet" href="./Components/compiler.css">
 </head>
 <style id="jsStyle"></style>
 <body id="root" onload="user();">
@@ -131,13 +132,351 @@
         </ol>
     </section>
     <section id="DocsPage">
-
+        <div class="searchBox">
+            <div class="searchBar">
+                <div class="searchSelect">
+                    <select id="searchSelectList" disabled="true"><option>All</option><option>Others</option></select>
+                </div>
+                <div class="searchText">
+                    <input type="text" placeholder="Search Inphant Docs" id="searchText" onkeyup="search_product('searchText','drops');">
+                </div>
+                <div class="searchIcon">
+                    <i class="fa fa-search"></i>
+                </div>
+            </div>
+        </div>
+        <ol class="search-product-data" id="docList">
+            <li class="drops">
+                <div class="docs-content">
+                    <h2>Greetings</h2>
+                    <p>Welcome to Inphant Api, your go-to destination for free API services worldwide. Inphant Api offers a wide range of top-tier 
+                    and commonly used APIs, including mathematics, animals, currencies, temperature, text-to-voice, and more. Designed for 
+                    simplicity and ease of use, our APIs function seamlessly, akin to vanilla JavaScript plugins, making integration into your 
+                    projects a breeze. Developed within the robust Hex framework, our utility boasts incredibly low response times, ensuring 
+                    swift access to data for our valued users. Our satisfied clients attest to the reliability and convenience of our services, 
+                    finding solace in our user-friendly approach compared to more complex alternatives like Rapid API or Fast API. With Inphant 
+                    Api, experience the simplicity and efficiency of static data assets, empowering developers worldwide to innovate and excel 
+                    in their endeavors.
+                    </p>
+                </div>
+            </li>
+            <li class="drops">
+                <div class="docs-content">
+                    <h2>Why Library File Inclusion is Required</h2>
+                    <p>In the utilization of our API services, the inclusion of library files holds paramount importance, serving as the cornerstone 
+                    for seamless integration and optimal functionality within your projects. Much akin to the essentiality of <code>#include&lt;stdio.h></code> 
+                    in the realm of C language programming, the inclusion of our library files ensures access to pre-defined data and functionalities 
+                    critical for the operation of our APIs. Failure to include these library files at the onset of project development may result in 
+                    compromised performance and functionality of the API, rendering it ineffective in delivering the desired outcomes.
+                    </p>
+                    <p>To facilitate the incorporation of our library files into your project, we have streamlined the process, ensuring simplicity and 
+                    ease of implementation. Adding the library file link or encoding it within your project structure is as straightforward as inserting 
+                    a JavaScript link, aligning with industry-standard practices for integrating API plugins. Careful adherence to the prescribed steps, 
+                    detailed below, is imperative to ensure the seamless functioning of our APIs within your project environment. </p>
+                    <div class="code-editor">
+                        <ul class="tabs codeheader_html">
+                            <li class="tab" title="File name with extension">index.html</li>
+                            <li class="tabi"><span onclick="Copy('libReqExaHtml');" title="Copy this code">&#128203;</span><span onclick="Rview('libReqExaHtml')" title="Raw view of this code" class="word">Raw</span>
+                            <span title="Feedback of this code"onclick="codeFeed();">&#x1F44D;</span><span onclick="downloadCode('libReqExaHtml','index.html');" title="Download it in text file">&#x1F4E5;</span></li>
+                        </ul>
+                        <div class="code-wrapper">
+                            <div class="line-numbers"></div>
+                            <pre class="code language-html" contenteditable="false" spellcheck="false" id="libReqExaHtml">
+< html@ >
+    < head@ >
+        < title@ >Library file add< /title@ >
+    < /head@ >
+    < body@ >
+        < !-- programe body -- >
+    < /body@ >
+    < !-- Add this script tag in your project (below) -- >
+    &lt; script@ |src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/inphantSTDlib.min.js"n >< /script@ >
+    < !-- copy it Carefuly (above) -- >
+< /html@ >
+                            </pre>
+                        </div>
+                    </div>
+                    <p>Whether you are utilizing vanilla JavaScript or Node.js for your project development, the process for incorporating our library files 
+                    differs slightly. We have meticulously outlined the steps for both scenarios to guide you through the integration process effectively. 
+                    However, should you encounter any challenges or require further clarification, our dedicated support team is readily available to assist 
+                    you. Rest assured, we are committed to ensuring a smooth and hassle-free experience as you harness the power of our APIs to drive 
+                    innovation and success in your projects.</p>
+                </div>
+            </li>
+            <li class="drops">
+                <div class="docs-content">
+                    <h2>How to Use Our API</h2>
+                    <p>Utilizing our API is a straightforward process designed to empower developers with seamless access to a diverse range of 
+                    functionalities. By following a few simple steps, developers can quickly integrate our APIs into their projects and leverage 
+                    the wealth of data and capabilities they offer. Our intuitive documentation provides comprehensive guidance on API endpoints, 
+                    parameters, and usage scenarios, ensuring a smooth onboarding experience for developers of all skill levels.</p>
+                    <h4>Vanilla JavaScript Framework <i class="fa fa-long-arrow-right"></i></h4>
+                    <p>
+                    In the vanilla JavaScript framework, integrating our API utility is remarkably straightforward, designed to minimize complexity 
+                    and streamline the development process. To begin, identify the HTML file within your project where the API utility will be 
+                    utilized. Within this HTML file, simply insert a script tag and include the library file link provided in the API code snippet 
+                    area, as illustrated below: 
+                    </p>
+                    <div class="code-editor">
+                        <ul class="tabs codeheader_html">
+                            <li class="tab" title="File name with extension">index.html</li>
+                            <li class="tabi"><span onclick="Copy('libInVanillaHtml');" title="Copy this code">&#128203;</span><span onclick="Rview('libInVanillaHtml')" title="Raw view of this code" class="word">Raw</span>
+                            <span title="Feedback of this code"onclick="codeFeed();">&#x1F44D;</span><span onclick="downloadCode('libInVanillaHtml','index.html');" title="Download it in text file">&#x1F4E5;</span></li>
+                        </ul>
+                        <div class="code-wrapper">
+                            <div class="line-numbers" id="libInVanillaHtml-line"></div>
+                            <pre class="code language-html" contenteditable="false" spellcheck="false" id="libInVanillaHtml">
+< html@ >
+    < head@ >
+        < title@ >Library file add in Vanilla< /title@ >
+    < /head@ >
+    < body@ >
+        < !-- programe body -- >
+    < /body@ >
+    < !-- Add this script tag in your project (below) -- >
+    &lt; script@ |src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/inphantSTDlib.min.js"n >< /script@ >
+< /html@ >
+                            </pre>
+                        </div>
+                    </div>
+                    <p>Next, select the specific API(s) you wish to incorporate into your project. Open another script tag below the library file 
+                    source and include the link to the API system, adhering to the syntax format provided: 
+                    </p>
+                    <div class="code-editor">
+                        <ul class="tabs codeheader_html">
+                            <li class="tab" title="File name with extension">demo.html</li>
+                            <li class="tabi"><span onclick="Copy('plugSyntHtml');" title="Copy this code">&#128203;</span><span onclick="Rview('plugSyntHtml')" title="Raw view of this code" class="word">Raw</span>
+                            <span title="Feedback of this code"onclick="codeFeed();">&#x1F44D;</span><span onclick="downloadCode('plugSyntHtml','demo.html');" title="Download it in text file">&#x1F4E5;</span></li>
+                        </ul>
+                        <div class="code-wrapper">
+                            <div class="line-numbers" id="plugSyntHtml-line"></div>
+                            <pre class="code language-html" contenteditable="false" spellcheck="false" id="plugSyntHtml">
+< html@ >
+    < head@ >
+        < title@ >API plugin Syntax< /title@ >
+    < /head@ >
+    < body@ >
+        < !-- programe body -- >
+    < /body@ >
+    < !-- Add this library in your project (below) -- >
+    &lt; script@ |src="{ Here put the libary plugin link }"n >< /script@ >
+    < !-- Below plugin is syntax -- >
+    &lt; script@ |src="{ Here put your api link }"n >< /script@ >
+    < !-- Here direct write in script tag, your request sending code by help of define agents -- >
+    < !-- Or use script file where you incode the request -- >
+< /html@ >
+                            </pre>
+                        </div>
+                    </div>
+                    <p>To demonstrate the practical usage of an API, consider the example of utilizing the Text-to-Voice API, referred to as "speakApi". 
+                    Below, we outline the code snippet illustrating how to incorporate and utilize this API within your project:
+                    </p>
+                    <div class="code-editor">
+                        <ul class="tabs codeheader_html">
+                            <li class="tab" title="File name with extension">index.html</li>
+                            <li class="tabi"><span onclick="Copy('plugExaInVanillaHtml');" title="Copy this code">&#128203;</span><span onclick="Rview('plugExaInVanillaHtml')" title="Raw view of this code" class="word">Raw</span>
+                            <span title="Feedback of this code"onclick="codeFeed();">&#x1F44D;</span><span onclick="downloadCode('plugExaInVanillaHtml','index.html');" title="Download it in text file">&#x1F4E5;</span></li>
+                        </ul>
+                        <div class="code-wrapper">
+                            <div class="line-numbers" id="plugExaInVanillaHtml-line"></div>
+                            <pre class="code language-html" contenteditable="false" spellcheck="false" id="plugExaInVanillaHtml">
+< html@ >
+    < head@ >
+        < title@ >API plugin in Vanilla< /title@ >
+    < /head@ >
+    < body@ >
+        < !-- programe body -- >
+    < /body@ >
+    < !-- Add this library in your project (below) -- >
+    &lt; script@ |src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/inphantSTDlib.min.js"n >< /script@ >
+    < !-- Below plugin is speakApi -- >
+    &lt; script@ |src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/speakApi.js"n >< /script@ >
+    < !-- link the script file where your request is encoded -- >
+    &lt; script@ |src="./main.js"n >< /script@ >
+< /html@ >
+                            </pre>
+                        </div>
+                    </div>
+                    <div class="code-editor">
+                        <ul class="tabs codeheader_Js">
+                            <li class="tab" title="File name with extension">main.js</li>
+                            <li class="tabi"><span onclick="Copy('plugExaInVanillaJs');" title="Copy this code">&#128203;</span><span onclick="Rview('plugExaInVanillaJs')" title="Raw view of this code" class="word">Raw</span>
+                            <span title="Feedback of this code"onclick="codeFeed();">&#x1F44D;</span><span onclick="downloadCode('plugExaInVanillaJs','main.js');" title="Download it in text file">&#x1F4E5;</span></li>
+                        </ul>
+                        <div class="code-wrapper">
+                            <div class="line-numbers" id="plugExaInVanillaJs-line"></div>
+                            <pre class="code language-Js" contenteditable="false" spellcheck="false" id="plugExaInVanillaJs">
+/*All params and agents which are contribut in this code, are define in 
+related area, check it if you are not*/
+let@ s|message|n = s"Ahoy hoy Universe, my self Inphant Api"n;
+//If your advance setup show that message already define then remove let keyword//n
+let@ s|requestUrl|n = s#|https:/|/kidKrishkode.github.io/inphantApi.github.io/APIs/speakApi.js?operation=convert&from=text&to=voice&message=${message}$&language=en|#n;
+//If your advance setup show that requestUrl already define then remove let keyword//n
+let@ s|response|n = f|speechOver|n(s|requestUrl|n);
+console@|.log(s|response|n); //it it console true if text to voice convertation done,otherwise false//n
+                            </pre>
+                        </div>
+                    </div>
+                    <p>By following this structured approach, developers can seamlessly integrate our API utility into their projects and harness 
+                    the power of our APIs to enhance functionality and user experience. For more detailed instructions and information on available 
+                    APIs and their respective agents, refer to the API documentation provided alongside the plugin code snippet. Should you encounter 
+                    any challenges or require further assistance, our support team is readily available to provide guidance and support throughout 
+                    the integration process. 
+                    </p>
+                    <h4>React JavaScript Framework <i class="fa fa-long-arrow-right"></i></h4>
+                    <p>In the React.js framework, integrating our API utility follows a standardized approach, ensuring seamless integration and 
+                    optimal functionality within your application. Begin by locating the index.html file within the public folder of your React 
+                    project. Within this file, include the library plugin code snippet provided, as illustrated below:
+                    </p>
+                    <code>
+                        ```html &lt;!-- Include the library plugin in index.html --> &lt;script src="library-plugin-link.js">&lt;/script> ```
+                    </code>
+                    <p>Similarly, incorporate the API link into the index.html file using the script src tag, ensuring accessibility throughout your 
+                    React application:
+                    </p>
+                    <code>
+                        ```html &lt;!-- Include the API link in index.html --> &lt;script src="api-link.js">&lt;/script> ``` 
+                    </code>
+                    <p>With the library plugin and API link successfully added to your React application, proceed to utilize the APIs within your 
+                    app.js or index.js file, located within the src directory. Utilize the predefined agents to send requests to the API, as 
+                    demonstrated in the code snippet below:
+                    </p>
+                    <code>
+                        ```javascript // Example of using the API in app.js or index.js import { apiAgent } from 'api-package';  // Send request using apiAgent apiAgent.sendRequest(); ``` 
+                    </code>
+                    <p>Following this standardized approach, developers can seamlessly integrate our API utility into their React applications, 
+                    leveraging the power of our APIs to enhance functionality and user experience. While alternative methods for API integration 
+                    may exist, adhering to this standardized approach ensures consistency and compatibility across React projects. For additional 
+                    guidance and support, refer to the comprehensive documentation provided alongside the API plugin code snippets. Should you 
+                    encounter any challenges or require further assistance, our support team is readily available to provide guidance and support 
+                    throughout the integration process.
+                    </p>
+                    <h4>Angular JavaScript Framework <i class="fa fa-long-arrow-right"></i></h4>
+                    <p>In the Angular.js framework, integrating our API utility follows a standardized approach, ensuring seamless integration and 
+                    optimal functionality within your application. Begin by locating the index.html file within the src folder or main folder of 
+                    your Angular project. Within this file, include the library plugin code snippet provided, as illustrated below:
+                    </p>
+                    <code>
+                        ```html &lt;!-- Include the library plugin in index.html --> &lt;script src="library-plugin-link.js">&lt;/script> ``` 
+                    </code>
+                    <p>Similarly, incorporate the API link into the index.html file using the script src tag, ensuring accessibility throughout your 
+                    Angular application:
+                    </p>
+                    <code>
+                        ```html &lt;!-- Include the API link in index.html --> &lt;script src="api-link.js">&lt;/script> ``` 
+                    </code>
+                    <p>With the library plugin and API link successfully added to your Angular application, proceed to utilize the APIs within your 
+                    main.ts or app.js file, which may vary in location from project to project. Utilize the predefined agents to send requests to 
+                    the API, as demonstrated in the code snippet below:
+                    </p>
+                    <code>
+                        ```javascript // Example of using the API in main.ts or app.js import { apiAgent } from 'api-package';  // Send request using apiAgent apiAgent.sendRequest(); ``` 
+                    </code>
+                    <p>Following this standardized approach, developers can seamlessly integrate our API utility into their Angular applications, 
+                    leveraging the power of our APIs to enhance functionality and user experience. While alternative methods for API integration 
+                    may exist, adhering to this standardized approach ensures consistency and compatibility across Angular projects. For additional 
+                    guidance and support, refer to the comprehensive documentation provided alongside the API plugin code snippets. Should you 
+                    encounter any challenges or require further assistance, our support team is readily available to provide guidance and support 
+                    throughout the integration process. 
+                    </p>
+                    <h4>Android App <i class="fa fa-long-arrow-right"></i></h4>
+                    <p>To integrate our API utility into an Android app, follow a structured approach to ensure seamless integration and optimal 
+                    functionality. Begin by including the library file link and API file link within the appropriate files of your Android project. 
+                    In Android development, the library file link and API file link can be included within the `build.gradle` file, specifically 
+                    within the `dependencies` block. This ensures that the necessary libraries are downloaded and included in your project during 
+                    the build process. 
+                    </p>
+                    <code>
+                        ```gradle // build.gradle  dependencies {     implementation 'https://kidKrishkode.github.io/api.githu.io/APIs/library.min.js'     implementation 'https://kidKrishkode.github.io/api.githu.io/APIs/speak.js' } ``` 
+                    </code>
+                    <p>With the library file link and API file link successfully added to your Android project, proceed to utilize the APIs within 
+                    your desired activity or fragment. You can call the function provided by the API, referred to as "agent" in our documentation, 
+                    directly within your activity's Java file. Alternatively, if you wish to use the API functionality within an activity's XML 
+                    layout file, you can utilize a WebView to load and interact with the JavaScript code provided by the API.
+                    </p>
+                    <code>
+                        ```java // Example of calling the API function in an activity's Java file String requestUrl = "https://kidKrishkode.github.io/api.githu.io/APIs/speak.js?text=hello&volume=4"; textToVoice(requestUrl); ```  ```xml &lt;!-- Example of using the API in an activity's XML layout file --> &lt;WebView     android:id="@+id/webView"     android:layout_width="match_parent"     android:layout_height="match_parent"     android:visibility="gone"     android:layout_gravity="center"/> ``` 
+                    </code>
+                    <p>In the above XML layout file, you can load the API file link using the WebView component and interact with it using 
+                    JavaScript interfaces. This allows you to call the API function directly from your activity's XML layout file. 
+                    </p>
+                    <p>Following this structured approach ensures that our API utility is seamlessly integrated into your Android app, allowing you 
+                    to leverage its capabilities to enhance functionality and user experience. For additional guidance and support, refer to the 
+                    comprehensive documentation provided alongside the API plugin code snippets. Should you encounter any challenges or require 
+                    further assistance, our support team is readily available to provide guidance and support throughout the integration process.
+                    </p>
+                </div>
+            </li>
+        </ol>
     </section>
     <section id="AboutPage">
 
     </section>
     <section id="HelpPage">
-
+        <div class="searchBox">
+            <h2>How can we help you?</h2>
+            <div class="searchBar">
+                <div class="searchText" title="Search APIs">
+                    <input type="text" placeholder="Search APIs" id="searchText" onkeyup="search('searchText');">
+                </div>
+                <div class="searchIcon">
+                    <i class="fa fa-search"></i>
+                </div>
+            </div>
+        </div>
+        <div class="help-component flo">
+            <div class="left-help-component">Lorem ipsum dolor sit amet.</div>
+            <div class="right-help-component">
+                <div class="flo">
+                    <div class="right-help-component-box flo">
+                        <div class="right-help-component-box-icon"><i class="fa fa-bank"></i></div>
+                        <div class="right-help-component-box-info">
+                            <h5>Free api</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sed saepe deserunt.</p>
+                        </div>
+                    </div>
+                    <div class="right-help-component-box flo">
+                        <div class="right-help-component-box-icon"><i class="fa fa-user-secret"></i></div>
+                        <div class="right-help-component-box-info">
+                            <h5>Accounts</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sed saepe deserunt.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flo">
+                    <div class="right-help-component-box flo">
+                        <div class="right-help-component-box-icon"><i class="fa fa-trophy"></i></div>
+                        <div class="right-help-component-box-info">
+                            <h5>ProjectPluse</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sed saepe deserunt.</p>
+                        </div>
+                    </div>
+                    <div class="right-help-component-box flo">
+                        <div class="right-help-component-box-icon"><i class="fa fa-group"></i></div>
+                        <div class="right-help-component-box-info">
+                            <h5>Voluntiar</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sed saepe deserunt.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flo">
+                    <div class="right-help-component-box flo">
+                        <div class="right-help-component-box-icon"><i class="fa fa-credit-card"></i></div>
+                        <div class="right-help-component-box-info">
+                            <h5>Purchasing</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sed saepe deserunt.</p>
+                        </div>
+                    </div>
+                    <div class="right-help-component-box flo">
+                        <div class="right-help-component-box-icon"><i class="fa fa-book"></i></div>
+                        <div class="right-help-component-box-info">
+                            <h5>User Guides</h5>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sed saepe deserunt.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     <footer>
         <div class="footer">
@@ -164,6 +503,10 @@
             </div>
         </div>
     </footer>
+    <div class="rawport">
+    	<div class="rport"><b onclick="Rclose();" title="Close the window">&times;</b></div>
+        <div id="rewView"></div>
+    </div>
     <div id="loading">
         <div class="head">INPHANT API</div>
         <div class="loader">
@@ -181,5 +524,6 @@
 <script src="./Database/productData.js"></script>
 <script src="./Database/asset.js"></script>
 <script src="./Components/default.js"></script>
+<script src="./Components/compiler.js"></script>
 <script src="./Components/hex.js"></script>
 </html>
