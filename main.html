@@ -282,7 +282,7 @@
                             <pre class="code language-html" contenteditable="false" spellcheck="false" id="plugExaInVanillaHtml">
 < html@ >
     < head@ >
-        < title@ >API plugin in Vanilla< /title@ >
+        < title@ |version="1.0"n >API plugin in Vanilla< /title@ >
     < /head@ >
     < body@ >
         < !-- programe body -- >
@@ -328,22 +328,121 @@ console@|.log(s|response|n); //it it console true if text to voice convertation 
                     optimal functionality within your application. Begin by locating the index.html file within the public folder of your React 
                     project. Within this file, include the library plugin code snippet provided, as illustrated below:
                     </p>
-                    <code>
-                        ```html &lt;!-- Include the library plugin in index.html --> &lt;script src="library-plugin-link.js">&lt;/script> ```
-                    </code>
+                    <div class="code-editor">
+                        <ul class="tabs codeheader_html">
+                            <li class="tab" title="File name with extension">./Public/index.html</li>
+                            <li class="tabi"><span onclick="Copy('libInReactHtml');" title="Copy this code">&#128203;</span><span onclick="Rview('libInReactHtml')" title="Raw view of this code" class="word">Raw</span>
+                            <span title="Feedback of this code"onclick="codeFeed();">&#x1F44D;</span><span onclick="downloadCode('libInReactHtml','index.html');" title="Download it in text file">&#x1F4E5;</span></li>
+                        </ul>
+                        <div class="code-wrapper">
+                            <div class="line-numbers" id="libInReactHtml-line"></div>
+                            <pre class="code language-html" contenteditable="false" spellcheck="false" id="libInReactHtml">
+< html@ |lang="en"n >
+  < head@ >
+    < meta@ |charset="utf-8"n />
+    < link@ |rel="icon"n |href="%PUBLIC_URL%/favicon.ico"n />
+    < meta@ |name="viewport"n |content="width=device-width, initial-scale=1"n />
+    < link@ |rel="apple-touch-icon"n |href="%PUBLIC_URL%/logo192.png"n />
+    < link@ |rel="manifest"n |href="%PUBLIC_URL%/manifest.json"n />
+    < title@ >React App< /title@ >
+  < /head@ >
+  < body@ >
+    < noscript@ >You need to enable JavaScript to run this app.< /noscript@ >
+    < div@ |id="root"n >< /div@ >
+  < /body@ >
+  < !-- Add this script tag in your project (below) -- >
+&lt; script@ |src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/inphantSTDlib.min.js"n >< /script@ >
+< /html@ >
+                            </pre>
+                        </div>
+                    </div>
                     <p>Similarly, incorporate the API link into the index.html file using the script src tag, ensuring accessibility throughout your 
                     React application:
                     </p>
-                    <code>
-                        ```html &lt;!-- Include the API link in index.html --> &lt;script src="api-link.js">&lt;/script> ``` 
-                    </code>
+                    <div class="code-editor">
+                        <ul class="tabs codeheader_html">
+                            <li class="tab" title="File name with extension">./Public/index.html</li>
+                            <li class="tabi"><span onclick="Copy('plugExaInReactHtml');" title="Copy this code">&#128203;</span><span onclick="Rview('plugExaInReactHtml')" title="Raw view of this code" class="word">Raw</span>
+                            <span title="Feedback of this code"onclick="codeFeed();">&#x1F44D;</span><span onclick="downloadCode('plugExaInReactHtml','index.html');" title="Download it in text file">&#x1F4E5;</span></li>
+                        </ul>
+                        <div class="code-wrapper">
+                            <div class="line-numbers" id="plugExaInReactHtml-line"></div>
+                            <pre class="code language-html" contenteditable="false" spellcheck="false" id="plugExaInReactHtml">
+< html@ |lang="en"n >
+  < head@ >
+    < meta@ |charset="utf-8"n />
+    < link@ |rel="icon"n |href="%PUBLIC_URL%/favicon.ico"n />
+    < meta@ |name="viewport"n |content="width=device-width, initial-scale=1"n />
+    < link@ |rel="apple-touch-icon"n |href="%PUBLIC_URL%/logo192.png"n />
+    < link@ |rel="manifest"n |href="%PUBLIC_URL%/manifest.json"n />
+    < title@ >React App< /title@ >
+  < /head@ >
+  < body@ >
+    < noscript@ >You need to enable JavaScript to run this app.< /noscript@ >
+    < div@ |id="root"n >< /div@ >
+  < /body@ >
+  < !-- Add this script tag in your project (below) -- >
+&lt; script@ |src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/inphantSTDlib.min.js"n >< /script@ >
+< !-- Add require api link in your project (below) -- >
+&lt; script@ |src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/erudaApi.js"n >< /script@ >
+< /html@ >
+                            </pre>
+                        </div>
+                    </div>
                     <p>With the library plugin and API link successfully added to your React application, proceed to utilize the APIs within your 
                     app.js or index.js file, located within the src directory. Utilize the predefined agents to send requests to the API, as 
                     demonstrated in the code snippet below:
                     </p>
-                    <code>
-                        ```javascript // Example of using the API in app.js or index.js import { apiAgent } from 'api-package';  // Send request using apiAgent apiAgent.sendRequest(); ``` 
-                    </code>
+                    <div class="code-editor">
+                        <ul class="tabs codeheader_Js">
+                            <li class="tab" title="File name with extension">./src/App.js</li>
+                            <li class="tabi"><span onclick="Copy('plugExaInReactJs');" title="Copy this code">&#128203;</span><span onclick="Rview('plugExaInReactJs')" title="Raw view of this code" class="word">Raw</span>
+                            <span title="Feedback of this code"onclick="codeFeed();">&#x1F44D;</span><span onclick="downloadCode('plugExaInReactJs','App.js');" title="Download it in text file">&#x1F4E5;</span></li>
+                        </ul>
+                        <div class="code-wrapper">
+                            <div class="line-numbers" id="plugExaInReactJs-line"></div>
+                            <pre class="code language-Js" contenteditable="false" spellcheck="false" id="plugExaInReactJs">
+import@ s|logo|n from@ s'./logo.svg'n;
+import@ { s|useEffect|n } from@ s'react'n;
+function App/(){
+    f|useEffect|n(()=>{
+        let@ s|requestUrl|n = s#|https:/|/kidKrishkode.github.io/inphantApi.github.io/APIs/erudaApi.js?operation=add&operand1=5&operand2=2|#n;
+        let@ s|response|n = f|mathCalc|n(s|requestUrl|n);
+        console@|.log(s|response|n);
+    },[]);
+    return@(
+        |< >|
+            < !-- Write jsx code here -- >
+        |< />|
+    );
+}
+export@ default@ s|App|n;
+                            </pre>
+                        </div>
+                    </div>
+                    <p>But sometime the above code givine error in some version of react, so try some more simple and more effective code if 
+                    your version give you an error <code>{ agent_name } not define</code>, if any agent name not deine in this case, you Use
+                    following code. Create file Api.js in public folder because public folder not compiled by babble. And implement the 
+                    define code like below:</p>
+                    <div class="code-editor">
+                        <ul class="tabs codeheader_Js">
+                            <li class="tab" title="File name with extension">./Public/Api.js</li>
+                            <li class="tabi"><span onclick="Copy('plugInReactJs');" title="Copy this code">&#128203;</span><span onclick="Rview('plugInReactJs')" title="Raw view of this code" class="word">Raw</span>
+                            <span title="Feedback of this code"onclick="codeFeed();">&#x1F44D;</span><span onclick="downloadCode('plugInReactJs','Api.js');" title="Download it in text file">&#x1F4E5;</span></li>
+                        </ul>
+                        <div class="code-wrapper">
+                            <div class="line-numbers" id="plugInReactJs-line"></div>
+                            <pre class="code language-Js" contenteditable="false" spellcheck="false" id="plugInReactJs">
+try@{
+    let@ s|requestUrl|n = s#|https:/|/kidKrishkode.github.io/inphantApi.github.io/APIs/erudaApi.js?operation=add&operand1=5&operand2=2|#n;
+    let@ s|response|n = f|mathCalc|n(s|requestUrl|n);
+    console@|.log(s|response|n);
+}catch@(s|e|n){
+    console@|.log(s"New Error: "n,s|e|n);
+}
+                            </pre>
+                        </div>
+                    </div>
                     <p>Following this standardized approach, developers can seamlessly integrate our API utility into their React applications, 
                     leveraging the power of our APIs to enhance functionality and user experience. While alternative methods for API integration 
                     may exist, adhering to this standardized approach ensures consistency and compatibility across React projects. For additional 
@@ -518,6 +617,15 @@ console@|.log(s|response|n); //it it console true if text to voice convertation 
             <h6>from</h6>
             <h5>kidKrishkode</h5>
         </footer>
+    </div>
+    <div id="desktopVision">
+        <div class="content">
+            <div class="flw">
+                <span><i class="fa fa-times"></i> Error 400!</span>
+                <span class="visionAdd"title="debugger://hex.js:137">./hex.js:137</span>
+            </div>
+            <p>@mediaError: Desktop vision not supported in this web.<br>at kidKrishkode.github.io</p>
+        </div>
     </div>
 </body>
 <script src="./Database/styledata.js"></script>
