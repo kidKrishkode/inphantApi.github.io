@@ -23,7 +23,7 @@ function user(){
     const body = document.getElementById("root");
 	setTimeout(() => {
 		document.getElementById("loading").style.display = "none";
-        pageRout(2);
+        pageRout(0);
 	},2000);
     document.getElementById("year").textContent = new Date().getFullYear();
 }
@@ -95,13 +95,15 @@ function nextProgress(id){
     }else if(id==1){
         if(apiVisited==2000){
             document.getElementById("loading").style.display = "block";
+            ProductListMaker();
         }
         setTimeout(()=>{
             if(apiVisited==2000){
                 apiVisited=1;
+            }else{
+                ProductListMaker();
             }
             document.getElementById("loading").style.display = "none";
-            ProductListMaker();
         },apiVisited);
     }else if(id==2){
         if(docVisited==0){
@@ -115,6 +117,14 @@ function nextProgress(id){
             ideDeploy('#plugExaInVanillaHtml','#plugExaInVanillaHtml-line');
             jsCompiler('plugExaInVanillaJs');
             ideDeploy('#plugExaInVanillaJs','#plugExaInVanillaJs-line');
+            htmlCompiler('libInReactHtml');
+            ideDeploy('#libInReactHtml','#libInReactHtml-line');
+            htmlCompiler('plugExaInReactHtml');
+            ideDeploy('#plugExaInReactHtml','#plugExaInReactHtml-line');
+            jsCompiler('plugExaInReactJs');
+            ideDeploy('#plugExaInReactJs','#plugExaInReactJs-line');
+            jsCompiler('plugInReactJs');
+            ideDeploy('#plugInReactJs','#plugInReactJs-line');
             docVisited++;
         }
     }else if(id==3){

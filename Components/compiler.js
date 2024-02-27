@@ -4,6 +4,7 @@ function htmlCompiler(fieldName){
     frog = frog.replaceAll("&lt; /", "<span class='blu'>&lt;/</span>");
     frog = frog.replaceAll("&lt; ", "<span class='blu'><</span>");
     frog = frog.replaceAll(" &gt;", "<span class='blu'>></span>");
+    frog = frog.replaceAll(" /&gt;", "<span class='blu'>/></span>");
     //html tag name color change
     frog = frog.replaceAll('h1@', "<span class='red'>h1</span>");
     frog = frog.replaceAll('h2@', "<span class='red'>h2</span>");
@@ -29,6 +30,7 @@ function htmlCompiler(fieldName){
     frog = frog.replaceAll('html@', "<span class='red'>html</span>");
     frog = frog.replaceAll('head@', "<span class='red'>head</span>");
     frog = frog.replaceAll('style@', "<span class='red'>style</span>");
+    frog = frog.replaceAll('noscript@', "<span class='red'>noscript</span>");
     frog = frog.replaceAll('script@', "<span class='red'>script</span>");
     frog = frog.replaceAll('link@', "<span class='red'>link</span>");
     frog = frog.replaceAll('meta@', "<span class='red'>meta</span>");
@@ -55,6 +57,7 @@ function htmlCompiler(fieldName){
     frog = frog.replaceAll('|content=', "<span class='org'>content</span>=");
     frog = frog.replaceAll('|rel=', "<span class='org'>rel</span>=");
     frog = frog.replaceAll('|href=', "<span class='org'>href</span>=");
+    frog = frog.replaceAll('|lang=', "<span class='org'>lang</span>=");
     //attributes parameter color change
     frog = frog.replaceAll(`="`, `=<span class='sky'>"`);
     frog = frog.replaceAll(`"n`, `"</span>`);
@@ -63,6 +66,7 @@ function htmlCompiler(fieldName){
     //commands color change
     frog = frog.replaceAll(`<span class='blu'><</span>!--`, `<span class='gry'>&lt;!--`);
     frog = frog.replaceAll(`--<span class='blu'>></span>`, `--></span>`);
+    // frog = errorChecking(frog);
     document.getElementById(fieldName).innerHTML = frog;
 }
 function cssCompiler(fieldName){
@@ -83,6 +87,7 @@ function cssCompiler(fieldName){
     //comment color change
     frog = frog.replaceAll(`/*`, `</span><span class='red'>/*`);
     frog = frog.replaceAll(`*/`, `*/</span><span class='sky'>`);
+    // frog = errorChecking(frog);
     document.getElementById(fieldName).innerHTML = frog;
 }
 function jsCompiler(fieldName){
@@ -107,11 +112,17 @@ function jsCompiler(fieldName){
     frog = frog.replaceAll(`if@`, `<span class='blu'>if</span>`);
     frog = frog.replaceAll(`else@`, `<span class='blu'>else</span>`);
     frog = frog.replaceAll(`else if@`, `<span class='blu'>else if</span>`);
-    frog = frog.replaceAll(`import@`, `<span class='blu'>import</span>`);
-    frog = frog.replaceAll(`from@`, `<span class='blu'>from</span>`);
+    frog = frog.replaceAll(`import@`, `<span class='prp'>import</span>`);
+    frog = frog.replaceAll(`from@`, `<span class='prp'>from</span>`);
+    frog = frog.replaceAll(`export@`, `<span class='prp'>export</span>`);
+    frog = frog.replaceAll(`default@`, `<span class='prp'>default</span>`);
+    frog = frog.replaceAll(`try@`, `<span class='prp'>try</span>`);
+    frog = frog.replaceAll(`catch@`, `<span class='prp'>catch</span>`);
     frog = frog.replaceAll(`=>`, `<span class='blu'>=></span>`);
     frog = frog.replaceAll(`s"`, `<span class='gld'>"`);
     frog = frog.replaceAll(`"n`, `"</span>`);
+    frog = frog.replaceAll(`s'`, `<span class='gld'>'`);
+    frog = frog.replaceAll(`'n`, `'</span>`);
     frog = frog.replaceAll(`//n`, `</span>`);
     frog = frog.replaceAll(`//`, `<span class='grn'>//`);
     frog = frog.replaceAll(`/*`, `<span class='grn'>/*`);
@@ -120,12 +131,12 @@ function jsCompiler(fieldName){
     frog = frog.replaceAll(`new@`, `<span class='prp'>new</span>`);
     frog = frog.replaceAll(`Date@`, `<span class='prp'>Date</span>`);
     frog = frog.replaceAll(`Array@`, `<span class='prp'>Array</span>`);
-    frog = frog.replaceAll(`|.random`, `.<span class='prp'>random</span>`);
     frog = frog.replaceAll(`Math@`, `<span class='sky'>Math</span>`);
-    frog = frog.replaceAll(`|.floor`, `.<span class='sky'>floor</span>`);
-    frog = frog.replaceAll(`|.round`, `.<span class='sky'>round</span>`);
     frog = frog.replaceAll(`true@`, `<span class='sky'>true</span>`);
     frog = frog.replaceAll(`false@`, `<span class='sky'>false</span>`);
+    frog = frog.replaceAll(`pow@`, `.<span class='sky'>pow</span>`);
+    frog = frog.replaceAll(`alert@`, `<span class='sky'>alert</span>`);
+    frog = frog.replaceAll(`console@`, `<span class='gry'>console</span>`);
     frog = frog.replaceAll(`==`, `<span class='sky'>==</span>`);
     frog = frog.replaceAll(`!=`, `<span class='sky'>!=</span>`);
     frog = frog.replaceAll(`&gt;`, `<span class='sky'>&gt;</span>`);
@@ -133,9 +144,6 @@ function jsCompiler(fieldName){
     frog = frog.replaceAll(`+`, `<span class='sky'>+</span>`);
     frog = frog.replaceAll(`-`, `<span class='sky'>-</span>`);
     frog = frog.replaceAll(`classe`, `<span class='sky'>class</span>`);
-    frog = frog.replaceAll(`|.getElementById`, `.<span class='sky'>getElementById/span>`);
-    frog = frog.replaceAll(`|.querySelector`, `.<span class='sky'>querySelector/span>`);
-    frog = frog.replaceAll(`|.querySelectorAll`, `.<span class='sky'>querySelectorAll/span>`);    
     frog = frog.replaceAll(`document@`, `<span class='red'>document</span>`);
     frog = frog.replaceAll(`&amp;&amp;`, `<span class='red'>&&</span>`);
     frog = frog.replaceAll(`||`, `<span class='red'>||</span>`);
@@ -146,15 +154,18 @@ function jsCompiler(fieldName){
     frog = frog.replaceAll(`/|/`, `//`);
     frog = frog.replaceAll(`f|`, `<span class='org'>`);
     frog = frog.replaceAll(`|f`, `</span>`);
+    frog = frog.replaceAll(`|.getElementById`, `.<span class='sky'>getElementById/span>`);
+    frog = frog.replaceAll(`|.querySelector`, `.<span class='sky'>querySelector/span>`);
+    frog = frog.replaceAll(`|.querySelectorAll`, `.<span class='sky'>querySelectorAll/span>`);    
+    frog = frog.replaceAll(`|.floor`, `.<span class='sky'>floor</span>`);
+    frog = frog.replaceAll(`|.round`, `.<span class='sky'>round</span>`);
+    frog = frog.replaceAll(`|.random`, `.<span class='prp'>random</span>`);
     frog = frog.replaceAll(`|.style`, `.<span class='sky'>style</span>`);
     frog = frog.replaceAll(`|.innerHTML`, `.<span class='sky'>innerHTML</span>`);
     frog = frog.replaceAll(`|.innerText`, `.<span class='sky'>innerText</span>`);
     frog = frog.replaceAll(`|.textContent`, `.<span class='sky'>textContent</span>`);
     frog = frog.replaceAll(`|.src`, `.<span class='sky'>src</span>`);
     frog = frog.replaceAll(`|.herf`, `.<span class='sky'>herf</span>`);
-    frog = frog.replaceAll(`pow@`, `.<span class='sky'>pow</span>`);
-    frog = frog.replaceAll(`alert@`, `<span class='sky'>alert</span>`);
-    frog = frog.replaceAll(`console@`, `<span class='gry'>console</span>`);
     frog = frog.replaceAll(`|.log`, `.<span class='gry'>log</span>`);
     frog = frog.replaceAll(`|.location`, `.<span class='gry'>location</span>`);
     frog = frog.replaceAll(`|.requestAnimationFrame`, `.<span class='gry'>requestAnimationFrame</span>`);
@@ -163,6 +174,13 @@ function jsCompiler(fieldName){
     frog = frog.replaceAll(`|.addEventListener`, `.<span class='gry'>addEventListener</span>`);
     frog = frog.replaceAll(`|.cancelAnimationFrame`, `.<span class='gry'>cancelAnimationFrame</span>`);
     frog = frog.replaceAll(`|.cancelIdleCallback`, `.<span class='gry'>cancelIdleCallback</span>`);
+    //jsx type casting
+    frog = frog.replaceAll(`|<span class='sky'>&lt;</span>`, `<span class='blu'>&lt;</span>`);
+    frog = frog.replaceAll(` <span class='sky'>&gt;</span>|`, `<span class='blu'>&gt;</span>`);
+    frog = frog.replaceAll(` /<span class='sky'>&gt;</span>|`, `<span class='blu'>/&gt;</span>`);
+    frog = frog.replaceAll(`<span class='sky'>&lt;</span> !<span class='sky'>-</span><span class='sky'>-</span>`, `<span class='gry'>&lt;!--`);
+    frog = frog.replaceAll(`<span class='sky'>-</span><span class='sky'>-</span> <span class='sky'>&gt;</span>`, `--></span>`);
+    // frog = errorChecking(frog);
     document.getElementById(fieldName).innerHTML = frog;
 }
 function phpCompiler(fieldName){
@@ -197,6 +215,7 @@ function phpCompiler(fieldName){
     //comment color change
     frog = frog.replaceAll(`//n`, `</span>`);
     frog = frog.replaceAll(`//`, `<span class='gry'>//`);
+    // frog = errorChecking(frog);
     document.getElementById(fieldName).innerHTML = frog;
 }
 function gcCompiler(fieldName){
@@ -271,7 +290,8 @@ function gcCompiler(fieldName){
     frog = frog.replaceAll(`//`, `<span class='grn'>//`);
     frog = frog.replaceAll(`<span class='red'>*</span>/`, `*/</span>`);
     frog = frog.replaceAll(`/<span class='red'>*</span>`, `<span class='grn'>/*`);
-	document.getElementById(fieldName).innerHTML = frog;
+	// frog = errorChecking(frog);
+    document.getElementById(fieldName).innerHTML = frog;
 }
 function terMinal(fieldName){
 	let frog = document.getElementById(fieldName).innerHTML;
@@ -303,5 +323,11 @@ function terMinal(fieldName){
     frog = frog.replaceAll(`#az; ok `, `<span class='grn'>`);
     frog = frog.replaceAll(`#zz;`, `</span>`);
     frog = frog.replaceAll(`/t;`, `<span class="tab_1x"></span>`);
-	document.getElementById(fieldName).innerHTML = frog;
+	// frog = errorChecking(frog);
+    document.getElementById(fieldName).innerHTML = frog;
 }
+// function errorChecking(frog){
+//     frog = frog.replaceAll(`!r#|`, `<span class="bg_red">`);
+//     frog = frog.replaceAll(`|#r!`, `</span>`);
+//     return frog;
+// }
