@@ -412,7 +412,7 @@ function App/(){
     },[]);
     return@(
         |< >|
-            < !-- Write jsx code here -- >
+            { /*Write jsx code here*/ }
         |< />|
     );
 }
@@ -524,53 +524,72 @@ try@{
             </div>
         </div>
         <div class="help-component flo">
-            <div class="left-help-component">Lorem ipsum dolor sit amet.</div>
+            <div class="left-help-component">
+                <h2>Having any problems?</h2>
+                <div class="help-comment-box">
+                    <form class="query-form">
+                        <div class="form-group">
+                            <lable for="help-name">Name</lable>
+                            <input type="name" class="form-control" id="help-query-name" placeholder="Enter your name here" aria-describedby="nameHelp" required onkeyup="commentNameCheck('help-query-name');"/>
+                            <small id="nameHelp" class="form-text text-muted">The above field serves as a significant element on your profile identify.</small>
+                        </div>
+                        <div class="form-group">
+                            <lable for="help-comment">Comment <div><span id="comment-count">0</span>/1000</div></lable>
+                            <textarea class="form-control" id="help-query-comment" placeholder="Enter your comment here" aria-describedby="commentHelp" required onkeyup="commentMessageCheck('help-query-comment','comment-count');"></textarea>
+                            <small id="commentHelp" class="form-text text-muted">The above field serves as a message query from feedback.</small>
+                        </div>
+                        <div class="form-group">
+                            <div class="btn btn-primary" onclick="helpCommentSend('#help-query-name','#help-query-comment','');"><i class="fa fa-message"></i>Re-direct to SMTP</div>
+                        </div>
+                    </form>
+                </div>
+            </div>
             <div class="right-help-component">
                 <div class="flo">
-                    <div class="right-help-component-box flo">
-                        <div class="right-help-component-box-icon"><i class="fa fa-bank"></i></div>
+                    <div class="right-help-component-box flo" style="border: 2px solid #00ff09;">
+                        <div class="right-help-component-box-icon" style="color: #00ff09;"><i class="fa fa-bank"></i></div>
                         <div class="right-help-component-box-info">
-                            <h5>Free api</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sed saepe deserunt.</p>
+                            <h5 style="color: #00ff09;">Free api</h5>
+                            <p>At inphantApi, we provide free, accessible APIs in simple formats for developers from frontend side.</p>
                         </div>
                     </div>
-                    <div class="right-help-component-box flo">
-                        <div class="right-help-component-box-icon"><i class="fa fa-user-secret"></i></div>
+                    <div class="right-help-component-box flo" style="border: 2px solid blue;">
+                        <div class="right-help-component-box-icon" style="color: blue;"><i class="fa fa-user-secret"></i></div>
                         <div class="right-help-component-box-info">
-                            <h5>Accounts</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sed saepe deserunt.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="flo">
-                    <div class="right-help-component-box flo">
-                        <div class="right-help-component-box-icon"><i class="fa fa-trophy"></i></div>
-                        <div class="right-help-component-box-info">
-                            <h5>ProjectPluse</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sed saepe deserunt.</p>
-                        </div>
-                    </div>
-                    <div class="right-help-component-box flo">
-                        <div class="right-help-component-box-icon"><i class="fa fa-group"></i></div>
-                        <div class="right-help-component-box-info">
-                            <h5>Voluntiar</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sed saepe deserunt.</p>
+                            <h5 style="color: blue;">Accounts</h5>
+                            <p>At account, we prioritize user security. We swiftly address any potential vulnerabilites to safeguard user info.</p>
                         </div>
                     </div>
                 </div>
                 <div class="flo">
-                    <div class="right-help-component-box flo">
-                        <div class="right-help-component-box-icon"><i class="fa fa-credit-card"></i></div>
+                    <div class="right-help-component-box flo" style="border: 2px solid aquamarine;">
+                        <div class="right-help-component-box-icon" style="color: aquamarine;"><i class="fa fa-trophy"></i></div>
                         <div class="right-help-component-box-info">
-                            <h5>Purchasing</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sed saepe deserunt.</p>
+                            <h5 style="color: aquamarine;">ProjectPluse</h5>
+                            <p>Free, open source projects platform for school, college, research; integrates with Inphant API. Visit soon.</p>
                         </div>
                     </div>
-                    <div class="right-help-component-box flo">
-                        <div class="right-help-component-box-icon"><i class="fa fa-book"></i></div>
+                    <div class="right-help-component-box flo" style="border: 2px solid orangered;">
+                        <div class="right-help-component-box-icon" style="color: orangered;"><i class="fa fa-group"></i></div>
                         <div class="right-help-component-box-info">
-                            <h5>User Guides</h5>
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis sed saepe deserunt.</p>
+                            <h5 style="color: orangered;">Voluntiar</h5>
+                            <p>Inphant Api always welcome volunteer contributions; Creat, Share , Use custom APIs effortlessly.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flo">
+                    <div class="right-help-component-box flo" style="border: 2px solid purple;">
+                        <div class="right-help-component-box-icon" style="color: purple;"><i class="fa fa-credit-card"></i></div>
+                        <div class="right-help-component-box-info">
+                            <h5 style="color: purple;">Purchasing</h5>
+                            <p>Purchase premium subscription for unlimited queries per day; Gpay, Paytm, Online transactions supported.</p>
+                        </div>
+                    </div>
+                    <div class="right-help-component-box flo" style="border: 2px solid gray;">
+                        <div class="right-help-component-box-icon" style="color: gray;"><i class="fa fa-book"></i></div>
+                        <div class="right-help-component-box-info">
+                            <h5 style="color: gray;">User Guides</h5>
+                            <p>Access detailed user guid, comprehensive docs, intuitive interface, personal API guides, feedback system.</p>
                         </div>
                     </div>
                 </div>
