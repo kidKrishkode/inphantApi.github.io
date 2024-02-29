@@ -763,20 +763,60 @@ ul{
     flex-direction: row;
     justify-content: space-around;
 }
+.flw{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 .left-help-component{
     width: 50%;
-    background: pink;
+    transition: 1s ease-in-out;
+}
+.left-help-component h2{
+    text-align: center;
+    color: var(--ngtxt-color);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    margin: 20px 0px 4px 0px;
+}
+.left-help-component .help-comment-box{
+    width: 70%;
+    margin: 4px auto;
+}
+.left-help-component .help-comment-box lable{
+    color: var(--wtxt-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.left-help-component .help-comment-box lable div{
+    color: var(--gry-color);
+    font-family: Consolas, 'Courier New', monospace;
+    font-size: 14px;
+    display: flex;
+    flex-direction: row;
+}
+.left-help-component .help-comment-box input{
+    text-transform: capitalize;
+}
+.left-help-component .help-comment-box textarea{
+    max-height: 120px;
+    height: 120px;
+    min-height: 120px;
 }
 .right-help-component{
     width: 50%;
-    background: powderblue;
     padding: 40px 0px;
 }
 .right-help-component-box{
     width: 45%;
     border: 2px solid green;
+    border-radius: 5px;
     margin: 20px 0px;
     padding: 5px 0px;
+    transition: 1s ease-in-out;
+    overflow: hidden;
 }
 .right-help-component-box-icon{
     width: 30%;
@@ -799,9 +839,41 @@ ul{
 }
 .right-help-component-box-info p{
     font-size: 12px;
-    padding: 0%;
+    padding: 0% 4px 0px 0px;
     margin: 0%;
     line-height: 16px;
+    color: var(--wtxt-color);
+    text-align: justify;
+}
+#desktopVision{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    background: #fff;
+    color: #000000ec;
+    font-family: Consolas, 'Courier New', monospace;
+}
+#desktopVision .content{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background: #ff9595ae;
+    padding: 4px 6px;
+    margin: 2px 0px;
+    font-weight: bold;
+}
+#desktopVision .content span i{
+    color: red;
+}
+#desktopVision .content .visionAdd{
+    color: #0c4df0;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: 400;
+    cursor: pointer;
 }
 @media only screen and (max-width: 900px){
     #loading .head{
@@ -848,7 +920,7 @@ ul{
         font-size: 14px;
         padding: 2px 30px;
     }
-    section div{
+    section .welbtn div{
         width: 80%;
         margin: auto 10%;
     }
@@ -946,6 +1018,7 @@ ul{
     .searchBar{
         width: 90%;
         margin: 0px 5%;
+        overflow: hidden;
     }
     .searchSelect select{
         font-size: 12px;
@@ -979,15 +1052,43 @@ ul{
     }
     .product-component-top .product-price{
         position: relative;
-        top: 2px;
-        left: 60%;
+        left: 70%;
+        margin: 0%;
     }
-    #HelpPage .searchBar{
+    #helpPage .searchBar{
         width: 100%;
-        margin: 0px 5%;
+        margin: 0px;
+    }
+    #HelpPage .searchText{
+        margin: 0px 0px 0px 5%;
     }
     .help-component{
         display: flex;
         flex-direction: column;
+    }
+    .left-help-component .help-comment-box{
+        width: 90%;
+    }
+    .left-help-component,.right-help-component{
+        width: 100%;
+        margin: auto 0%;
+    }
+    .right-help-component-box-icon i{
+        font-size: 16px;
+    }
+    .right-help-component-box-info h5{
+        font-size: 14px;
+    }
+    .right-help-component-box-info p{
+        font-size: 10px;
+        line-height: 14px;
+    }
+}
+@media only screen and (min-width: 900px) and (max-width: 1023px){
+    #desktopVision{
+        display: block;
+    }
+    #HomePage,#AboutPage,#ApiPage,#HelpPage,#SearchPage,#AccountPage{
+        opacity: 0;
     }
 }

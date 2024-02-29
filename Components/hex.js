@@ -134,3 +134,39 @@ function ideDeploy(code,line){
     codeElement.addEventListener("input", updateLineNumbers);
     updateLineNumbers();
 }
+function validateUserName(input){
+    const namePattern = /^[a-zA-Z]+(?: [a-zA-Z]+)*(?: [a-zA-Z]+)?$/;
+    if(namePattern.test(input)){
+        let keywords = ((input).toLowerCase()).replaceAll(' ','');
+        if(input.length >= 3 && input.length <= 25 && !['krishnendumitra','inphantapi','kidkrishkode'].includes(keywords)){
+            return true;
+        }
+    }
+    return false;
+}
+function helpCommentSend(identity,comment,rate){
+    let name=document.querySelector(identity).value;
+    let message=document.querySelector(comment).value;
+    let reciver='krishnendumitra24@gmail.com';
+    if((name!='')&&(message!='')){
+        window.location = `mailto:${reciver}?&Subject=Comment form visitor in Inphant API.&body=My name: ${name}, Token code: 24w9@jtYh4-${rate!=''?rate:'N8jo*awT5k'}-ofe^d7Qki0, My Message: ${message!=''?message:'__No comments now, only star rating__'}`;
+        setTimeout(()=>{
+            console.clear();
+        },500);
+    }else{
+        console.error("Error: 400! \nsemanticError: Bad request occurred, please fill out all fields\n\t at inphantApi.github.io\n");
+    }
+}
+function checkWordLength(id,count){
+    let textarea = document.getElementById(id);
+    let text = textarea.value.trim();
+    // let word = text.split(/\s+/).filter(word => /[a-zA-Z]/.test(word));
+    let word = text.length;
+    let wordCount = word;
+    document.getElementById(count).textContent = wordCount;
+    if(wordCount >= 3 && wordCount <= 1000){
+        return true;
+    }else{
+        return false;
+    }
+}

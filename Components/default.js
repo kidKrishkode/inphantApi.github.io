@@ -23,7 +23,7 @@ function user(){
     const body = document.getElementById("root");
 	setTimeout(() => {
 		document.getElementById("loading").style.display = "none";
-        pageRout(0);
+        pageRout(4);
 	},2000);
     document.getElementById("year").textContent = new Date().getFullYear();
 }
@@ -134,4 +134,26 @@ function nextProgress(id){
     }else{
         console.warn("This rout have not identi");
     }
+}
+function commentNameCheck(id){
+	if(document.getElementById(id).value!=''){
+		if(validateUserName(document.getElementById(id).value)){
+			document.getElementById(id).style.border='3px solid #28a745';
+		}else{
+			document.getElementById(id).style.border='3px solid #dc3545';
+		}
+	}else{
+		document.getElementById(id).style.border='1px solid #ced4da';
+	}
+}
+function commentMessageCheck(id,count){
+    if(document.getElementById(id).value!=''){
+		if(checkWordLength(id,count)){
+			document.getElementById(id).style.border='3px solid #28a745';
+		}else{
+			document.getElementById(id).style.border='3px solid #dc3545';
+		}
+	}else{
+		document.getElementById(id).style.border='1px solid #ced4da';
+	}
 }
