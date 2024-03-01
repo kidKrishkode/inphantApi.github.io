@@ -21,7 +21,7 @@ body{
 a{
     text-decoration: none;
 }
-#HomePage,#AboutPage,#ApiPage,#HelpPage,#SearchPage,#AccountPage{
+#HomePage,#AboutPage,#ApiPage,#HelpPage,#SearchPage,#AccountPage,#OpenApiPage{
     display: none;
     width: 100%;
 }
@@ -91,6 +91,36 @@ a{
     }5%{
         background-color: var(--ngtxt-color);
     }
+}
+#desktopVision{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    background: #fff;
+    color: #000000ec;
+    font-family: Consolas, 'Courier New', monospace;
+}
+#desktopVision .content{
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    background: #ff9595ae;
+    padding: 4px 6px;
+    margin: 2px 0px;
+    font-weight: bold;
+}
+#desktopVision .content span i{
+    color: red;
+}
+#desktopVision .content .visionAdd{
+    color: #0c4df0;
+    font-size: 14px;
+    font-family: sans-serif;
+    font-weight: 400;
+    cursor: pointer;
 }
 header{
     display: flex;
@@ -594,6 +624,14 @@ ul{
     width: 100%;
     margin: 0px;
 }
+.addApiFloat{
+    position: absolute;
+    top: 14%;
+    right: 2%;
+    width: auto;
+    cursor: pointer;
+    transition: 1s ease-in-out;
+}
 .product{
     width: 100%;
     margin: 20px auto;
@@ -816,6 +854,7 @@ ul{
     margin: 20px 0px;
     padding: 5px 0px;
     transition: 1s ease-in-out;
+    cursor: pointer;
     overflow: hidden;
 }
 .right-help-component-box-icon{
@@ -845,35 +884,149 @@ ul{
     color: var(--wtxt-color);
     text-align: justify;
 }
-#desktopVision{
-    display: none;
+.faq-help{
     width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0%;
-    left: 0%;
-    background: #fff;
-    color: #000000ec;
-    font-family: Consolas, 'Courier New', monospace;
+    margin: 10px 0%;
+    padding: 5px 6%;
 }
-#desktopVision .content{
-    width: 100%;
-    height: auto;
+.faq-help h2{
+    color: var(--ngtxt-color);
+    font-size: 18px;
+    font-weight: 800;
+    font-family: serif;
+}
+.layout{ 
+    width: 100%; 
+    margin: 0px; 
+} 
+.accordion{ 
+    padding: 10px; 
+    background: #f6f6f6;
+    margin: 10px 0px;
     border-radius: 10px;
-    background: #ff9595ae;
-    padding: 4px 6px;
-    margin: 2px 0px;
+    box-shadow: 0px 0px 4px 1px gray;
+    transition: 1s ease-in-out;
+} 
+.accordion__question p{ 
+    margin: 5px; 
+    padding: 0; 
+    font-family: Verdana; 
+    font-size: 14px; 
+    color: #3B1540;
     font-weight: bold;
-}
-#desktopVision .content span i{
-    color: red;
-}
-#desktopVision .content .visionAdd{
-    color: #0c4df0;
+} 
+.accordion__answer p,.accordion__answer ol{ 
+    margin: 5px; 
+    padding: 10px; 
     font-size: 14px;
     font-family: sans-serif;
-    font-weight: 400;
-    cursor: pointer;
+    line-height: 18px;
+    color: grey; 
+    background: #fff; 
+    border-radius: 10px; 
+    text-align: justify;
+} 
+.accordion:hover{ 
+    cursor: pointer; 
+} 
+.accordion__answer{ 
+    display: none; 
+}
+.accordion.active .accordion__answer{ 
+    display: block;
+}
+.accordion__answer ol{
+    margin: 10px 5px;
+    padding: 10px 30px;
+}
+#OpenApiPage{
+    width: 100%;
+    padding: 20px auto;
+    font-family: sans-serif;
+    margin-bottom: 80px;
+    color: var(--wtxt-color);
+    transition: 1s ease-in-out;
+}
+#OpenApiPage .header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 15px 20px;
+}
+#OpenApiPage .header .header-left{
+    width: 35%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#OpenApiPage .header .header-left .header-left-left-componet{
+    width: 20%;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+}
+#OpenApiPage .header .header-left .header-left-left-componet span{
+    width: 40px;
+    height: 40px;
+    margin: auto;
+    border-radius: 50%;
+    background: gray;
+    padding-top: 8px;
+}
+#OpenApiPage .header .header-left .header-left-right-componet{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+#OpenApiPage .header .header-left .header-left-right-componet .header-left-right-componet-upper{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 4px 0px;
+}
+#OpenApiPage .header .header-left .header-left-right-componet .header-left-right-componet-upper h3{
+    font-size: 18px;
+    font-weight: bold;
+    color: var(--wtxt-color);
+    margin: auto 0px;
+}
+#OpenApiPage .header .header-left .header-left-right-componet .header-left-right-componet-upper .cost{
+    background: var(--nv-color);
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+#OpenApiPage .header .header-left .header-left-right-componet .header-left-right-componet-bottom{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--blink-color);
+}
+#OpenApiPage .header .header-rigth{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: bold;
+}
+#OpenApiPage .header .header-rigth .header-rigth-component .header-rigth-component-upper{
+    font-size: 14px;
+    color: var(--gry-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#OpenApiPage .header .header-rigth .header-rigth-component .header-rigth-component-upper i{
+    margin: auto 4px;
+}
+#OpenApiPage .header .header-rigth .header-rigth-component .header-rigth-component-bottom{
+    font-size: 16px;
+    font-family: Consolas, 'Courier New', monospace;
+    color: var(--wtxt-color);
+    text-align: center;
 }
 @media only screen and (max-width: 900px){
     #loading .head{
@@ -891,6 +1044,7 @@ ul{
     .hameburger{
         display: block;
         height: 32px;
+        overflow: hidden;
     }
     .hameburger:hover{
         box-shadow: 0px 0px 3px 2px var(--bg-color);
@@ -1042,6 +1196,12 @@ ul{
     .drop{
         width: 100%;
     }
+    .addApiFloat{
+        position: absolute;
+        top: 90%;
+        right: 2%;
+        position: fixed;
+    }
     .product{
         width: 90%;
         margin: 20px 5%;
@@ -1082,6 +1242,32 @@ ul{
     .right-help-component-box-info p{
         font-size: 10px;
         line-height: 14px;
+    }
+    #OpenApiPage .header{
+        display: flex;
+        flex-direction: column;
+        padding: 15px 8px;
+    }
+    #OpenApiPage .header .header-left{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    #OpenApiPage .header .header-rigth{
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    #OpenApiPage .header .header-left .header-left-right-componet .header-left-right-componet-upper h3{
+        font-size: 15px;
+    }
+    #OpenApiPage .header .header-left .header-left-right-componet .header-left-right-componet-bottom{
+        width: 100%;
+        font-size: 12px;
+    }
+    #OpenApiPage .header .header-rigth .header-rigth-component .header-rigth-component-upper{
+        font-size: 10px;
+    }
+    #OpenApiPage .header .header-rigth .header-rigth-component .header-rigth-component-bottom{
+        font-size: 12px;
     }
 }
 @media only screen and (min-width: 900px) and (max-width: 1023px){

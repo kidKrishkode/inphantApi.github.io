@@ -2,7 +2,7 @@ function productCardMaker(id){
     if(id<=productLib.length&&id>=0){
         let card = productLib[id];
         let tuple = `
-        <li class="drop">
+        <li class="drop" onclick=pageRout(7);currentProductIdentity('${card.id}');>
             <div class="product">
                 <div class="product-component-top" style="background: url('${ramdomThumnail()}');background-repeat: no-repeat;background-size: cover;">
                     <div class="product-price">${card.cost==0?'Free':'Premium'}</div>
@@ -13,7 +13,7 @@ function productCardMaker(id){
                         <div class="product-head">${card.name}</div>
                     </div>
                     <div class="product-description">${card.description}</div>
-                    <div class="product-owner">@${card.owner} - ${card.owner=='kidKrishkode'?'Owner':'Voluntiar'}</div>
+                    <div class="product-owner">@${card.owner} - ${card.owner=='kidKrishkode'?'Owner':'Volunteer'}</div>
                 </div>
                 <div class="product-tags"></div>
                 <div class="product-component-bottom">
@@ -55,15 +55,31 @@ function productSwapper(){
         productLib[id] = a;
     }
 }
+function currentProductIdentity(id){
+    let loc=0;
+    for(let i=0; i<productLib.length; i++){
+        if(productLib[i].id==id){
+            currentProduct=productLib[i];
+            i=productLib.length+2;
+            loc=1;
+        }
+    }
+    if(loc==0){
+        alert("Oops! some error occure to open your api!");
+        setTimeout(()=>{
+            window.location.reload();
+        },500);
+    }
+}
 function search_product(data,list){
     let input = document.getElementById(`${data}`).value;
     input=input.toLowerCase();
     let x = document.getElementsByClassName(`${list}`);
     for(i = 0; i<x.length; i++){ 
-        if(!x[i].innerHTML.toLowerCase().includes(input)) {
+        if(!x[i].innerHTML.toLowerCase().includes(input)){
             x[i].style.display="none";
         }else{
-            x[i].style.display="list-item";       
+            x[i].style.display="list-item";
         }
     }
 }
@@ -84,6 +100,16 @@ function searchbySelect(selectlist,type){
 }
 function search(id){
     console.log("Welome to global search");
+}
+function ApiPageWithSearch(searchTopic){
+    if(searchTopic=='All'){
+        searchTopic='';
+    }
+    document.getElementById('searchData').value = `${searchTopic}`;
+    pageRout(1);
+    setTimeout(()=>{
+        search_product('searchData','drop');
+    },200);
 }
 function updateLineNumbers(){
     const code = codeElement.innerText;
@@ -144,16 +170,17 @@ function validateUserName(input){
     }
     return false;
 }
-function helpCommentSend(identity,comment,rate){
-    let name=document.querySelector(identity).value;
-    let message=document.querySelector(comment).value;
-    let reciver='krishnendumitra24@gmail.com';
-    if((name!='')&&(message!='')){
+function helpCommentSend(head,identity,comment,count,rate){
+    let name = document.getElementById(identity).value;
+    let message = document.getElementById(comment).value;
+    let reciver = 'krishnendumitra24@gmail.com';
+    if(validateUserName(name)&&checkWordLength(comment,count)){
         window.location = `mailto:${reciver}?&Subject=Comment form visitor in Inphant API.&body=My name: ${name}, Token code: 24w9@jtYh4-${rate!=''?rate:'N8jo*awT5k'}-ofe^d7Qki0, My Message: ${message!=''?message:'__No comments now, only star rating__'}`;
         setTimeout(()=>{
             console.clear();
         },500);
     }else{
+        document.getElementById(head).textContent = "Please fill out all fields!";
         console.error("Error: 400! \nsemanticError: Bad request occurred, please fill out all fields\n\t at inphantApi.github.io\n");
     }
 }
@@ -169,4 +196,17 @@ function checkWordLength(id,count){
     }else{
         return false;
     }
+}
+let answers = document.querySelectorAll(".accordion"); 
+answers.forEach((event) => { 
+    event.addEventListener("click", () => { 
+        if(event.classList.contains("active")){ 
+            event.classList.remove("active"); 
+        }else{
+            event.classList.add("active"); 
+        } 
+    }); 
+});
+function projectPulseRoute(){
+    window.location = "https://kidKrishkode.github.io/projectPulse.github.io/";
 }

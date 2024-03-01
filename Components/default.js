@@ -1,9 +1,9 @@
 let nav = 0;
 let pageList = ["HomePage","ApiPage","DocsPage","AboutPage","HelpPage"];
 let aboutList = ["abtn0","abtn1","abtn2"];
-let additionalList = ["SearchPage","AccountPage"];
+let additionalList = ["SearchPage","AccountPage","OpenApiPage"];
 let cls = 1;
-let SrcPg=0;
+let SrcPg=-1;
 let apiVisited=2000;
 let docVisited=0;
 function menubar(){
@@ -23,9 +23,13 @@ function user(){
     const body = document.getElementById("root");
 	setTimeout(() => {
 		document.getElementById("loading").style.display = "none";
-        pageRout(4);
+        pageRout(0);
+        // currentProductIdentity(3);
 	},2000);
     document.getElementById("year").textContent = new Date().getFullYear();
+}
+function invalid(){
+	alert("This features is not open for this version.");
 }
 function colorTogule(){
 	for(let j=0; j<colorLib[cls].collist.length; j++){
@@ -42,27 +46,32 @@ function colorTogule(){
 	}
 }
 function pageRout(id){
-    for(let i=0; i<pageList.length; i++){
-        document.getElementById(`${pageList[i]}`).style.display = "none";
-        document.getElementById(`p${i}`).style.fontWeight = "normal";
-        document.getElementById(`pm${i}`).style.fontWeight = "normal";
-        document.getElementById(`p${i}`).style.textDecoration = "none";
-        document.getElementById(`pm${i}`).style.textDecoration = "none";
+    PageNull();
+    document.getElementById(`${id<pageList.length?pageList[id]:additionalList[id-pageList.length]}`).style.display = "block";
+    try{
+        document.getElementById(`p${id}`).style.fontWeight = "bold";
+        document.getElementById(`pm${id}`).style.fontWeight = "bold";
+        document.getElementById(`p${id}`).style.textDecoration = "underline";
+        document.getElementById(`pm${id}`).style.textDecoration = "underline";
+        SrcPg=id;
+    }catch(e){
+        if(SrcPg!=-1){
+            document.getElementById(`p${SrcPg}`).style.fontWeight = "bold";
+            document.getElementById(`pm${SrcPg}`).style.fontWeight = "bold";
+            document.getElementById(`p${SrcPg}`).style.textDecoration = "underline";
+            document.getElementById(`pm${SrcPg}`).style.textDecoration = "underline";
+        }else{
+            console.warn(e);
+        }
     }
-    document.getElementById(`${pageList[id]}`).style.display = "block";
-    document.getElementById(`p${id}`).style.fontWeight = "bold";
-    document.getElementById(`pm${id}`).style.fontWeight = "bold";
-    document.getElementById(`p${id}`).style.textDecoration = "underline";
-    document.getElementById(`pm${id}`).style.textDecoration = "underline";
     if(aboutList.length==3){
     	aboutList.length=4;
         aboutList[3]="abtn3";
     	// aboutRout(0);
     }
     nextProgress(id);
-    SrcPg=0;
 }
-function PageNull(id){
+function PageNull(){
 	for(let i=0; i<pageList.length; i++){
         document.getElementById(`${pageList[i]}`).style.display = "none";
         document.getElementById(`p${i}`).style.fontWeight = "normal";
@@ -71,9 +80,10 @@ function PageNull(id){
         document.getElementById(`pm${i}`).style.textDecoration = "none";
     }
     for(let i=0; i<additionalList.length; i++){
-        document.getElementById(`${additionalList[i]}`).style.display = "none";
+        try{
+            document.getElementById(`${additionalList[i]}`).style.display = "none";
+        }catch(e){}
     }
-    document.getElementById(`${id}`).style.display="block";
 }
 function typing(){
     var text = 0;
@@ -125,35 +135,50 @@ function nextProgress(id){
             ideDeploy('#plugExaInReactJs','#plugExaInReactJs-line');
             jsCompiler('plugInReactJs');
             ideDeploy('#plugInReactJs','#plugInReactJs-line');
+            htmlCompiler('libExaAngHtml');
+            ideDeploy('#libExaAngHtml','#libExaAngHtml-line');
             docVisited++;
         }
     }else if(id==3){
         
     }else if(id==4){
         
+    }else if(id==7){
+        document.getElementById("loading").style.display = "block";
+        setTimeout(()=>{
+            updateProductView();
+        },500);
+        setTimeout(()=>{
+            document.getElementById("loading").style.display = "none";
+        },1000);
     }else{
-        console.warn("This rout have not identi");
+        console.warn("This rout have not identity!");
     }
 }
-function commentNameCheck(id){
+function commentNameCheck(head,id){
 	if(document.getElementById(id).value!=''){
 		if(validateUserName(document.getElementById(id).value)){
 			document.getElementById(id).style.border='3px solid #28a745';
-		}else{
+            document.getElementById(head).textContent = "Having any problems?";
+        }else{
 			document.getElementById(id).style.border='3px solid #dc3545';
 		}
 	}else{
 		document.getElementById(id).style.border='1px solid #ced4da';
 	}
 }
-function commentMessageCheck(id,count){
+function commentMessageCheck(head,id,count){
     if(document.getElementById(id).value!=''){
 		if(checkWordLength(id,count)){
 			document.getElementById(id).style.border='3px solid #28a745';
-		}else{
+            document.getElementById(head).textContent = "Having any problems?";
+        }else{
 			document.getElementById(id).style.border='3px solid #dc3545';
 		}
 	}else{
 		document.getElementById(id).style.border='1px solid #ced4da';
 	}
+}
+function updateProductView(){
+    // document.getElementById(additionalList[2]).innerHTML=currentProduct.name;
 }
