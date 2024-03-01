@@ -117,10 +117,10 @@
         <div class="searchBox">
             <div class="searchBar">
                 <div class="searchSelect">
-                    <select id="searchSelectList" onchange="searchbySelect('searchSelectList','drop');"><option>All</option><option>Free Api</option><option>Premium Api</option><option>Data support Api</option><option>Fast Api</option><option>Voluntiar's Api</option><option>Others</option></select>
+                    <select id="searchSelectList" onchange="searchbySelect('searchSelectList','drop');"><option>All</option><option>Free Api</option><option>Premium Api</option><option>Data support Api</option><option>Fast Api</option><option>volunteer's Api</option><option>Others</option></select>
                 </div>
                 <div class="searchText">
-                    <input type="text" placeholder="Search Inphant Api" id="searchData" onkeyup="search_product('searchData','drop');">
+                    <input type="text" placeholder="Search Inphant APIs" id="searchData" onkeyup="search_product('searchData','drop');">
                 </div>
                 <div class="searchIcon">
                     <i class="fa fa-search"></i>
@@ -130,6 +130,9 @@
         <ol class="search-product-data" id="productList">
             &times; No data found, internet slow;
         </ol>
+        <div class="addApiFloat">
+            <div class="btn btn-primary" onclick="invalid();">+ Add Your APIs</div>
+        </div>
     </section>
     <section id="DocsPage">
         <div class="searchBox">
@@ -455,9 +458,35 @@ try@{
                     optimal functionality within your application. Begin by locating the index.html file within the src folder or main folder of 
                     your Angular project. Within this file, include the library plugin code snippet provided, as illustrated below:
                     </p>
-                    <code>
-                        ```html &lt;!-- Include the library plugin in index.html --> &lt;script src="library-plugin-link.js">&lt;/script> ``` 
-                    </code>
+                    <div class="code-editor">
+                        <ul class="tabs codeheader_html">
+                            <li class="tab" title="File name with extension">./src/index.html</li>
+                            <li class="tabi"><span onclick="Copy('libExaAngHtml');" title="Copy this code">&#128203;</span><span onclick="Rview('libExaAngHtml')" title="Raw view of this code" class="word">Raw</span>
+                            <span title="Feedback of this code"onclick="codeFeed();">&#x1F44D;</span><span onclick="downloadCode('libExaAngHtml','index.html');" title="Download it in text file">&#x1F4E5;</span></li>
+                        </ul>
+                        <div class="code-wrapper">
+                            <div class="line-numbers" id="libExaAngHtml-line"></div>
+                            <pre class="code language-html" contenteditable="false" spellcheck="false" id="libExaAngHtml">
+< html@ |lang="en"n >
+  < head@ >
+    < meta@ |charset="utf-8"n />
+    < link@ |rel="icon"n |href="%PUBLIC_URL%/favicon.ico"n />
+    < meta@ |name="viewport"n |content="width=device-width, initial-scale=1"n />
+    < link@ |rel="apple-touch-icon"n |href="%PUBLIC_URL%/logo192.png"n />
+    < link@ |rel="manifest"n |href="%PUBLIC_URL%/manifest.json"n />
+    < title@ >Angular App< /title@ >
+  < /head@ >
+  < body@ >
+
+  < /body@ >
+  < !-- Add this script tag in your project (below) -- >
+&lt; script@ |src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/inphantSTDlib.min.js"n >< /script@ >
+< !-- Add require api link in your project (below) -- >
+&lt; script@ |src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/erudaApi.js"n >< /script@ >
+< /html@ >
+                            </pre>
+                        </div>
+                    </div>
                     <p>Similarly, incorporate the API link into the index.html file using the script src tag, ensuring accessibility throughout your 
                     Angular application:
                     </p>
@@ -525,35 +554,35 @@ try@{
         </div>
         <div class="help-component flo">
             <div class="left-help-component">
-                <h2>Having any problems?</h2>
+                <h2 id="help-head">Having any problems?</h2>
                 <div class="help-comment-box">
                     <form class="query-form">
                         <div class="form-group">
                             <lable for="help-name">Name</lable>
-                            <input type="name" class="form-control" id="help-query-name" placeholder="Enter your name here" aria-describedby="nameHelp" required onkeyup="commentNameCheck('help-query-name');"/>
+                            <input type="name" class="form-control" id="help-query-name" placeholder="Enter your name here" aria-describedby="nameHelp" required onkeyup="commentNameCheck('help-head','help-query-name');"/>
                             <small id="nameHelp" class="form-text text-muted">The above field serves as a significant element on your profile identify.</small>
                         </div>
                         <div class="form-group">
                             <lable for="help-comment">Comment <div><span id="comment-count">0</span>/1000</div></lable>
-                            <textarea class="form-control" id="help-query-comment" placeholder="Enter your comment here" aria-describedby="commentHelp" required onkeyup="commentMessageCheck('help-query-comment','comment-count');"></textarea>
+                            <textarea class="form-control" id="help-query-comment" placeholder="Enter your comment here" aria-describedby="commentHelp" required onkeyup="commentMessageCheck('help-head','help-query-comment','comment-count');"></textarea>
                             <small id="commentHelp" class="form-text text-muted">The above field serves as a message query from feedback.</small>
                         </div>
                         <div class="form-group">
-                            <div class="btn btn-primary" onclick="helpCommentSend('#help-query-name','#help-query-comment','');"><i class="fa fa-message"></i>Re-direct to SMTP</div>
+                            <div class="btn btn-primary" onclick="helpCommentSend('help-head','help-query-name','help-query-comment','comment-count','');"><i class="fa fa-message"></i>Re-direct to SMTP</div>
                         </div>
                     </form>
                 </div>
             </div>
             <div class="right-help-component">
                 <div class="flo">
-                    <div class="right-help-component-box flo" style="border: 2px solid #00ff09;">
+                    <div class="right-help-component-box flo" style="border: 2px solid #00ff09;" onclick="ApiPageWithSearch('Free');">
                         <div class="right-help-component-box-icon" style="color: #00ff09;"><i class="fa fa-bank"></i></div>
                         <div class="right-help-component-box-info">
                             <h5 style="color: #00ff09;">Free api</h5>
                             <p>At inphantApi, we provide free, accessible APIs in simple formats for developers from frontend side.</p>
                         </div>
                     </div>
-                    <div class="right-help-component-box flo" style="border: 2px solid blue;">
+                    <div class="right-help-component-box flo" style="border: 2px solid blue;" onclick="invalid();">
                         <div class="right-help-component-box-icon" style="color: blue;"><i class="fa fa-user-secret"></i></div>
                         <div class="right-help-component-box-info">
                             <h5 style="color: blue;">Accounts</h5>
@@ -562,36 +591,145 @@ try@{
                     </div>
                 </div>
                 <div class="flo">
-                    <div class="right-help-component-box flo" style="border: 2px solid aquamarine;">
+                    <div class="right-help-component-box flo" style="border: 2px solid aquamarine;" onclick="projectPulseRoute();">
                         <div class="right-help-component-box-icon" style="color: aquamarine;"><i class="fa fa-trophy"></i></div>
                         <div class="right-help-component-box-info">
                             <h5 style="color: aquamarine;">ProjectPluse</h5>
                             <p>Free, open source projects platform for school, college, research; integrates with Inphant API. Visit soon.</p>
                         </div>
                     </div>
-                    <div class="right-help-component-box flo" style="border: 2px solid orangered;">
+                    <div class="right-help-component-box flo" style="border: 2px solid orangered;" onclick="ApiPageWithSearch('Volunteer');">
                         <div class="right-help-component-box-icon" style="color: orangered;"><i class="fa fa-group"></i></div>
                         <div class="right-help-component-box-info">
-                            <h5 style="color: orangered;">Voluntiar</h5>
+                            <h5 style="color: orangered;">Volunteer</h5>
                             <p>Inphant Api always welcome volunteer contributions; Creat, Share , Use custom APIs effortlessly.</p>
                         </div>
                     </div>
                 </div>
                 <div class="flo">
-                    <div class="right-help-component-box flo" style="border: 2px solid purple;">
+                    <div class="right-help-component-box flo" style="border: 2px solid purple;" onclick="invalid();">
                         <div class="right-help-component-box-icon" style="color: purple;"><i class="fa fa-credit-card"></i></div>
                         <div class="right-help-component-box-info">
                             <h5 style="color: purple;">Purchasing</h5>
                             <p>Purchase premium subscription for unlimited queries per day; Gpay, Paytm, Online transactions supported.</p>
                         </div>
                     </div>
-                    <div class="right-help-component-box flo" style="border: 2px solid gray;">
+                    <div class="right-help-component-box flo" style="border: 2px solid gray;" onclick="pageRout(2);">
                         <div class="right-help-component-box-icon" style="color: gray;"><i class="fa fa-book"></i></div>
                         <div class="right-help-component-box-info">
                             <h5 style="color: gray;">User Guides</h5>
                             <p>Access detailed user guid, comprehensive docs, intuitive interface, personal API guides, feedback system.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="faq-help">
+            <h2>FAQs</h2>
+            <div class="layout">
+                <div class="accordion"> 
+                  <div class="accordion__question"> 
+                    <p>How to add libary plugin in my project?</p> 
+                  </div> 
+                  <div class="accordion__answer"> 
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum repellat aliquid 
+                    sequi libero hic enim modi, nostrum consequatur possimus maxime.
+                    </p> 
+                  </div> 
+                </div>
+                <div class="accordion"> 
+                  <div class="accordion__question"> 
+                    <p>How to add an Api in my web?</p> 
+                  </div> 
+                  <div class="accordion__answer"> 
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum repellat aliquid 
+                    sequi libero hic enim modi, nostrum consequatur possimus maxime.
+                    </p> 
+                  </div> 
+                </div>
+                <div class="accordion"> 
+                    <div class="accordion__question"> 
+                      <p>How to add my Api here?</p> 
+                    </div> 
+                    <div class="accordion__answer"> 
+                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum repellat aliquid 
+                      sequi libero hic enim modi, nostrum consequatur possimus maxime.
+                      </p> 
+                    </div> 
+                </div>
+                <div class="accordion"> 
+                    <div class="accordion__question"> 
+                      <p>Can i get earned by my Api?</p> 
+                    </div> 
+                    <div class="accordion__answer"> 
+                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum repellat aliquid 
+                      sequi libero hic enim modi, nostrum consequatur possimus maxime.
+                      </p> 
+                    </div> 
+                </div>
+                <div class="accordion"> 
+                    <div class="accordion__question"> 
+                      <p>I don't like this Api utility</p> 
+                    </div> 
+                    <div class="accordion__answer"> 
+                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum repellat aliquid 
+                      sequi libero hic enim modi, nostrum consequatur possimus maxime.
+                      </p> 
+                    </div> 
+                </div>
+                <div class="accordion"> 
+                    <div class="accordion__question"> 
+                      <p>Why api give limited queres per day, what can i do to fix it?</p> 
+                    </div> 
+                    <div class="accordion__answer"> 
+                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum repellat aliquid 
+                      sequi libero hic enim modi, nostrum consequatur possimus maxime.
+                      </p> 
+                    </div> 
+                </div>
+                <div class="accordion"> 
+                    <div class="accordion__question"> 
+                      <p>Can i use this Api in commercial projects?</p> 
+                    </div> 
+                    <div class="accordion__answer"> 
+                      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatum repellat aliquid 
+                      sequi libero hic enim modi, nostrum consequatur possimus maxime.
+                      </p> 
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="OpenApiPage">
+        <div class="header">
+            <div class="header-left">
+                <div class="header-left-left-componet"><span>L</span></div>
+                <div class="header-left-right-componet">
+                    <div class="header-left-right-componet-upper">
+                        <h3>Lorem ipsum dolor sit</h3>
+                        <div class="cost">Free</div>
+                    </div>
+                    <div class="header-left-right-componet-bottom">
+                        <span>By kidKrishkode</span> | <span>Updated a year ago</span> | <span>Media</span>
+                    </div>
+                </div>
+            </div>
+            <div class="header-rigth">
+                <div class="header-rigth-component">
+                    <div class="header-rigth-component-upper"><i class="fa fa-line-chart"></i>Popularity</div>
+                    <div class="header-rigth-component-bottom">9.8 / 10</div>
+                </div>
+                <div class="header-rigth-component">
+                    <div class="header-rigth-component-upper"><i class="fa fa-history"></i>Latency</div>
+                    <div class="header-rigth-component-bottom">532ms</div>
+                </div>
+                <div class="header-rigth-component">
+                    <div class="header-rigth-component-upper"><i class="fa fa-trophy"></i>Service Level</div>
+                    <div class="header-rigth-component-bottom">100%</div>
+                </div>
+                <div class="header-rigth-component">
+                    <div class="header-rigth-component-upper"><i class="fa fa-calendar"></i>Modification</div>
+                    <div class="header-rigth-component-bottom">22/02/24</div>
                 </div>
             </div>
         </div>
