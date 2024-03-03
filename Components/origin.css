@@ -11,6 +11,7 @@
     --gry-color: gray;
     --product-color: #343a40;
     --product-p-color: gray;
+    --blbg-color: #00000077;
 }
 body{
     background: var(--bg-color);
@@ -121,6 +122,18 @@ a{
     font-family: sans-serif;
     font-weight: 400;
     cursor: pointer;
+}
+#blbg{
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    margin: 0%;
+    background: var(--blbg-color);
+    z-index: 99;
+    overflow: none;
 }
 header{
     display: flex;
@@ -629,7 +642,21 @@ ul{
     top: 14%;
     right: 2%;
     width: auto;
+    font-size: 16px;
     cursor: pointer;
+    box-shadow: 0px 0px 4px 1px var(--wtxt-color);
+    border-radius: 0.25rem;
+    transition: 1s ease-in-out;
+}
+.shareApiFloat{
+    position: fixed;
+    top: 90%;
+    right: 2%;
+    width: auto;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0px 0px 4px 1px var(--wtxt-color);
+    border-radius: 0.25rem;
     transition: 1s ease-in-out;
 }
 .product{
@@ -925,6 +952,7 @@ ul{
     background: #fff; 
     border-radius: 10px; 
     text-align: justify;
+    cursor: text;
 } 
 .accordion:hover{ 
     cursor: pointer; 
@@ -938,6 +966,10 @@ ul{
 .accordion__answer ol{
     margin: 10px 5px;
     padding: 10px 30px;
+}
+.accordion__answer p a{
+    color: var(--ngtxt-color);
+    cursor: pointer;
 }
 #OpenApiPage{
     width: 100%;
@@ -989,6 +1021,8 @@ ul{
     font-weight: bold;
     color: var(--wtxt-color);
     margin: auto 0px;
+    max-height: 25px;
+    overflow: hidden;
 }
 #OpenApiPage .header .header-left .header-left-right-componet .header-left-right-componet-upper .cost{
     background: var(--nv-color);
@@ -1027,6 +1061,214 @@ ul{
     font-family: Consolas, 'Courier New', monospace;
     color: var(--wtxt-color);
     text-align: center;
+}
+#OpenApiPage .headerDivider{
+    width: 100%;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    padding: 0;
+    margin: 5px 0px;
+}
+#OpenApiPage .headerDivider .divider-name{
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+#OpenApiPage .headerDivider .divider-name .divider-name-component{
+    width: calc((100% / 5));
+    padding: 5px 0px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--ngtxt-color);
+    text-align: center;
+}
+#OpenApiPage .headerDivider .divider-name .divider-name-component:hover{
+    border-bottom: 1px solid var(--ngtxt-color);
+    cursor: pointer;
+}
+#OpenApiPage .middleBody{
+    width: 100%;
+    margin: 10px 0px;
+}
+#OpenApiPage .middleBody .middleBody-component{
+    width: 100%;
+    display: none;
+}
+#linkBox{
+    display: none;
+}
+.link-area{
+    width: 60%;
+    border-radius: 10px;
+    border: 1px solid grey;
+    margin: 0px 20%;
+    position: absolute;
+    top: 30%;
+    left: 0%;
+    z-index: 99;
+    transition: 1s ease-in-out;
+}
+.link-area .card-header{
+    font-size: 18px;
+    font-weight: bold;
+    color: #3B1540;
+}
+.link-area .card-body .card-title{
+    font-size: 16px;
+    margin: 5px 0px;
+}
+.link-area .card-body .card-text{
+    font-size: 14px;
+    padding: 2px 6px;
+}
+.link-area .card-footer .btn{
+    width: 30%;
+    position: relative;
+    left: 70%;
+    top: 0%;
+}
+.link-area .card-body .custom-file-label::after{
+    content: "Copy";
+    cursor: pointer;
+}
+.link-area .card-body .flo{
+    width: 40%;
+}
+.link-area .card-body .flo .fa{
+    font-size: 18px;
+    background: grey;
+    border-radius: 5px;
+    padding: 8px 10px;
+    color: #fff;
+    cursor: pointer;
+}
+.link-area .card-body .flo .fa-whatsapp{
+    background: linear-gradient(123deg, #25d366, #128c7e);
+}
+.link-area .card-body .flo .fa-facebook{
+    background: linear-gradient(123deg, #3b5998, #4267b2);
+}
+.link-area .card-body .flo .fa-linkedin-square{
+    background: linear-gradient(135deg, #0077b5, #005e92);
+}
+.link-area .card-body .flo .fa-instagram{
+    background: linear-gradient(45deg, #833ab4, #e1306c, #fd1d1d, #fdcb52);
+}
+#OpenApiPage .middleBody #middleEnd .littleAbout{
+    display: flex;
+    flex-direction: row;
+    font-size: 15px;
+}
+#OpenApiPage .middleBody #middleEnd .littleAbout .littleAboutApi{
+    width: auto;
+    max-width: 70%;
+    max-height: 22px;
+    overflow: hidden;
+    padding: 2px 5px 2px 10px;
+    word-wrap: break-word;
+}
+#OpenApiPage .middleBody #middleEnd .littleAbout .moreAboutApi{
+    width: auto;
+    color: blue;
+    min-height: 30%;
+    overflow: hidden;
+    padding: 2px;
+    cursor: pointer;
+}
+#OpenApiPage .middleBody #middleEnd .api-version{
+    width: 100%;
+    background: var(--product-color);
+    padding: 6px 10px;
+    margin: 8px 0px 0px 0px;
+    border-bottom: 1px solid var(--gry-color);
+    transition: 1s ease-in-out;
+}
+#OpenApiPage .middleBody #middleEnd .api-version select{
+    width: 250px;
+    font-size: 12px;
+    font-weight: bold;
+    background: gray;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+#OpenApiPage .middleBody .api-dualVision{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    transition: 1s ease-in-out;
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-left{
+    width: 50%;
+    border-right: 2px solid var(--gry-color);
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-right{
+    width: 50%;
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 8px;
+    background: var(--product-color);
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-head div{
+    color: green;
+    font-weight: bold;
+    padding: 4px 0px;
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-right .api-dualVision-right-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    padding: 0px 6px;
+    background: var(--product-color);
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-right .api-dualVision-right-head .api-dualVision-right-head-comonent{
+    padding: 14px 6px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body,#OpenApiPage .middleBody .api-dualVision .api-dualVision-right .api-dualVision-right-body{
+    width: 100%;
+    padding: 15px 0px 4px 0px;
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body .form-group{
+    display: flex;
+    flex-direction: row;
+    margin: 4px 0px;
+    padding: 0px 6px;
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body .form-group label{
+    width: 30%;
+    padding: 10px 2px;
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body .form-group input{
+    background: var(--product-color);
+    color: var(--wtxt-color);
+    width: 70%;
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body .api-dualVision-left-body-divider{
+    width: 100%;
+    background: var(--product-color);
+    color: var(--gry-color);
+    padding: 5px 10px;
+    margin: 10px 0px;
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body code{
+    padding: 2px 8px;
+    font-weight: bold;
+    width: 100%;
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-right .api-dualVision-right-body .form-group select{
+    width: 40%;
+    background: var(--product-color);
+    color: var(--wtxt-color);
+    margin: 4px 8px;
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-right .api-dualVision-right-body{
+    display: none;
 }
 @media only screen and (max-width: 900px){
     #loading .head{
@@ -1198,7 +1440,7 @@ ul{
     }
     .addApiFloat{
         position: absolute;
-        top: 90%;
+        top: 80%;
         right: 2%;
         position: fixed;
     }
@@ -1258,6 +1500,8 @@ ul{
     }
     #OpenApiPage .header .header-left .header-left-right-componet .header-left-right-componet-upper h3{
         font-size: 15px;
+        max-height: 20px;
+        overflow: hidden;
     }
     #OpenApiPage .header .header-left .header-left-right-componet .header-left-right-componet-bottom{
         width: 100%;
@@ -1268,6 +1512,35 @@ ul{
     }
     #OpenApiPage .header .header-rigth .header-rigth-component .header-rigth-component-bottom{
         font-size: 12px;
+    }
+    #OpenApiPage .headerDivider .divider-name{
+        width: 90%;
+    }
+    .link-area{
+        width: 90%;
+        margin: 0px 5%;
+    }
+    .link-area .card-body .custom-file label{
+        overflow: hidden;
+    }
+    .link-area .card-body .flo{
+        width: 80%;
+    }
+    #OpenApiPage .middleBody .api-dualVision{
+        width: 100%;
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    #OpenApiPage .middleBody .api-dualVision .api-dualVision-left,#OpenApiPage .middleBody .api-dualVision .api-dualVision-right{
+        width: 100%;
+        border: none;
+    }
+    #OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body .form-group{
+        display: flex;
+        flex-direction: column;
+    }
+    #OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body .form-group input,#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body .form-group label{
+        width: 100%;
     }
 }
 @media only screen and (min-width: 900px) and (max-width: 1023px){

@@ -21,9 +21,11 @@ function menubar(){
 }
 function user(){
     const body = document.getElementById("root");
+    console.clear();
 	setTimeout(() => {
 		document.getElementById("loading").style.display = "none";
-        pageRout(0);
+        linkChecker(0);
+        // pageRout(0);
         // currentProductIdentity(3);
 	},2000);
     document.getElementById("year").textContent = new Date().getFullYear();
@@ -180,5 +182,44 @@ function commentMessageCheck(head,id,count){
 	}
 }
 function updateProductView(){
+    dividerPageRout('dividerEnd','middleEnd');
+    dualvisionPageRout('api-dualVision-head-code','api-dualVision-body-code');
     // document.getElementById(additionalList[2]).innerHTML=currentProduct.name;
+}
+function dividerPageRout(id,page){
+    let head = ['dividerEnd','dividerAbout','dividerTutorial'];
+    let body = ['middleEnd','middleAbout','middleTutorial'];
+    for(let i=0; i<head.length; i++){
+        document.getElementById(head[i]).style.borderBottom="none";
+        document.getElementById(body[i]).style.display="none";
+    }
+    document.getElementById(id).style.borderBottom="2px solid var(--ngtxt-color)";
+    document.getElementById(page).style.display="block";
+}
+function shareActivate(id){
+    document.getElementById('blbg').innerHTML = document.getElementById('linkBox').innerHTML;
+    document.getElementById('blbg').style.display = "block";
+    currentLinkUpdate(id);
+}
+function deactiveShare(){
+    document.getElementById('blbg').innerHTML = '';
+    document.getElementById('blbg').style.display = "none";
+}
+function currentLinkUpdate(id){
+    if(id=='OpenApiPage'){
+        document.getElementById('customFile').textContent = `${window.location['pathname']}?page=ApiPage&test=ok&pid=${currentProduct.id}&search=All`;
+    }
+    if(id=='ApiPage'){
+        document.getElementById('customFile').textContent = `${window.location['pathname']}?page=ApiPage&test=ok&search=${document.getElementById('searchData').value||'All'}`;
+    }
+}
+function dualvisionPageRout(id,page){
+    let head = ['api-dualVision-head-code','api-dualVision-head-example'];
+    let body = ['api-dualVision-body-code','api-dualVision-body-example'];
+    for(let i=0; i<head.length; i++){
+        document.getElementById(head[i]).style.borderBottom="none";
+        document.getElementById(body[i]).style.display="none";
+    }
+    document.getElementById(id).style.borderBottom="2px solid var(--ngtxt-color)";
+    document.getElementById(page).style.display="block";
 }

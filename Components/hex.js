@@ -106,9 +106,18 @@ function ApiPageWithSearch(searchTopic){
         searchTopic='';
     }
     document.getElementById('searchData').value = `${searchTopic}`;
-    pageRout(1);
+    // pageRout(1);
     setTimeout(()=>{
         search_product('searchData','drop');
+    },200);
+}
+function DocsPageWithSearch(searchTopic){
+    if(searchTopic=='All'){
+        searchTopic='';
+    }
+    document.getElementById('searchText').value = `${searchTopic}`;
+    setTimeout(()=>{
+        search_product('searchText','drops');
     },200);
 }
 function updateLineNumbers(){
@@ -187,7 +196,6 @@ function helpCommentSend(head,identity,comment,count,rate){
 function checkWordLength(id,count){
     let textarea = document.getElementById(id);
     let text = textarea.value.trim();
-    // let word = text.split(/\s+/).filter(word => /[a-zA-Z]/.test(word));
     let word = text.length;
     let wordCount = word;
     document.getElementById(count).textContent = wordCount;
@@ -209,4 +217,118 @@ answers.forEach((event) => {
 });
 function projectPulseRoute(){
     window.location = "https://kidKrishkode.github.io/projectPulse.github.io/";
+}
+function testPageRoute(link){
+    // if(link==''||link==undefined){
+    //     link='';
+    // }else{
+    //     link='+'+link;
+    // }
+    // window.location = `./index.html${link}`;
+    alert("test");
+}
+function linkChecker(m){
+    var currentLink = window.location;
+    var currentHref = currentLink['href'];
+    const afterQuestionMark = currentHref.split('?')[1];
+    if(afterQuestionMark==''||afterQuestionMark==undefined){
+        testPageRoute(afterQuestionMark);
+        pageRout(m);
+    }else{
+        const url = new URL(currentHref);
+        const params = url.searchParams;
+        if(params.has('page')){
+            if(approximateTest(afterQuestionMark)){
+                if(goToPage(params.get('page'))){
+                    if(params.has('search')){
+                        activeSearchBar(params.get('page'),params.get('search'));
+                    }
+                    if(params.has('pid')&&params.get('page')==pageList[1]){
+                        if(pidJustify(params.get('pid'))){
+                            pageRout(7);
+                        }else{
+                            alert("Sorry, your product not identify.\nEigther it is not present or deleted or link will corapted!");
+                        }
+                    }
+                }else{
+                    alert("Sorry page not found");
+                    testPageRoute('');
+                }
+            }else{
+                testPageRoute(afterQuestionMark);
+            }
+        }else{
+            document.getElementById('root').innerHTML='';
+            alert("Bye bye");
+        }
+    }
+}
+function pidJustify(pid){
+    let loc=0
+    for(let j=0; j<productLib.length; j++){
+        if(productLib[j].id==pid){
+            currentProductIdentity(pid);
+            loc=1;
+            return true;
+        }
+    }
+    if(loc==0){
+        return false;
+    }
+}
+function approximateTest(link){
+    console.log("test is ok");
+    return true;
+}
+function goToPage(name){
+    if((name*0==0)&&(name<pageList.length)){
+        pageRout(name);
+        return true;
+    }else{
+        for(let i=0; i<pageList.length; i++){
+            if(name==pageList[i]){
+                pageRout(i);
+                return true;
+            }
+        }
+    }
+    return false;
+}
+function activeSearchBar(page,search){
+    if(page==pageList[1]||page==pageList[2]){
+        if(page==pageList[1]){
+            ApiPageWithSearch(search);
+        }
+        if(page==pageList[2]){
+            DocsPageWithSearch(search);
+        }
+    }else{
+        try{
+            updateSearchBars(search);
+        }catch(e){}
+    }
+}
+function shareOnWhatsApp(){
+    let copiedText = "Hi, I am using *Inphant Api* , Please check out this link "+document.getElementById('customFile').innerText;
+    let encodedText = encodeURIComponent(copiedText);
+    let whatsappShareUrl = `https://wa.me/?text=${encodedText}`;
+    window.open(whatsappShareUrl);
+}
+function shareOnFacebook(){
+    let copiedText = "Hi, I am using Inphant Api , Please check out this link "+document.getElementById('customFile').innerText+" #inphantApi #kidKrishkode #FreeApi #Programming";
+    let encodedText = encodeURIComponent(copiedText);
+    let facebookShareUrl = `https://www.facebook.com/sharer/sharer.php?u=&quote=${encodedText}`;
+    window.open(facebookShareUrl);
+}
+function shareOnLinkedIn(){
+    let copiedText = "Hi, I am using Inphant Api , Please check out this link "+document.getElementById('customFile').innerText+" #inphantApi #kidKrishkode #FreeApi #Programming";
+    let encodedText = encodeURIComponent(copiedText);
+    let linkedinShareUrl = `https://www.linkedin.com/sharer/sharer.php?u=&quote=${encodedText}`;
+    window.open(linkedinShareUrl);
+}
+function shareOnInstagram(){
+    let copiedText = document.getElementById('customFile').innerText;
+    let encodedText = encodeURIComponent(copiedText);
+    let instagramShareUrl = `https://www.instagram.com/sharing/share-offsite/?url=&summary=${encodedText}`;
+    window.open(instagramShareUrl);
 }
