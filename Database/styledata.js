@@ -14,7 +14,8 @@ const colorLib = [
             ['--test-color','#000'],
             ['--gry-color','#6c757d'],
             ['--product-color', '#343a40'],
-            ['--product-p-color','#6c757d']
+            ['--product-p-color','#6c757d'],
+            ['--blbg-color','#00000077']
         ]
     },
     {
@@ -32,7 +33,8 @@ const colorLib = [
             ['--test-color','#EDE2F0'],
             ['--gry-color','#000'],
             ['--product-color', '#cfd2d6'],
-            ['--product-p-color','#6c757d']
+            ['--product-p-color','#6c757d'],
+            ['--blbg-color','#ffffff77']
         ]
     }
 ];
