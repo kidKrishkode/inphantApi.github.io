@@ -184,6 +184,23 @@ function commentMessageCheck(head,id,count){
 function updateProductView(){
     dividerPageRout('dividerEnd','middleEnd');
     dualvisionPageRout('api-dualVision-head-code','api-dualVision-body-code');
+    CodeRoutBySelect('codeSelecter');
+    htmlCompiler('apiInSnipVanillaHtml');
+    ideDeploy('#apiInSnipVanillaHtml','#apiInSnipVanillaHtml-line');
+    jsCompiler('useInSnipVanillaJs');
+    ideDeploy('#useInSnipVanillaJs','#useInSnipVanillaJs-line');
+    htmlCompiler('apiInSnipReactHtml');
+    ideDeploy('#apiInSnipReactHtml','#apiInSnipReactHtml-line');
+    jsCompiler('useInSnipReactJs');
+    ideDeploy('#useInSnipReactJs','#useInSnipReactJs-line');
+    htmlCompiler('apiInSnipAngularHtml');
+    ideDeploy('#apiInSnipAngularHtml','#apiInSnipAngularHtml-line');
+    jsCompiler('useInSnipAngularJs');
+    ideDeploy('#useInSnipAngularJs','#useInSnipAngularJs-line');
+    jvm('useInSnipAndroidJava');
+    ideDeploy('#useInSnipAndroidJava','#useInSnipAndroidJava-line');
+    terMinal('examInConsoleTerm');
+    ideDeploy('#examInConsoleTerm','#examInConsoleTerm-line');
     // document.getElementById(additionalList[2]).innerHTML=currentProduct.name;
 }
 function dividerPageRout(id,page){
@@ -207,10 +224,10 @@ function deactiveShare(){
 }
 function currentLinkUpdate(id){
     if(id=='OpenApiPage'){
-        document.getElementById('customFile').textContent = `${window.location['pathname']}?page=ApiPage&test=ok&pid=${currentProduct.id}&search=All`;
+        document.getElementById('customFile').textContent = `${window.location['origin']}${window.location['pathname']}?page=ApiPage&test=ok&pid=${currentProduct.id}&search=All`;
     }
     if(id=='ApiPage'){
-        document.getElementById('customFile').textContent = `${window.location['pathname']}?page=ApiPage&test=ok&search=${document.getElementById('searchData').value||'All'}`;
+        document.getElementById('customFile').textContent = `${window.location['origin']}${window.location['pathname']}?page=ApiPage&test=ok&search=${document.getElementById('searchData').value||'All'}`;
     }
 }
 function dualvisionPageRout(id,page){
@@ -222,4 +239,12 @@ function dualvisionPageRout(id,page){
     }
     document.getElementById(id).style.borderBottom="2px solid var(--ngtxt-color)";
     document.getElementById(page).style.display="block";
+}
+function CodeRoutBySelect(id){
+    let Box = ['vanillaBody','angularBody','reactBody','androidBody'];
+    let codeBox = (document.getElementById(id).value).toLowerCase();
+    for(let i=0; i<Box.length; i++){
+        document.getElementById(Box[i]).style.display="none";
+    }
+    document.getElementById(codeBox+"Body").style.display="block";
 }

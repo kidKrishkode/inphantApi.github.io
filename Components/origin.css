@@ -1270,6 +1270,99 @@ ul{
 #OpenApiPage .middleBody .api-dualVision .api-dualVision-right .api-dualVision-right-body{
     display: none;
 }
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-right .api-dualVision-right-body .api-dualVision-right-body-component{
+    width: 100%;
+    padding: 4px 8px;
+    display: none;
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-right .api-dualVision-right-body .api-dualVision-right-body-component .code-editor{
+    margin-bottom: 20px;
+}
+#OpenApiPage .middleBody #middleAbout p,#OpenApiPage .middleBody #middleTutorial p,#OpenApiPage .littleTutorial p{
+    padding: 4px 10px;
+    font-size: 14px;
+    text-align: justify;
+    color: var(--wtxt-color);
+    margin: 0px;
+}
+#OpenApiPage .littleTutorial{
+    background: var(--product-color);
+    width: 100%;
+    margin: 0px 0px 0px 0px;
+    border-top: 1px solid var(--gry-color);
+}
+#OpenApiPage .littleTutorial span{
+    color: var(--ngtxt-color);
+    cursor: pointer;
+}
+#OpenApiPage .api-feedback{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0px;
+}
+#OpenApiPage .api-feedback .left-api-feedback,#OpenApiPage .api-feedback .right-api-feedback{
+    width: 50%;
+    padding: 4px 8px;
+}
+#OpenApiPage .api-feedback .left-api-feedback #viewer-message{
+    height: 180px;
+    max-height: 180px;
+    min-height: 180px;
+}
+#OpenApiPage .api-feedback .left-api-feedback .star-widget{
+    position: relative;
+    width: 30%;
+    height: 54px;
+    margin: 0px auto;
+    display: flex;
+    flex-direction: row-reverse;
+}
+#OpenApiPage .api-feedback .left-api-feedback .star-widget input{
+    display: none;
+}
+#OpenApiPage .api-feedback .left-api-feedback .star-widget label{
+    font-size: 30px;
+    color: #444;
+    padding: 10px;
+    float: right;
+    justify-content: left;
+    transition: all 0.2s ease;
+}
+#OpenApiPage .api-feedback .left-api-feedback input:not(:checked) ~ label:hover,
+#OpenApiPage .api-feedback .left-api-feedback input:not(:checked) ~ label:hover ~ label{
+    color: #ffdd44;
+}
+#OpenApiPage .api-feedback .left-api-feedback input:checked ~ label{
+    color: #ffdd44;
+}
+#OpenApiPage .api-feedback .left-api-feedback input#rate-5:checked ~ label{
+    color: yellow;
+    text-shadow: 0 0 4px orange;
+}
+#OpenApiPage .api-feedback .left-api-feedback #rate-1:checked ~ header:before{
+    content: "63f321gl@dQh1";
+}
+#OpenApiPage .api-feedback .left-api-feedback #rate-2:checked ~ header:before{
+    content: "m8#aiT1o4jr2";
+}
+#OpenApiPage .api-feedback .left-api-feedback #rate-3:checked ~ header:before{
+    content: "K3nw$Qlf8vb3";
+}
+#OpenApiPage .api-feedback .left-api-feedback #rate-4:checked ~ header:before{
+    content: "0d!fGke2si4";
+}
+#OpenApiPage .api-feedback .left-api-feedback #rate-5:checked ~ header:before{
+    content: "p2&fi4Le2dY5";
+}
+#OpenApiPage .api-feedback .left-api-feedback #viewer-star{
+    display: none;
+}
+#OpenApiPage .api-feedback .right-api-feedback img{
+    position: relative;
+    width: 70%;
+    margin: auto auto;
+}
 @media only screen and (max-width: 900px){
     #loading .head{
         margin-top: 45%;
@@ -1541,6 +1634,16 @@ ul{
     }
     #OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body .form-group input,#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body .form-group label{
         width: 100%;
+    }
+    #OpenApiPage .api-feedback{
+        display: flex;
+        flex-direction: column;
+    }
+    #OpenApiPage .api-feedback .left-api-feedback,#OpenApiPage .api-feedback .right-api-feedback{
+        width: 100%;
+    }
+    .star-widget{
+        width: 75%;
     }
 }
 @media only screen and (min-width: 900px) and (max-width: 1023px){
