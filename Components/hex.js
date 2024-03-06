@@ -72,15 +72,26 @@ function currentProductIdentity(id){
     }
 }
 function search_product(data,list){
+    let find=miss=0;
     let input = document.getElementById(`${data}`).value;
     input=input.toLowerCase();
     let x = document.getElementsByClassName(`${list}`);
     for(i = 0; i<x.length; i++){ 
         if(!x[i].innerHTML.toLowerCase().includes(input)){
             x[i].style.display="none";
+            miss++;
         }else{
             x[i].style.display="list-item";
+            find++;
         }
+    }
+    if(data=='searchSelectList'){
+        data='searchData';
+    }
+    if(miss>find&&find==0&&miss!=0){
+        document.getElementById(data+'DOD').style.display="block";
+    }else{
+        document.getElementById(data+'DOD').style.display="none";
     }
 }
 function searchbySelect(selectlist,type){
@@ -106,7 +117,7 @@ function ApiPageWithSearch(searchTopic){
         searchTopic='';
     }
     document.getElementById('searchData').value = `${searchTopic}`;
-    // pageRout(1);
+    pageRout(1);
     setTimeout(()=>{
         search_product('searchData','drop');
     },200);
@@ -179,6 +190,10 @@ function validateUserName(input){
     }
     return false;
 }
+function validateUserEmail(email){
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailPattern.test(email);
+}
 function helpCommentSend(head,identity,comment,count,rate){
     let name = document.getElementById(identity).value;
     let message = document.getElementById(comment).value;
@@ -198,23 +213,41 @@ function checkWordLength(id,count){
     let text = textarea.value.trim();
     let word = text.length;
     let wordCount = word;
-    document.getElementById(count).textContent = wordCount;
+    if(count!=''){
+        document.getElementById(count).textContent = wordCount;
+    }
     if(wordCount >= 3 && wordCount <= 1000){
         return true;
     }else{
         return false;
     }
 }
-let answers = document.querySelectorAll(".accordion"); 
-answers.forEach((event) => { 
-    event.addEventListener("click", () => { 
-        if(event.classList.contains("active")){ 
-            event.classList.remove("active"); 
-        }else{
-            event.classList.add("active"); 
-        } 
-    }); 
-});
+function feedbackCommentSend(identity,comment,rate){
+    let email = document.getElementById(identity).value;
+    let message = document.getElementById(comment).value;
+    let reciver = 'krishnendumitra24@gmail.com';
+    if(validateUserEmail(email)&&checkWordLength(comment,'')){
+        window.location = `mailto:${reciver}?&Subject=Feedback form visitor in Inphant API.&body=My contact: ${email}, Token code: 24w9@jtYh4-${rate!=''?rate:'N8jo*awT5k'}-ofe^d7Qki0, My Message: ${message!=''?message:'__No comments now, only star rating__'}`;
+        setTimeout(()=>{
+            console.clear();
+        },500);
+    }else{
+        console.error("Error: 400! \nsemanticError: Bad request occurred, please fill out all fields\n\t at inphantApi.github.io\n");
+        alert("Please maintain the formalities limit");
+    }
+}
+function faqActivate(){
+    let answers = document.querySelectorAll(".accordion"); 
+    answers.forEach((event) => { 
+        event.addEventListener("click", () => { 
+            if(event.classList.contains("active")){ 
+                event.classList.remove("active"); 
+            }else{
+                event.classList.add("active"); 
+            } 
+        }); 
+    });
+}
 function projectPulseRoute(){
     window.location = "https://kidKrishkode.github.io/projectPulse.github.io/";
 }

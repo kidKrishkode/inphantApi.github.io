@@ -4,8 +4,10 @@ let aboutList = ["abtn0","abtn1","abtn2"];
 let additionalList = ["SearchPage","AccountPage","OpenApiPage"];
 let cls = 1;
 let SrcPg=-1;
+let homeVisited=0;
 let apiVisited=2000;
 let docVisited=0;
+let helpVisited=0;
 function menubar(){
     if(nav==0){
         document.querySelector(".downMenu").style.display="block";
@@ -103,10 +105,21 @@ function typing(){
 }
 function nextProgress(id){
     if(id==0){
-        typing();
+        if(homeVisited==0){
+            document.getElementById("loading").style.display = "block";
+            setTimeout(()=>{
+                document.getElementById(pageList[0]).innerHTML = HomePage.htmlData;
+            },200);
+            setTimeout(()=>{
+                document.getElementById("loading").style.display = "none";
+                typing();
+            },500);
+            homeVisited++;
+        }
     }else if(id==1){
         if(apiVisited==2000){
             document.getElementById("loading").style.display = "block";
+            document.getElementById(pageList[1]).innerHTML = ApiPage.htmlData;
             ProductListMaker();
         }
         setTimeout(()=>{
@@ -142,9 +155,19 @@ function nextProgress(id){
             docVisited++;
         }
     }else if(id==3){
-        
+        projectPulseRoute();
     }else if(id==4){
-        
+        if(helpVisited==0){
+            document.getElementById("loading").style.display = "block";
+            setTimeout(()=>{
+                document.getElementById(pageList[4]).innerHTML = HelpPage.htmlData;
+            },200);
+            setTimeout(()=>{
+                document.getElementById("loading").style.display = "none";
+                faqActivate();
+            },500);
+            helpVisited++;
+        }
     }else if(id==7){
         document.getElementById("loading").style.display = "block";
         setTimeout(()=>{
@@ -214,7 +237,7 @@ function dividerPageRout(id,page){
     document.getElementById(page).style.display="block";
 }
 function shareActivate(id){
-    document.getElementById('blbg').innerHTML = document.getElementById('linkBox').innerHTML;
+    document.getElementById('blbg').innerHTML = LinkBox.htmlData;
     document.getElementById('blbg').style.display = "block";
     currentLinkUpdate(id);
 }
@@ -247,4 +270,12 @@ function CodeRoutBySelect(id){
         document.getElementById(Box[i]).style.display="none";
     }
     document.getElementById(codeBox+"Body").style.display="block";
+}
+let rate='';
+function starCount(c){
+    rate=c;
+}
+function commentMe(){
+    feedbackCommentSend("viewer-email","viewer-message",rate);
+    rate = "";
 }
