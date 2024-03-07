@@ -81,7 +81,7 @@ let productLib = [
         latency: 391,
         service: 100,
         modified: "22/02/24",
-        tutorials: ['https://youtube.com/','https://youtube.com/','https://youtube.com/','https://youtube.com/'],
+        tutorials: ['https://www.youtube.com/embed/M63IdwIymiY?controls=0','https://www.youtube.com/embed/M63IdwIymiY?controls=0','https://www.youtube.com/embed/M63IdwIymiY?controls=0','https://www.youtube.com/embed/M63IdwIymiY?controls=0'],
         apiName: "animaleApi.js",
         vanilla: [`< html@ > \n< /html@ > \n`,`let@ s|a|n = s"Hellow"n;\n`],
         react: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
