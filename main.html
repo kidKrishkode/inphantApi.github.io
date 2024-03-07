@@ -513,30 +513,30 @@ try@{
                 <div class="header-left-left-componet"><span>L</span></div>
                 <div class="header-left-right-componet">
                     <div class="header-left-right-componet-upper">
-                        <h3>Lorem ipsum dolor sit</h3>
-                        <div class="cost">Free</div>
+                        <h3 id="header-api-name">Lorem ipsum dolor sit</h3>
+                        <div class="cost" id="header-api-cost">Free</div>
                     </div>
                     <div class="header-left-right-componet-bottom">
-                        <span>By kidKrishkode</span> | <span>Updated a year ago</span> | <span>Media</span>
+                        <span id="header-api-owner">By kidKrishkode</span> | <span id="header-api-update">Updated a year ago</span> | <span id="header-api-resource">Media</span>
                     </div>
                 </div>
             </div>
             <div class="header-rigth">
                 <div class="header-rigth-component">
                     <div class="header-rigth-component-upper"><i class="fa fa-line-chart"></i>Popularity</div>
-                    <div class="header-rigth-component-bottom">9.8 / 10</div>
+                    <div class="header-rigth-component-bottom" id="header-api-rating">9.8 / 10</div>
                 </div>
                 <div class="header-rigth-component">
                     <div class="header-rigth-component-upper"><i class="fa fa-history"></i>Latency</div>
-                    <div class="header-rigth-component-bottom">532ms</div>
+                    <div class="header-rigth-component-bottom" id="header-api-latency">532ms</div>
                 </div>
                 <div class="header-rigth-component">
                     <div class="header-rigth-component-upper"><i class="fa fa-trophy"></i>Service Level</div>
-                    <div class="header-rigth-component-bottom">100%</div>
+                    <div class="header-rigth-component-bottom" id="header-api-service">100%</div>
                 </div>
                 <div class="header-rigth-component">
                     <div class="header-rigth-component-upper"><i class="fa fa-calendar"></i>Modification</div>
-                    <div class="header-rigth-component-bottom">22/02/24</div>
+                    <div class="header-rigth-component-bottom" id="header-api-modification">22/02/24</div>
                 </div>
             </div>
         </div>
@@ -550,7 +550,7 @@ try@{
         <div class="middleBody">
             <div class="middleBody-component"id="middleEnd">
                 <div class="littleAbout">
-                    <div class="littleAboutApi">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
+                    <div class="littleAboutApi"id="littleAboutApi">Lorem ipsum dolor sit amet consectetur adipisicing elit.</div>
                     <span class="moreAboutApi" onclick="dividerPageRout('dividerAbout','middleAbout');">Show more.</span>
                 </div>
                 <div class="api-version form-group">
@@ -578,19 +578,15 @@ try@{
                             <div class="api-dualVision-left-body-divider">Header Parameter</div>
                             <div class="form-group">
                                 <label for="api-dualVision-info">API Identifier</label>
-                                <input type="link" class="form-control" value="LoremApi.js"readonly="true"/>
+                                <input type="link" class="form-control" value="LoremApi.js" id="api-dualVision-identifier" readonly="true"/>
                             </div>
                             <div class="api-dualVision-left-body-divider">Request Body</div>
                             <code>Required Parameters</code>
-                            <div class="form-group">
-                                <label for="api-dualVision-info">Operation</label>
-                                <input type="link" class="form-control" value="add/sub/multi/divid/pow"readonly="true"/>
-                            </div>
+                            <span id="reqParams">loading...</span>
                             <code>Optional Parameters</code>
-                            <div class="form-group">
-                                <label for="api-dualVision-info">Operand</label>
-                                <input type="link" class="form-control" value="infinity to 0"readonly="true"/>
-                            </div>
+                            <span id="optParams">loading...</span>
+                            <div class="api-dualVision-left-body-divider">List of Agents</div>
+                            <span id="agentList">loading...</span>
                         </div>
                     </div>
                     <div class="api-dualVision-right">
@@ -767,11 +763,24 @@ try@{
                     </div>
                 </div>
             </div>
-            <div class="middleBody-component"id="middleAbout">
-                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas saepe nulla amet natus culpa nisi molestias, alias sint iure veniam.</p>
-            </div>
+            <div class="middleBody-component"id="middleAbout">loading...</div>
             <div class="middleBody-component"id="middleTutorial">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, quod expedita. Laborum sunt fugiat voluptates atque rem enim tempore nemo.</p>
+                <div class="videoRack container">
+                    <div class="mainVideo">
+                        <iframe></iframe>
+                    </div>
+                    <div class="secondaryVideo">
+                        <div class="video svideo1">
+                            <iframe></iframe>
+                        </div>
+                        <div class="video svideo2">
+                            <iframe></iframe>
+                        </div>
+                        <div class="video svideo3">
+                            <iframe></iframe>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="shareApiFloat">
