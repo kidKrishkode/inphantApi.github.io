@@ -1,42 +1,99 @@
 let productLib = [
     {
         id: 0,
-        name: "Lorem ipsum dolor sit amet consectetur.",
+        name: "Math Magic",
         description: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, ducimus. Culpa soluta hic itaque debitis natus repudiandae inventore excepturi provident omnis quisquam qui nisi, temporibus porro alias corrupti iste fugit? Fuga nostrum`,
         owner: "kidKrishkode",
         rating: 9.6,
         cost: 0,
+        latency: 391,
+        service: 95,
         modified: "22/02/24",
-        plugin: "https://kidKrishkode.dev/APIs/LoremApi.min.js"
+        tutorials: ['C:/Users/JYOTINMOY MITRA/Videos/website.mp4','https://facebook.com'],
+        apiName: "LoremApi.js",
+        vanilla: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
+        react: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
+        angular: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
+        android: [`public@ static@ void@ main@{\n
+            sy\tstem.out.print(s"Hello"n);\n
+        };`],
+        console: [`{result: 10, time: 177028164}`],
+        listOfAgents: ['mathCalc','speak','solve','exchange','run'],
+        reqParams: {'Operation':['add','sub','multi','divi'],'method':['get','pull']},
+        optParams: {'Operand':['Operand1, Operand2, Opernad{n}',"Operand should carry int value, range infinity to 0, n th value should possilble."],
+        'arr':["[Operand1,...,Operand{n}]","List of operand carry in same range"]},
     },
     {
         id: 1,
-        name: "Lorem ipsum dolor sit amet.",
+        name: "Voice to Text",
         description: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, ducimus. Culpa soluta hic itaque debitis natus repudiandae inventore excepturi provident omnis quisquam qui nisi, temporibus porro alias corrupti iste fugit? Fuga nostrum`,
         owner: "kidKrishkode",
         rating: 5.4,
         cost: 1,
+        latency: 391,
+        service: 100,
         modified: "23/02/24",
-        plugin: "https://kidKrishkode.dev/APIs/LoremApi.min.js"
+        tutorials: ['C:/Users/JYOTINMOY MITRA/Videos/website.mp4','https://facebook.com'],
+        apiName: "LoremApi.js",
+        vanilla: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
+        react: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
+        angular: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
+        android: [`public@ static@ void@ main@{\n
+            \tsystem.out.print("Hello");\n
+        };`],
+        console: [`{result: 10, time: 177028164}`],
+        listOfAgents: ['mathCalc','speak','solve','exchange','run'],
+        reqParams: {'Operation':['add','sub','multi','divi'],'method':['get','pull']},
+        optParams: {'Operand':['Operand1, Operand2, Opernad{n}',"Operand should carry int value, range infinity to 0, n th value should possilble."],
+        'arr':["[Operand1,...,Operand{n}]","List of operand carry in same range"]},
     },
     {
         id: 2,
-        name: "Lorem ipsum dolor sit amet.",
+        name: "Currency Convter",
         description: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, ducimus. Culpa soluta hic itaque debitis natus repudiandae inventore excepturi provident omnis quisquam qui nisi, temporibus porro alias corrupti iste fugit? Fuga nostrum`,
         owner: "kidKrishkode",
         rating: 6,
         cost: 0,
+        latency: 391,
+        service: 98,
         modified: "21/02/24",
-        plugin: "https://kidKrishkode.dev/APIs/LoremApi.min.js"
+        tutorials: ['C:/Users/JYOTINMOY MITRA/Videos/website.mp4','https://facebook.com'],
+        apiName: "LoremApi.js",
+        vanilla: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
+        react: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
+        angular: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
+        android: [`public@ static@ void@ main@{\n
+            \tsystem.out.print("Hello");\n
+        };`],
+        console: [`{result: 10, time: 177028164}`],
+        listOfAgents: ['mathCalc','speak','solve','exchange','run'],
+        reqParams: {'Operation':['add','sub','multi','divi'],'method':['get','pull']},
+        optParams: {'Operand':['Operand1, Operand2, Opernad{n}',"Operand should carry int value, range infinity to 0, n th value should possilble."],
+        'arr':["[Operand1,...,Operand{n}]","List of operand carry in same range"]},
     },
     {
         id: 3,
-        name: "Lorem ipsum dolor sit amet.",
+        name: "Animale Pool",
         description: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, ducimus. Culpa soluta hic itaque debitis natus repudiandae inventore excepturi provident omnis quisquam qui nisi, temporibus porro alias corrupti iste fugit? Fuga nostrum`,
         owner: "Krish",
-        rating: 2.1,
+        rating: 8.1,
         cost: 0,
+        latency: 391,
+        service: 100,
         modified: "22/02/24",
-        plugin: "https://kidKrishkode.dev/APIs/LoremApi.min.js"
+        tutorials: ['https://youtube.com/','https://youtube.com/','https://youtube.com/','https://youtube.com/'],
+        apiName: "animaleApi.js",
+        vanilla: [`< html@ > \n< /html@ > \n`,`let@ s|a|n = s"Hellow"n;\n`],
+        react: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
+        angular: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
+        android: [
+        `public@ static@ void@ main@{
+            system.out.print("Hello");\n};\n`
+        ],
+        console: [`{\nresult: 10,\ntime: <|time|>\n}\n`],
+        listOfAgents: ['mathCalc','speak','solve','exchange','run'],
+        reqParams: {'Operation':['add','sub','multi','divi'],'method':['get','pull']},
+        optParams: {'Operand':['Operand1, Operand2, ..., Opernad{n}',"Operand should carry int value, range infinity to 0, n th value should possilble."],
+        'arr':["[Operand1,...,Operand{n}]","List of operand carry in same range"]},
     }
 ];
