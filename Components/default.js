@@ -205,26 +205,113 @@ function commentMessageCheck(head,id,count){
 	}
 }
 function updateProductView(){
+    dataSetonProduct();
     dividerPageRout('dividerEnd','middleEnd');
     dualvisionPageRout('api-dualVision-head-code','api-dualVision-body-code');
     CodeRoutBySelect('codeSelecter');
-    htmlCompiler('apiInSnipVanillaHtml');
-    ideDeploy('#apiInSnipVanillaHtml','#apiInSnipVanillaHtml-line');
-    jsCompiler('useInSnipVanillaJs');
-    ideDeploy('#useInSnipVanillaJs','#useInSnipVanillaJs-line');
-    htmlCompiler('apiInSnipReactHtml');
-    ideDeploy('#apiInSnipReactHtml','#apiInSnipReactHtml-line');
-    jsCompiler('useInSnipReactJs');
-    ideDeploy('#useInSnipReactJs','#useInSnipReactJs-line');
-    htmlCompiler('apiInSnipAngularHtml');
-    ideDeploy('#apiInSnipAngularHtml','#apiInSnipAngularHtml-line');
-    jsCompiler('useInSnipAngularJs');
-    ideDeploy('#useInSnipAngularJs','#useInSnipAngularJs-line');
-    jvm('useInSnipAndroidJava');
-    ideDeploy('#useInSnipAndroidJava','#useInSnipAndroidJava-line');
-    terMinal('examInConsoleTerm');
-    ideDeploy('#examInConsoleTerm','#examInConsoleTerm-line');
-    // document.getElementById(additionalList[2]).innerHTML=currentProduct.name;
+    setTimeout(()=>{
+        htmlCompiler('apiInSnipVanillaHtml');
+        ideDeploy('#apiInSnipVanillaHtml','#apiInSnipVanillaHtml-line');
+        jsCompiler('useInSnipVanillaJs');
+        ideDeploy('#useInSnipVanillaJs','#useInSnipVanillaJs-line');
+        htmlCompiler('apiInSnipReactHtml');
+        ideDeploy('#apiInSnipReactHtml','#apiInSnipReactHtml-line');
+        jsCompiler('useInSnipReactJs');
+        ideDeploy('#useInSnipReactJs','#useInSnipReactJs-line');
+        htmlCompiler('apiInSnipAngularHtml');
+        ideDeploy('#apiInSnipAngularHtml','#apiInSnipAngularHtml-line');
+        jsCompiler('useInSnipAngularJs');
+        ideDeploy('#useInSnipAngularJs','#useInSnipAngularJs-line');
+        jvm('useInSnipAndroidJava');
+        ideDeploy('#useInSnipAndroidJava','#useInSnipAndroidJava-line');
+        terMinal('examInConsoleTerm');
+        ideDeploy('#examInConsoleTerm','#examInConsoleTerm-line');
+    },200);
+}
+function dataSetonProduct(){
+    document.querySelector('.header-left-left-componet').innerHTML = `<span style="background: ${randomDpColor()};">${currentProduct.name[0]}</span>`;
+    document.getElementById('header-api-name').innerText = currentProduct.name;
+    document.getElementById('header-api-cost').innerText = currentProduct.cost==0?'Free':'Premium';
+    document.getElementById('header-api-owner').innerText = "By "+currentProduct.owner;
+    document.getElementById('header-api-update').innerText = currentProduct.modified>0?'Updated a year ago':'Updated two week ago';
+    document.getElementById('header-api-resource').innerText = "Media";
+    document.getElementById('header-api-rating').innerText = currentProduct.rating+"/10";
+    document.getElementById('header-api-latency').innerText = currentProduct.latency+"ms";
+    document.getElementById('header-api-service').innerText = currentProduct.service+'%';
+    document.getElementById('header-api-modification').innerText = currentProduct.modified;
+    document.getElementById('littleAboutApi').innerText = currentProduct.description;
+    document.getElementById('api-dualVision-identifier').value = currentProduct.apiName;
+    reqParamUpdate();
+    optParamUpdate();
+    agentListUpdate();
+    codeSnippetsUpdate();
+    // document.getElementById('littleytvideo').src=currentProduct.tutorials[0];
+    document.getElementById('middleAbout').innerHTML = "<p>"+currentProduct.description+"</p>";
+    if(currentProduct.tutorials.length!=0){
+        document.querySelector(".mainVideo").style.display="block";
+        document.querySelector(".mainVideo").innerHTML=`<iframe src="${currentProduct.tutorials[0]}" alt="loading.."></iframe>`;
+        if(currentProduct.tutorials.length-1!=0&&currentProduct.tutorials.length-1<4){
+            for(let i=1; i<currentProduct.tutorials.length; i++){
+                document.querySelector(`.svideo${i}`).style.display="block";
+                document.querySelector(`.svideo${i}`).innerHTML=`<iframe src="${currentProduct.tutorials[i]}" alt="loading.." onclick="videoSwap(${i});" autoplay="false" controls="false"></iframe>`;
+            }
+        }
+    }
+}
+function reqParamUpdate(){
+    document.getElementById('reqParams').innerHTML="";
+    temp ="";
+    for(let key in currentProduct.reqParams){
+        temp += `<div class="form-group">
+        <label for="api-dualVision-info">${key}</label><ul>`;
+        for(let i=0; i<currentProduct.reqParams[key].length; i++){
+            temp+= `<li><input type="link" class="form-control" value="${currentProduct.reqParams[key][i]}"readonly="true"/></li>`;
+        }
+        temp+=`</ul></div>`;
+    }
+    document.getElementById('reqParams').innerHTML=temp;
+}
+function optParamUpdate(){
+    document.getElementById('optParams').innerHTML="";
+    temp ="";
+    for(let key in currentProduct.optParams){
+        temp += `<div class="form-group">
+        <label for="api-dualVision-info">${key}</label><ul>
+            <li>
+                <input type="link" class="form-control" value="${currentProduct.optParams[key][0]}"readonly="true"/>
+                <small class="form-text text-muted">${currentProduct.optParams[key][1]}</small>
+            </li>
+        </ul></div>`;
+    }
+    document.getElementById('optParams').innerHTML=temp;
+}
+function agentListUpdate(){
+    document.getElementById('agentList').innerHTML="";
+    temp =`<div class="form-group">
+    <label for="api-dualVision-info">Agents Identity</label><ul>`;
+    for(let i=0; i<currentProduct.listOfAgents.length; i++){
+        temp += `
+            <li>
+                <input type="link" class="form-control" value="${currentProduct.listOfAgents[i]}(...)"readonly="true"/>
+            </li>`;
+    }
+    temp += "</ul></div>";
+    document.getElementById('agentList').innerHTML=temp;
+}
+function codeSnippetsUpdate(){
+    document.getElementById('apiInSnipVanillaHtml').innerHTML=currentProduct.vanilla[0];
+    document.getElementById('useInSnipVanillaJs').innerHTML=currentProduct.vanilla[1];
+    document.getElementById('apiInSnipReactHtml').innerHTML=currentProduct.react[0];
+    document.getElementById('useInSnipReactJs').innerHTML=currentProduct.react[1];
+    document.getElementById('apiInSnipAngularHtml').innerHTML=currentProduct.angular[0];
+    document.getElementById('useInSnipAngularJs').innerHTML=currentProduct.angular[1];
+    document.getElementById('useInSnipAndroidJava').innerHTML=currentProduct.android[0];
+    document.getElementById('examInConsoleTerm').innerHTML=currentProduct.console[0].replaceAll('<|time|>',(new Date).getTime());
+}
+function videoSwap(id){
+    temp = document.querySelector(".mainVideo").innerHTML;
+    document.querySelector(".mainVideo").innerHTML = document.querySelector(`.svideo${id}`).innerHTML;
+    document.querySelector(`.svideo${id}`).innerHTML = temp;
 }
 function dividerPageRout(id,page){
     let head = ['dividerEnd','dividerAbout','dividerTutorial'];

@@ -22,7 +22,7 @@ body{
 a{
     text-decoration: none;
 }
-#HomePage,#AboutPage,#ApiPage,#HelpPage,#SearchPage,#AccountPage,#OpenApiPage{
+#HomePage,#AboutPage,#ApiPage,#DocsPage,#HelpPage,#SearchPage,#AccountPage,#OpenApiPage{
     display: none;
     width: 100%;
 }
@@ -1192,6 +1192,7 @@ ul{
     border: none;
     color: #fff;
     cursor: pointer;
+    transition: 1s ease-in-out;
 }
 #OpenApiPage .middleBody .api-dualVision{
     width: 100%;
@@ -1248,6 +1249,7 @@ ul{
     background: var(--product-color);
     color: var(--wtxt-color);
     width: 70%;
+    transition: 1s ease-in-out;
 }
 #OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body .api-dualVision-left-body-divider{
     width: 100%;
@@ -1255,6 +1257,23 @@ ul{
     color: var(--gry-color);
     padding: 5px 10px;
     margin: 10px 0px;
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body #reqParams .form-group ul,#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body #optParams .form-group ul,#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body #agentList .form-group ul{
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body #reqParams .form-group ul li,#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body #optParams .form-group ul li,#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body #agentList .form-group ul li{
+    margin: 4px;
+    width: auto;
+    max-width: 100%;
+    min-width: 0px;
+    transition: 1s ease-in-out;
+}
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body #optParams .form-group ul li{
+    width: 100%;
 }
 #OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body code{
     padding: 2px 8px;
@@ -1266,6 +1285,7 @@ ul{
     background: var(--product-color);
     color: var(--wtxt-color);
     margin: 4px 8px;
+    transition: 1s ease-in-out;
 }
 #OpenApiPage .middleBody .api-dualVision .api-dualVision-right .api-dualVision-right-body{
     display: none;
@@ -1284,12 +1304,14 @@ ul{
     text-align: justify;
     color: var(--wtxt-color);
     margin: 0px;
+    transition: 1s ease-in-out;
 }
 #OpenApiPage .littleTutorial{
     background: var(--product-color);
     width: 100%;
     margin: 0px 0px 0px 0px;
     border-top: 1px solid var(--gry-color);
+    transition: 1s ease-in-out;
 }
 #OpenApiPage .littleTutorial span{
     color: var(--ngtxt-color);
@@ -1309,6 +1331,7 @@ ul{
     height: 180px;
     max-height: 180px;
     min-height: 180px;
+    transition: 1s ease-in-out;
 }
 #OpenApiPage .api-feedback .left-api-feedback .star-widget{
     position: relative;
@@ -1317,6 +1340,7 @@ ul{
     margin: 0px auto;
     display: flex;
     flex-direction: row-reverse;
+    transition: 1s ease-in-out;
 }
 #OpenApiPage .api-feedback .left-api-feedback .star-widget input{
     display: none;
@@ -1371,6 +1395,49 @@ ul{
     margin: auto auto;
     border-radius: 10px;
     overflow: none;
+}
+#OpenApiPage .middleBody .videoRack{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    max-height: 420px;
+    margin: 40px auto;
+}
+#OpenApiPage .middleBody .videoRack .mainVideo{
+    width: 70%;
+    display: none;
+}
+#OpenApiPage .middleBody .videoRack .secondaryVideo{
+    width: 30%;
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#OpenApiPage .middleBody .videoRack .mainVideo iframe{
+    width: 80%;
+    height: 400px;
+    max-height: 300px;
+    border-radius: 10px;
+    margin: 50px auto;
+    background: var(--gry-color);
+    overflow: hidden;
+    transition: 1s ease-in-out;
+}
+#OpenApiPage .middleBody .videoRack .secondaryVideo .video iframe{
+    width: 70%;
+    height: 70%;
+    max-height: 70%;
+    border-radius: 10px;
+    margin: auto auto;
+    background: var(--gry-color);
+    overflow: hidden;
+    cursor: pointer;
+    transition: 1s ease-in-out;
+}
+.svideo1,.svideo2,.svideo3{
+    display: none;
 }
 .search-not-found{
     width: 100%;
@@ -1673,6 +1740,10 @@ ul{
     #OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body .form-group input,#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body .form-group label{
         width: 100%;
     }
+    #OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body #reqParams .form-group ul li,#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body #optParams .form-group ul li,#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-body #agentList .form-group ul li{
+        margin: 4px;
+        width: 100%;
+    }
     #OpenApiPage .api-feedback{
         display: flex;
         flex-direction: column;
@@ -1695,6 +1766,37 @@ ul{
     .search-not-found .error p{
         text-align: justify;
         padding: 0px 2px;
+    }
+    #OpenApiPage .middleBody .videoRack{
+        display: flex;
+        flex-direction: column;
+        max-height: 420px;
+        margin: 40px 0px;
+    }
+    #OpenApiPage .middleBody .videoRack .mainVideo{
+        width: 100%;
+        height: calc(400px / 2);
+        max-height: calc(320px / 2);
+    }
+    #OpenApiPage .middleBody .videoRack .secondaryVideo{
+        width: 100%;
+        height: calc(400px / 2);
+        max-height: calc(400px / 2);
+        display: flex;
+        flex-direction: row;
+    }
+    #OpenApiPage .middleBody .videoRack .mainVideo iframe{
+        width: 95%;
+        height: 100%;
+        margin: 10px auto;
+    }
+    #OpenApiPage .middleBody .videoRack .secondaryVideo .video iframe{
+        width: 90%;
+        height: 30%;
+        border-radius: 10px;
+        margin: 0px auto;
+        background: var(--gry-color);
+        overflow: hidden;
     }
 }
 @media only screen and (min-width: 900px) and (max-width: 1023px){
