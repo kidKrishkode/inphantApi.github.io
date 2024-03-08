@@ -27,8 +27,6 @@ function user(){
 	setTimeout(() => {
 		document.getElementById("loading").style.display = "none";
         linkChecker(0);
-        // pageRout(0);
-        // currentProductIdentity(3);
 	},2000);
     document.getElementById("year").textContent = new Date().getFullYear();
 }
@@ -168,8 +166,16 @@ function nextProgress(id){
             },500);
             helpVisited++;
         }
+    }else if(id==6){
+        document.getElementById("loading").style.display = "block";
+        setTimeout(()=>{
+            document.getElementById("loading").style.display = "none";
+        },500);
     }else if(id==7){
         document.getElementById("loading").style.display = "block";
+        setTimeout(()=>{
+            document.getElementById("OpenApiPage").innerHTML = OpenApiPage.htmlData;
+        },200);
         setTimeout(()=>{
             updateProductView();
         },500);
@@ -233,7 +239,7 @@ function dataSetonProduct(){
     document.getElementById('header-api-name').innerText = currentProduct.name;
     document.getElementById('header-api-cost').innerText = currentProduct.cost==0?'Free':'Premium';
     document.getElementById('header-api-owner').innerText = "By "+currentProduct.owner;
-    document.getElementById('header-api-update').innerText = currentProduct.modified>0?'Updated a year ago':'Updated two week ago';
+    document.getElementById('header-api-update').innerText = getUpdateStatus(reverseDate(currentProduct.modified));
     document.getElementById('header-api-resource').innerText = "Media";
     document.getElementById('header-api-rating').innerText = currentProduct.rating+"/10";
     document.getElementById('header-api-latency').innerText = currentProduct.latency+"ms";
@@ -247,16 +253,16 @@ function dataSetonProduct(){
     codeSnippetsUpdate();
     // document.getElementById('littleytvideo').src=currentProduct.tutorials[0];
     document.getElementById('middleAbout').innerHTML = "<p>"+currentProduct.description+"</p>";
-    if(currentProduct.tutorials.length!=0){
-        document.querySelector(".mainVideo").style.display="block";
-        document.querySelector(".mainVideo").innerHTML=`<iframe src="${currentProduct.tutorials[0]}" alt="loading.."></iframe>`;
-        if(currentProduct.tutorials.length-1!=0&&currentProduct.tutorials.length-1<4){
-            for(let i=1; i<currentProduct.tutorials.length; i++){
-                document.querySelector(`.svideo${i}`).style.display="block";
-                document.querySelector(`.svideo${i}`).innerHTML=`<iframe src="${currentProduct.tutorials[i]}" alt="loading.." onclick="videoSwap(${i});" autoplay="false" controls="false"></iframe>`;
-            }
-        }
-    }
+    // if(currentProduct.tutorials.length!=0){
+    //     document.querySelector(".mainVideo").style.display="block";
+    //     document.querySelector(".mainVideo").innerHTML=`<iframe src="${currentProduct.tutorials[0]}" alt="loading.."></iframe>`;
+    //     if(currentProduct.tutorials.length-1!=0&&currentProduct.tutorials.length-1<4){
+    //         for(let i=1; i<currentProduct.tutorials.length; i++){
+    //             document.querySelector(`.svideo${i}`).style.display="block";
+    //             document.querySelector(`.svideo${i}`).innerHTML=`<iframe src="${currentProduct.tutorials[i]}" alt="loading.." onclick="videoSwap(${i});" autoplay="false" controls="false"></iframe>`;
+    //         }
+    //     }
+    // }
 }
 function reqParamUpdate(){
     document.getElementById('reqParams').innerHTML="";
@@ -366,3 +372,32 @@ function commentMe(){
     feedbackCommentSend("viewer-email","viewer-message",rate);
     rate = "";
 }
+function apiTest(){
+    alert("Test inviroment not present now, \nuse the plugin in our system.");
+}
+function codeLangUpdate(name){
+    try{
+        setTimeout(()=>{
+            document.getElementById('codeSelecter').value= `${name}`;
+            try{
+                CodeRoutBySelect('codeSelecter');
+            }catch(e){
+                alert("Sorry, define language not understand!");
+            }
+        },800);
+    }catch(e){
+        alert("Sorry, language change not permitted!");
+    }
+}
+function subPageUpdate(name){
+    setTimeout(()=>{
+        if(['End','About','Tutorials'].includes(name)){
+            dividerPageRout('divider'+name,'middle'+name);
+        }else if(['Code','Example'].includes(name)){
+            dualvisionPageRout('api-dualVision-head-'+name.toLowerCase(),'api-dualVision-body-'+name.toLowerCase());
+        }else{
+            alert("Sorry sub-page not found!");
+        }
+    },800);
+}
+function account(){}

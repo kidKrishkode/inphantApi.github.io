@@ -279,8 +279,24 @@ function linkChecker(m){
                     if(params.has('pid')&&params.get('page')==pageList[1]){
                         if(pidJustify(params.get('pid'))){
                             pageRout(7);
+                            if(params.has('lang')){
+                                codeLangUpdate(params.get('lang'));
+                            }
+                            if(params.has('subPage')){
+                                subPageUpdate(params.get('subPage'));
+                            }
+                            if(params.has('env')){
+                                if(params.get('env')=='true'){
+                                    apiTest();
+                                }
+                            }
                         }else{
                             alert("Sorry, your product not identify.\nEigther it is not present or deleted or link will corapted!");
+                        }
+                    }
+                    if(params.has('color')){
+                        if(params.get('color')=='light'){
+                            colorTogule();
                         }
                     }
                 }else{
@@ -321,6 +337,12 @@ function goToPage(name){
         for(let i=0; i<pageList.length; i++){
             if(name==pageList[i]){
                 pageRout(i);
+                return true;
+            }
+        }
+        for(let i=0; i<additionalList.length; i++){
+            if(name==additionalList[i]){
+                pageRout(pageList.length+i);
                 return true;
             }
         }
@@ -365,3 +387,45 @@ function shareOnInstagram(){
     let instagramShareUrl = `https://www.instagram.com/sharing/share-offsite/?url=&summary=${encodedText}`;
     window.open(instagramShareUrl);
 }
+function getUpdateStatus(dateString){
+    const updateDate = new Date(dateString);
+    const currentDate = new Date();
+    const differenceInMs = currentDate - updateDate;
+    const differenceInDays = Math.floor(differenceInMs /(1000 * 60 * 60 * 24));
+    let status;
+    if(differenceInDays === 0){
+        status = "Updated recently";
+    }else if(differenceInDays === 1){
+        status = "Updated one day ago";
+    }else if(differenceInDays === 2){
+        status = "Updated two days ago";
+    }else if(differenceInDays <= 6){
+        status = `Updated ${differenceInDays} days ago`;
+    }else if(differenceInDays <= 7){
+        status = "Updated one week ago";
+    }else if(differenceInDays <= 14){
+        status = "Updated two weeks ago";
+    }else if(differenceInDays <= 21){
+        status = "Updated three weeks ago";
+    }else if(differenceInDays <= 28){
+        status = "Updated one month ago";
+    }else if(differenceInDays <= 365){
+        const months = Math.floor(differenceInDays / 30);
+        status = `Updated ${months} months ago`;
+    }else if(differenceInDays <= 365 * 2){
+        status = "Updated one year ago";
+    }else if(differenceInDays <= 365 * 5){
+        const years = Math.floor(differenceInDays / 365);
+        status = `Updated ${years} years ago`;
+    }else {
+        status = "Updated long time ago";
+    }
+    return status;
+}
+function reverseDate(date){
+    const parts = date.split("/");
+    const mirror = parts.reverse();
+    const reorder = mirror.join("/");
+    return reorder;
+}
+// ['media','resources','network','sensors'];

@@ -1039,6 +1039,12 @@ ul{
     font-size: 12px;
     color: var(--blink-color);
 }
+#OpenApiPage .header .header-left .header-left-right-componet .header-left-right-componet-bottom #header-api-owner{
+    max-width: 30%;
+    max-height: 16px;
+    word-wrap: break-word;
+    overflow: hidden;
+}
 #OpenApiPage .header .header-rigth{
     width: 50%;
     display: flex;
@@ -1182,6 +1188,9 @@ ul{
     padding: 6px 10px;
     margin: 8px 0px 0px 0px;
     border-bottom: 1px solid var(--gry-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
     transition: 1s ease-in-out;
 }
 #OpenApiPage .middleBody #middleEnd .api-version select{
@@ -1285,6 +1294,7 @@ ul{
     background: var(--product-color);
     color: var(--wtxt-color);
     margin: 4px 8px;
+    cursor: pointer;
     transition: 1s ease-in-out;
 }
 #OpenApiPage .middleBody .api-dualVision .api-dualVision-right .api-dualVision-right-body{
@@ -1467,6 +1477,55 @@ ul{
     font-family: sans-serif;
     color: var(--gry-color);
     text-align: center;
+}
+#AccountPage{
+    width: 100%;
+    padding: 20px 0px;
+    color: var(--wtxt-color);
+    transition: 1s ease-in-out;
+}
+#AccountPage .accountBox{
+    width: 50%;
+    margin: 20px auto;
+    background: var(--product-color);
+    border-radius: 20px;
+    padding: 10px;
+    transition: 1s ease-in-out;
+}
+#AccountPage .accountBox .icon{
+    width: 120px;
+    font-size: 120px;
+    color: #3B1540;
+    position: relative;
+    top: -40px;
+    left: 0px;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0px auto;
+    background: var(--bg-color);
+    transition: 1s ease-in-out;
+}
+#AccountPage .accountBox .info{
+    margin-top: -20px;
+}
+#AccountPage .accountBox .info form input{
+    background: var(--bg-color);
+    color: var(--gry-color);
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: capitalize;
+}
+#AccountPage .accountBox .info form small{
+    text-align: justify;
+}
+#AccountPage .accountBox .flo{
+    margin-bottom: 20px;
+}
+#AccountPage .accountBox .notice{
+    text-align: center;
+    font-size: 12px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: var(--wtxt-color);
 }
 @media only screen and (max-width: 900px){
     #loading .head{
@@ -1784,6 +1843,7 @@ ul{
         max-height: calc(400px / 2);
         display: flex;
         flex-direction: row;
+        margin-top: 40px;
     }
     #OpenApiPage .middleBody .videoRack .mainVideo iframe{
         width: 95%;
@@ -1797,6 +1857,9 @@ ul{
         margin: 0px auto;
         background: var(--gry-color);
         overflow: hidden;
+    }
+    #AccountPage .accountBox{
+        width: 90%;
     }
 }
 @media only screen and (min-width: 900px) and (max-width: 1023px){
