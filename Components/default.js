@@ -8,6 +8,7 @@ let homeVisited=0;
 let apiVisited=2000;
 let docVisited=0;
 let helpVisited=0;
+let accountVisited=0;
 function menubar(){
     if(nav==0){
         document.querySelector(".downMenu").style.display="block";
@@ -53,15 +54,19 @@ function pageRout(id){
     try{
         document.getElementById(`p${id}`).style.fontWeight = "bold";
         document.getElementById(`pm${id}`).style.fontWeight = "bold";
-        document.getElementById(`p${id}`).style.textDecoration = "underline";
-        document.getElementById(`pm${id}`).style.textDecoration = "underline";
+        if(id!=6){
+            document.getElementById(`p${id}`).style.textDecoration = "underline";
+            document.getElementById(`pm${id}`).style.textDecoration = "underline";
+        }
         SrcPg=id;
     }catch(e){
         if(SrcPg!=-1){
             document.getElementById(`p${SrcPg}`).style.fontWeight = "bold";
             document.getElementById(`pm${SrcPg}`).style.fontWeight = "bold";
-            document.getElementById(`p${SrcPg}`).style.textDecoration = "underline";
-            document.getElementById(`pm${SrcPg}`).style.textDecoration = "underline";
+            if(SrcPg!=6){
+                document.getElementById(`p${SrcPg}`).style.textDecoration = "underline";
+                document.getElementById(`pm${SrcPg}`).style.textDecoration = "underline";
+            }
         }else{
             console.warn(e);
         }
@@ -167,10 +172,13 @@ function nextProgress(id){
             helpVisited++;
         }
     }else if(id==6){
-        document.getElementById("loading").style.display = "block";
-        setTimeout(()=>{
-            document.getElementById("loading").style.display = "none";
-        },500);
+        if(accountVisited==0){
+            document.getElementById("loading").style.display = "block";
+            setTimeout(()=>{
+                document.getElementById("loading").style.display = "none";
+            },500);
+            accountVisited++;
+        }
     }else if(id==7){
         document.getElementById("loading").style.display = "block";
         setTimeout(()=>{
@@ -400,4 +408,6 @@ function subPageUpdate(name){
         }
     },800);
 }
-function account(){}
+function account(){
+    pageRout(6);
+}

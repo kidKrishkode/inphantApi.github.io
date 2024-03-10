@@ -271,7 +271,7 @@ function linkChecker(m){
         const url = new URL(currentHref);
         const params = url.searchParams;
         if(params.has('page')){
-            if(approximateTest(afterQuestionMark)){
+            if(approximateTest(currentHref)){
                 if(goToPage(params.get('page'))){
                     if(params.has('search')){
                         activeSearchBar(params.get('page'),params.get('search'));
@@ -324,10 +324,6 @@ function pidJustify(pid){
     if(loc==0){
         return false;
     }
-}
-function approximateTest(link){
-    console.log("test is ok");
-    return true;
 }
 function goToPage(name){
     if((name*0==0)&&(name<pageList.length)){
