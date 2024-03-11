@@ -252,20 +252,22 @@ function projectPulseRoute(){
     window.location = "https://kidKrishkode.github.io/projectPulse.github.io/";
 }
 function testPageRoute(link){
-    // if(link==''||link==undefined){
-    //     link='';
-    // }else{
-    //     link='+'+link;
-    // }
-    // window.location = `./index.html${link}`;
-    alert("test");
+    if(link==''||link==undefined){
+        link='';
+    }else{
+        const url = new URL(link);
+        const params = url.searchParams;
+        params.set('test','null');
+        link = './index.html'+url.search;
+    }
+    // window.location = link;
 }
 function linkChecker(m){
     var currentLink = window.location;
     var currentHref = currentLink['href'];
     const afterQuestionMark = currentHref.split('?')[1];
     if(afterQuestionMark==''||afterQuestionMark==undefined){
-        testPageRoute(afterQuestionMark);
+        testPageRoute(currentHref);
         pageRout(m);
     }else{
         const url = new URL(currentHref);
@@ -304,7 +306,7 @@ function linkChecker(m){
                     testPageRoute('');
                 }
             }else{
-                testPageRoute(afterQuestionMark);
+                testPageRoute(currentHref);
             }
         }else{
             document.getElementById('root').innerHTML='';
