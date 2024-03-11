@@ -260,7 +260,7 @@ function testPageRoute(link){
         params.set('test','null');
         link = './index.html'+url.search;
     }
-    // window.location = link;
+    window.location = link;
 }
 function linkChecker(m){
     var currentLink = window.location;
