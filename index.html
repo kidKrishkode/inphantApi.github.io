@@ -17,14 +17,20 @@ h1{
     font-family: sans-serif;
 }
 </style>
-<body>
+<body onload="user();">
     <h1 onclick="mainPage();">API Console</h1>
 </body>
 <script>
+function user(){
+    linkChecker(0);
+}
 function mainPage(){
     window.location = './main.html';
 }
 </script>
+<script src="./Components/security.min.js"></script>
+<script src="./Components/auth.min.js"></script>
+
 <script src="./APIs/inphantSTDlib.min.js"></script>
 <script src="./APIs/erudaApi.js"></script>
 <script src="./APIs/animaleApi.js"></script>
@@ -33,8 +39,8 @@ function mainPage(){
 <!-- <script src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/inphantSTDlib.min.js"></script>
 <script src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/erudaApi.js"></script>
 <script src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/animaleApi.js"></script> -->
-<script>
-    let requestUrl = `https://kidKrishkode.github.io/inphantApi.github.io/APIs/erudaApi.js?operation=add&operand1=5&operand2=2`;
+<!-- <script>
+    let requestUrl = `https://kidKrishkode.github.io/inphantApi.github.io/APIs/erudaApi.js?operation=add&operand1=8&operand2=2`;
     let response = mathCalc(requestUrl);
     console.log(response);
     document.body.innerHTML += '<br> result: '+response.result;
@@ -51,10 +57,6 @@ function animale(){
         document.body.innerHTML += '<br><br> location: '+window.location.href+'<br><br>';
     },100);
 }
-// animale();
-message = "Krish is very handsome and intelligent boy, this statement is not true, accroding to his style of coding";
-requestUrl = `https://kidKrishkode.github.io/inphantApi.github.io/APIs/speakApi.js?operation=convert&from=text&to=voice&message=${message}&language=en&gender=male`;
-response = speechOver(requestUrl);
-console.log(response);
-</script>
+
+</script> -->
 </html>
