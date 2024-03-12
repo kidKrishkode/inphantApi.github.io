@@ -1,7 +1,7 @@
 let nav = 0;
-let pageList = ["HomePage","ApiPage","DocsPage","AboutPage","HelpPage"];
-let aboutList = ["abtn0","abtn1","abtn2"];
-let additionalList = ["SearchPage","AccountPage","OpenApiPage"];
+// let pageList = ["HomePage","ApiPage","DocsPage","AboutPage","HelpPage"];
+// let aboutList = ["abtn0","abtn1","abtn2"];
+// let additionalList = ["SearchPage","AccountPage","OpenApiPage"];
 let cls = 1;
 let SrcPg=-1;
 let homeVisited=0;

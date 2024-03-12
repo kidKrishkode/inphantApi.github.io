@@ -192,6 +192,10 @@ header{
     font-family: sans-serif;
     cursor: pointer;
 }
+.logo img{
+    position: relative;
+    width: 100px;
+}
 .collapses ul li a,.colide ul li a{
     color: var(--nvtxt-color)!important;
     font-family: sans-serif;
@@ -357,6 +361,13 @@ footer{
     flex-direction: column;
     text-align: center;
 }
+.footer img{
+    position: relative;
+    width: 180px;
+    margin: 0px auto;
+    margin-bottom: .5rem;
+    border: none;
+}
 .footer p{
     margin: 10px auto;
     line-height: 28px;
@@ -389,7 +400,7 @@ footer{
     transition: color .4s ease;
 }
 .socials a:hover i{
-    color: dodgerblue;
+    color: #0c8ff0;
 }
 .footer-copyright{
     background: var(--nv-color);
