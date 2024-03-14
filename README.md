@@ -1,7 +1,7 @@
 inphantApi - Free and Easy-to-Use API System by kidKrishkode
 ---------------------------------------------------------------
 Welcome to inphantApi, a powerful and free API system provided by kidKrishkode for public use, Our API system is completely free and designed to be accessible to everyone, with no need for any monetary transactions.
-![InphantApi.gihtub.io](https://kidKrishkode.github.io/inphantApi.github.io/fav-icon/icon-o-c.png)
+![InphantApi.gihtub.io](https://kidKrishkode.github.io/inphantApi.github.io/fav-icon/icon-l-o-c.png)
 
 ## Features
 inphantApi offers a wide range of features and functionalities through various plugins. These plugins are easy to integrate and can enhance your applications in real-life scenarios. Some of the available plugins include:
