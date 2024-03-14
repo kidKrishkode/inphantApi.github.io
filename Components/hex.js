@@ -252,6 +252,7 @@ function projectPulseRoute(){
     window.location = "https://kidKrishkode.github.io/projectPulse.github.io/";
 }
 function testPageRoute(link){
+    document.getElementById('badLinkHit').style.display = "block";
     if(link==''||link==undefined){
         link='';
     }else{
@@ -268,7 +269,6 @@ function linkChecker(m){
     const afterQuestionMark = currentHref.split('?')[1];
     if(afterQuestionMark==''||afterQuestionMark==undefined){
         testPageRoute(currentHref);
-        pageRout(m);
     }else{
         const url = new URL(currentHref);
         const params = url.searchParams;
