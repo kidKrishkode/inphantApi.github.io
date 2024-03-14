@@ -190,7 +190,7 @@ function nextProgress(id){
             })
             setTimeout(()=>{
                 document.getElementById("loading").style.display = "none";
-                document.getElementById('user-loc').value = locationData[0]+"°,"+locationData[1]+'°';
+                document.getElementById('user-loc').value = ((locationData[0].replaceAll("'","")).split('.'))[0]*1+"°"((locationData[0].replaceAll("'","")).split('.'))[1]+"', "+((locationData[1].replaceAll("'","")).split('.'))[0]*1+"°"((locationData[1].replaceAll("'","")).split('.'))[1]+"'";
                 document.getElementById('user-evt').value = ((new URL(window.location['href'])).searchParams).get('test');
             },500);
             accountVisited++;
