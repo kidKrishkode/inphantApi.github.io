@@ -186,7 +186,12 @@ function nextProgress(id){
         if(accountVisited==0){
             document.getElementById("loading").style.display = "block";
             setTimeout(()=>{
+                document.getElementById("AccountPage").innerHTML = AccountPage.htmlData;
+            })
+            setTimeout(()=>{
                 document.getElementById("loading").style.display = "none";
+                document.getElementById('user-loc').value = locationData[0]+"°,"+locationData[1]+'°';
+                document.getElementById('user-evt').value = ((new URL(window.location['href'])).searchParams).get('test');
             },500);
             accountVisited++;
         }
@@ -270,18 +275,20 @@ function dataSetonProduct(){
     optParamUpdate();
     agentListUpdate();
     codeSnippetsUpdate();
-    // document.getElementById('littleytvideo').src=currentProduct.tutorials[0];
     document.getElementById('middleAbout').innerHTML = "<p>"+currentProduct.description+"</p>";
-    // if(currentProduct.tutorials.length!=0){
-    //     document.querySelector(".mainVideo").style.display="block";
-    //     document.querySelector(".mainVideo").innerHTML=`<iframe src="${currentProduct.tutorials[0]}" alt="loading.."></iframe>`;
-    //     if(currentProduct.tutorials.length-1!=0&&currentProduct.tutorials.length-1<4){
-    //         for(let i=1; i<currentProduct.tutorials.length; i++){
-    //             document.querySelector(`.svideo${i}`).style.display="block";
-    //             document.querySelector(`.svideo${i}`).innerHTML=`<iframe src="${currentProduct.tutorials[i]}" alt="loading.." onclick="videoSwap(${i});" autoplay="false" controls="false"></iframe>`;
-    //         }
-    //     }
-    // }
+    if(new URL(window.location['href']).hostname!=''){
+        document.getElementById('littleytvideo').src=currentProduct.tutorials[0];
+        if(currentProduct.tutorials.length!=0){
+            document.querySelector(".mainVideo").style.display="block";
+            document.querySelector(".mainVideo").innerHTML=`<iframe src="${currentProduct.tutorials[0]}" alt="loading.."></iframe>`;
+            if(currentProduct.tutorials.length-1!=0&&currentProduct.tutorials.length-1<4){
+                for(let i=1; i<currentProduct.tutorials.length; i++){
+                    document.querySelector(`.svideo${i}`).style.display="block";
+                    document.querySelector(`.svideo${i}`).innerHTML=`<iframe src="${currentProduct.tutorials[i]}" alt="loading.." onclick="videoSwap(${i});" autoplay="false" controls="false"></iframe>`;
+                }
+            }
+        }
+    }
 }
 function reqParamUpdate(){
     document.getElementById('reqParams').innerHTML="";
@@ -421,4 +428,32 @@ function subPageUpdate(name){
 }
 function account(){
     pageRout(6);
+}
+function nameEdit(){
+    document.getElementById('blbg').innerHTML = document.getElementById('nameEditPopUp').innerHTML;
+    document.getElementById('blbg').style.display = "block";
+}
+function changeAccName(id){
+    if(nameEditCheck(id)){
+        invalid();
+    }
+}
+function nameEditCancel(){
+    document.getElementById('blbg').innerHTML = '';
+    document.getElementById('blbg').style.display = "none";
+}
+function nameEditCheck(id){
+    (document.querySelectorAll('#nEeM')[1]).innerHTML = '';
+    let name = (document.querySelectorAll('#'+id)[1]).value;
+    if(name==''||name==undefined){
+        (document.querySelectorAll('#nEeM')[1]).innerHTML = "Empty string as name is not accepted";
+        return false;
+    }
+    if(!validateUserName(name)){
+        (document.querySelectorAll('#nEeM')[1]).innerHTML = "This name not maintain naming grammer";
+        return false;
+    }else{
+        (document.querySelectorAll('#nEeM')[1]).innerHTML = "Good to GO!";
+        return true;
+    }
 }

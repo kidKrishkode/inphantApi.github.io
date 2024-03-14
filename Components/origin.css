@@ -1519,6 +1519,17 @@ ul{
 #AccountPage .accountBox .info{
     margin-top: -20px;
 }
+#AccountPage .accountBox .info form lable{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#AccountPage .accountBox .info form lable span{
+    position: relative;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+}
 #AccountPage .accountBox .info form input{
     background: var(--bg-color);
     color: var(--gry-color);
@@ -1537,6 +1548,51 @@ ul{
     font-size: 12px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     color: var(--wtxt-color);
+}
+#AccountPage .flo .btn{
+    width: 40%;
+    font-size: 16px;
+}
+#nameEditPopUp{
+    display: none;
+}
+#accountName{
+    background: #fff;
+    border-radius: 5px;
+    border: 0.5px solid var(--wtxt-color);
+    width: 335px;
+    margin: 0px calc((100% - 335px) / 2);
+    position: absolute;
+    top: 40%;
+    left: 0%;
+    padding: 10px 10px;
+    z-index: 99;
+    transition: 1s ease-in-out;
+}
+#accountName input{
+    width: 100%;
+    margin: 8px 0px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    padding: 3px 6px;
+    outline: none;
+}
+#accountName #nEeM{
+    text-align: justify;
+    width: 100%;
+    font-size: 12px;
+    font-family: monospace;
+    color: var(--gry-color);
+    margin: 2px 0px 8px 0px;
+}
+#accountName .btn-holder{
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+}
+#accountName .btn{
+    width: auto;
+    margin-right: 5px;
 }
 #badLinkHit{
     width: 100%;
@@ -1885,6 +1941,10 @@ ul{
     }
     #AccountPage .accountBox{
         width: 90%;
+    }
+    #accountName {
+        width: 90%;
+        margin: 0px 5%;
     }
 }
 @media only screen and (min-width: 900px) and (max-width: 1023px){
