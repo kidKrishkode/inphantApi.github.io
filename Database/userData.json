@@ -1,0 +1,18 @@
+[
+    {
+        "id": 0,
+        "name": "kidKrishkode",
+        "proffesion": "FullStack web devloper",
+        "post": 0,
+        "join": "21/02/24",
+        "package": "Premium"
+    },
+    {
+        "id": 1,
+        "name": "Krish",
+        "proffesion": "AI prompt Engineer",
+        "post": 1,
+        "join": "22/02/24",
+        "package": "Free"
+    }
+]
