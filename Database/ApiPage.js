@@ -18,8 +18,7 @@ const ApiPage = {
         </ol>
         <div class="search-not-found" id="searchDataDOD">
             <div class="error container">
-                <i class="fa fa-times-circle-o"></i>
-                <h4>Error 404!</h4>
+                <img src="./img/404.svg"/>
                 <h3>Search data not founded in records</h3>
                 <p>Your request has been failed because your searching string will not found in the 
                     provided records, try other keys, or check the string is right spealings.

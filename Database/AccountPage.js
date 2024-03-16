@@ -26,7 +26,7 @@ const AccountPage = {
                     </div>
                     <div class="form-group">
                         <lable for="user-ip">IP Address</lable>
-                        <input type="password" class="form-control" id="user-ip" placeholder="2404:1028.59.03.12:80" aria-describedby="ipHelp" readonly/>
+                        <input type="password" class="form-control" id="user-ip" placeholder="2***:****:****:****::****:***0" aria-describedby="ipHelp" readonly/>
                         <small id="ipHelp" class="form-text text-muted">This is test report of your device, system use only, react as one time password for your login.</small>
                     </div>
                     <div class="form-group">
