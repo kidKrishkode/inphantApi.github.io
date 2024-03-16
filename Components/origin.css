@@ -22,7 +22,7 @@ body{
 a{
     text-decoration: none;
 }
-#HomePage,#AboutPage,#ApiPage,#DocsPage,#HelpPage,#SearchPage,#AccountPage,#OpenApiPage{
+#HomePage,#AboutPage,#ApiPage,#DocsPage,#HelpPage,#SearchPage,#AccountPage,#OpenApiPage,#globalSearch{
     display: none;
     width: 100%;
 }
@@ -1483,6 +1483,11 @@ ul{
     font-family: sans-serif;
     color: var(--wtxt-color);
 }
+.search-not-found .error img{
+    width: 200px;
+    margin: 2px auto;
+    transition: 1s ease-in-out;
+}
 .search-not-found .error p{
     font-size: 14px;
     font-family: sans-serif;
@@ -1530,7 +1535,7 @@ ul{
     right: 0px;
     cursor: pointer;
 }
-#AccountPage .accountBox .info form input{
+#AccountPage .accountBox .info form input,#AccountPage .accountBox .info form input::placeholder{
     background: var(--bg-color);
     color: var(--gry-color);
     font-weight: bold;
@@ -1607,6 +1612,103 @@ ul{
 #badLinkHit .search-not-found{
     display: block;
     margin-top: 10%;
+}
+#globalSearch{
+    display: block;
+    width: 35%;
+    max-height: 600px;
+    position: absolute;
+    top: 10%;
+    right: 2%;
+    background: var(--product-color);
+    border-radius: 10px;
+    box-shadow: 0px 0px 6px 2px #000;
+    overflow: hidden;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    transition: 1s ease-in-out;
+}
+#globalSearch #userSearch{
+    width: 100%;
+    margin: 10px 0px;
+    border-bottom: 2px solid var(--wtxt-color);
+}
+#globalSearch #closeSearch{
+    color: var(--wtxt-color);
+    font-size: 20px;
+    font-weight: 800;
+    text-align: right;
+    margin-right: 4px;
+    cursor: pointer;
+}
+#globalSearch #userSearch ul{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 100%;
+    min-width: 100%;
+    padding: 2px;
+    overflow-x: scroll;
+}
+#globalSearch #userSearch ul li{
+    width: 200px;
+    max-width: 200px;
+    min-width: 200px;
+    margin: 10px 5px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 4px 1px #000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 4px 0px;
+}
+#globalSearch #userSearch ul li .user-left{
+    width: 20%;
+}
+#globalSearch #userSearch ul li .user-left span{
+    width: 35px;
+    height: 35px;
+    margin: auto;
+    border-radius: 50%;
+    background: gray;
+    padding-top: 6px;
+    text-align: center;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    color: var(--wtxt-color);
+}
+#globalSearch #userSearch ul li .user-right{
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+}
+#globalSearch #userSearch ul li .user-right .user-right-upper{
+    margin: 0px;
+    color: var(--wtxt-color);
+    font-weight: 600;
+    font-family: sans-serif;
+    font-size: 14px;
+}
+#globalSearch #userSearch ul li .user-right .user-right-lower{
+    margin: 0px;
+    color: var(--blink-color);
+    font-family: serif;
+    font-size: 12px;
+}
+#globalSearch #missSearch{
+    width: 100%;
+    display: none;
+}
+#globalSearch #missSearch img{
+    width: 200px;
+    margin: 80px calc((100% - 200px) / 2);
+    position: relative;
+    transition: 1s ease-in-out;
 }
 @media only screen and (max-width: 900px){
     #loading .head{
@@ -1945,6 +2047,13 @@ ul{
     #accountName {
         width: 90%;
         margin: 0px 5%;
+    }
+    #globalSearch {
+        width: 94%;
+        max-height: 450px;
+        position: absolute;
+        top: 25%;
+        right: 3%;
     }
 }
 @media only screen and (min-width: 900px) and (max-width: 1023px){
