@@ -516,8 +516,7 @@ try@{
         </ol>
         <div class="search-not-found" id="searchTextDOD">
             <div class="error container">
-                <i class="fa fa-times-circle-o"></i>
-                <h4>Error 404!</h4>
+                <img src="./img/404.svg" alt="404"/>
                 <h3>Search data not founded in records</h3>
                 <p>Your request has been failed because your searching string will not found in the provided records, try other keys, or
                     check the string is right spealings.
@@ -530,6 +529,44 @@ try@{
     <section id="OpenApiPage"></section>
     <section id="AccountPage"></section>
     <section id="blbg"></section>
+    <section id="globalSearch">
+        <div id="closeSearch" onclick="gloSearchOff();">&times;</div>
+        <div id="userSearch">
+            <ul>
+                <li class="user">
+                    <div class="user-left"><span>K</span></div>
+                    <div class="user-right">
+                        <div class="user-right-upper">kidKrishkode</div>
+                        <div class="user-right-lower">Owner | 21/02/24</div>
+                    </div>
+                </li>
+                <li class="user">
+                    <div class="user-left"><span>j</span></div>
+                    <div class="user-right">
+                        <div class="user-right-upper">Java</div>
+                        <div class="user-right-lower">Owner | 27/04/18</div>
+                    </div>
+                </li>
+                <li class="user">
+                    <div class="user-left"><span>P</span></div>
+                    <div class="user-right">
+                        <div class="user-right-upper">Python</div>
+                        <div class="user-right-lower">Owner | 27/04/18</div>
+                    </div>
+                </li>
+                <li class="user">
+                    <div class="user-left"><span>C</span></div>
+                    <div class="user-right">
+                        <div class="user-right-upper">Cpp</div>
+                        <div class="user-right-lower">Owner | 27/04/18</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="searchField" id="apiSearch"></div>
+        <div class="searchField" id="pageSearch"></div>
+        <div id="missSearch"><img src="./img/404.svg" alt="404"/></div>
+    </section>
     <footer>
         <div class="footer">
             <h2>INPHANT API</h2>
@@ -583,8 +620,7 @@ try@{
     <div id="badLinkHit">
         <div class="search-not-found">
             <div class="error container">
-                <i class="fa fa-times-circle-o"></i>
-                <h4>Error 400!</h4>
+                <img src="./img/400.svg" alt="400"/>
                 <h3>Search page not founded at event test</h3>
                 <p>Your request has been failed because your searching page will not found in the provided event test, try other page, or
                     check the test is happed perfectly.
@@ -606,4 +642,6 @@ try@{
 <script src="./Components/default.js"></script>
 <script src="./Components/compiler.js"></script>
 <script src="./Components/hex.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="./Components/ipify"></script>
 </html>
