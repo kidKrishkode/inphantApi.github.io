@@ -110,7 +110,13 @@ function searchbySelect(selectlist,type){
     }
 }
 function search(id){
-    console.log("Welome to global search");
+    if(document.getElementById(id).value!=''){
+        document.getElementById('globalSearch').style.display = "block";
+        apiProvider();
+        pageProvider();
+    }else{
+        gloSearchOff();
+    }
 }
 function ApiPageWithSearch(searchTopic){
     if(searchTopic=='All'){
@@ -506,4 +512,78 @@ function handleError(error){
         break;
     }
     },5000);
+}
+function userSearchProvider(){
+    jsonFilePath = './Database/userData.json';
+    fetch(jsonFilePath).then(response => {
+        if(!response.ok){
+            throw new Error('Net response not ok!');
+        }
+        return response.json();
+    }).then(temp => {
+        userPortfolio = temp;
+    }).catch(err => console.log("Error to fetching user data \n",err));
+}
+function userSearchSetStyle(){
+    if(userPortfolio!=undefined||userPortfolio!=''){
+        temp = '<ul>';
+        if(userPortfolio.length>0){
+            for(let i=0; i<userPortfolio.length; i++){
+                let id = Math.floor(Math.random()*userPortfolio.length);
+                let a = userPortfolio[i];
+                userPortfolio[i] = userPortfolio[id];
+                userPortfolio[id] = a;
+            }
+            for(let i=0; i<userPortfolio.length; i++){
+                temp += `
+                <li class="user user-port" onclick="openUserPort(${userPortfolio[i].id}); gloSearchOff();">
+                    <div class="user-left"><span>${(userPortfolio[i].name[0]).toUpperCase()}</span></div>
+                    <div class="user-right">
+                        <div class="user-right-upper">${userPortfolio[i].name}</div>
+                        <div class="user-right-lower">${userPortfolio[i].post==0?'Owner':'Volunteer'} | ${userPortfolio[i].join}</div>
+                    </div>
+                </li>`;
+            }
+        }
+        temp += '</ul>';
+        document.getElementById('userSearch').innerHTML = temp;
+    }else{
+        document.getElementById('userSearch').innerHTML = '';
+    }
+}
+function apiProvider(){
+    if(productLib.length>0){
+        productSwapper();
+        let data = '<ul>';
+        let card = productLib;
+        for(let i=0; i<card.length; i++){
+            data += `
+            <li class="api api-port" onclick="pageRout(7);currentProductIdentity('${card[i].id}'); gloSearchOff();">
+                <div class="api-upper">
+                    <div class="api-upper-left"><span style="background: ${randomDpColor()};">${(card[i].name[0]).toUpperCase()}</span></div>
+                    <div class="api-upper-right"><span>${card[i].name}</span></div>
+                </div>
+                <div class="api-middle">
+                    <p>${card[i].description}</p>
+                </div>
+                <div class="api-lower"><div><i class="fa fa-calendar"></i> ${card[i].modified}</div>|<div>${(card[i].cost==0?'Free of cost':'Premium Price')}</div></div>
+            </li>`;
+        }
+        data += '</ul><div class="load" onclick="pageRout(7);">Load More..</div>';
+        document.getElementById('apiSearch').innerHTML = data;
+    }
+}
+function pageProvider(){
+    if(pageList.length>0){
+        let data = '<ul>';
+        for(let i=0; i<pageList.length; i++){
+            data += `
+            <li class="page quicklink" onclick="pageRout(${i}); gloSearchOff();">
+                <i class="fa fa-globe"></i>
+                ${pageList[i].split('Page')[0]+' Page'}
+            </li>`;
+        }
+        data += '</ul>';
+        document.getElementById('pageSearch').innerHTML = data;
+    }
 }

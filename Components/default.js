@@ -207,7 +207,13 @@ function nextProgress(id){
             document.getElementById("loading").style.display = "none";
         },1000);
     }else{
-        console.warn("This rout have not identity!");
+        console.warn("This rout have not any identity!");
+    }
+    if((new URL(window.location['href'])).host!=''){
+        userSearchProvider();
+        setTimeout(()=>{
+            userSearchSetStyle();
+        },1000);
     }
 }
 function commentNameCheck(head,id){
@@ -459,4 +465,6 @@ function nameEditCheck(id){
 }
 function gloSearchOff(){
     document.getElementById('globalSearch').style.display = "none";
+    document.getElementById('S1').value = '';
+    document.getElementById('S2').value = '';
 }
