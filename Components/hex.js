@@ -114,8 +114,46 @@ function search(id){
         document.getElementById('globalSearch').style.display = "block";
         apiProvider();
         pageProvider();
+        let input = document.getElementById(id).value;
+        if(input.includes("--")||input.includes("://")){
+            // commandSearch(input);
+            console.log('Terminal open');
+        }else{
+            searchGlobal(input);
+        }
     }else{
         gloSearchOff();
+    }
+}
+function searchGlobal(input){
+    let a = sgItems(input,'userSearch','user-port');
+    let b = sgItems(input,'apiSearch','api-port');
+    let c = sgItems(input,'pageSearch','quicklink');
+    if(a+b+c < 1){
+        document.getElementById('missSearch').style.display = "block";
+    }else{
+        document.getElementById('missSearch').style.display = "none";
+    }
+}
+function sgItems(input,filed,data){
+    document.getElementById(filed).style.display="block";
+    let find=miss=0;
+    input=input.toLowerCase();
+    let x = document.getElementsByClassName(data);
+    for(i = 0; i<x.length; i++){
+        if(!x[i].innerHTML.toLowerCase().includes(input)){
+            x[i].style.display="none";
+            miss++;
+        }else{
+            x[i].style.display="list-item";
+            find++;
+        }
+    }
+    if(miss > find && find < 1){
+        document.getElementById(filed).style.display="none";
+        return 0;
+    }else{
+        return 1;
     }
 }
 function ApiPageWithSearch(searchTopic){
@@ -536,7 +574,7 @@ function userSearchSetStyle(){
             }
             for(let i=0; i<userPortfolio.length; i++){
                 temp += `
-                <li class="user user-port" onclick="openUserPort(${userPortfolio[i].id}); gloSearchOff();">
+                <li class="user user-port sg-item" onclick="openUserPort(${userPortfolio[i].id}); gloSearchOff();">
                     <div class="user-left"><span>${(userPortfolio[i].name[0]).toUpperCase()}</span></div>
                     <div class="user-right">
                         <div class="user-right-upper">${userPortfolio[i].name}</div>
@@ -558,7 +596,7 @@ function apiProvider(){
         let card = productLib;
         for(let i=0; i<card.length; i++){
             data += `
-            <li class="api api-port" onclick="pageRout(7);currentProductIdentity('${card[i].id}'); gloSearchOff();">
+            <li class="api api-port sg-item" onclick="pageRout(7);currentProductIdentity('${card[i].id}'); gloSearchOff();">
                 <div class="api-upper">
                     <div class="api-upper-left"><span style="background: ${randomDpColor()};">${(card[i].name[0]).toUpperCase()}</span></div>
                     <div class="api-upper-right"><span>${card[i].name}</span></div>
@@ -566,10 +604,11 @@ function apiProvider(){
                 <div class="api-middle">
                     <p>${card[i].description}</p>
                 </div>
-                <div class="api-lower"><div><i class="fa fa-calendar"></i> ${card[i].modified}</div>|<div>${(card[i].cost==0?'Free of cost':'Premium Price')}</div></div>
+                <div class="tags"> ${card[i].owner} , ${card[i].rating}/10 </div>
+                <div class="api-lower"><div><i class="fa fa-calendar"></i> ${card[i].modified}</div>|<div><i class="fa fa-dollar"></i> ${(card[i].cost==0?'Free of cost':'Premium Price')}</div></div>
             </li>`;
         }
-        data += '</ul><div class="load" onclick="pageRout(7);">Load More..</div>';
+        data += '</ul><div class="loadmore" onclick="pageRout(7);">Load More..</div>';
         document.getElementById('apiSearch').innerHTML = data;
     }
 }
@@ -578,7 +617,7 @@ function pageProvider(){
         let data = '<ul>';
         for(let i=0; i<pageList.length; i++){
             data += `
-            <li class="page quicklink" onclick="pageRout(${i}); gloSearchOff();">
+            <li class="page quicklink sg-item" onclick="pageRout(${i}); gloSearchOff();">
                 <i class="fa fa-globe"></i>
                 ${pageList[i].split('Page')[0]+' Page'}
             </li>`;

@@ -6,6 +6,7 @@ let apiVisited=2000;
 let docVisited=0;
 let helpVisited=0;
 let accountVisited=0;
+let globalVisit=0;
 /*
     UserId- Guest@{year}01{browser name}{version}{frequency}{location1}K%5r{location2}W{today}h{month}f
                     24            c         A22       f/m       22             08I        08     03
@@ -13,12 +14,6 @@ let accountVisited=0;
     test-   I{browser name}{version}{frequency}{vision}{internet}{user id}{location}{loacl time String}h
                     c         A22      f/m        D/M     0/1       0/1      08I       A7o99Ao94f274
             IcA22fM1108IA7o99Ao94f274
-
-    userIdMaker()--
-    numtocharConveter()--
-    chartoNumConveter()--
-    databaseManfester()
-    timeChecker()**
 */
 function menubar(){
     if(nav==0){
@@ -30,6 +25,7 @@ function menubar(){
         document.querySelector(".downMenu").style.display="none";
         document.querySelector(".menu-header").style.borderBottomLeftRadius = "20px";
         document.querySelector(".menu-header").style.borderBottomRightRadius = "20px";
+        gloSearchOff();
         nav=0;
     }
 }
@@ -214,6 +210,10 @@ function nextProgress(id){
         setTimeout(()=>{
             userSearchSetStyle();
         },1000);
+    }
+    if(globalVisit==0){
+        document.getElementById('globalSearch').innerHTML = GlobalSearch.htmlData;
+        globalVisit++;
     }
 }
 function commentNameCheck(head,id){

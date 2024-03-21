@@ -1763,6 +1763,9 @@ ul{
     max-height: 60px;
     overflow: hidden;
 }
+#globalSearch #apiSearch ul li .tags{
+    display: none;
+}
 #globalSearch #apiSearch ul li .api-lower div{
     font-size: 12px;
     font-weight: 800;
@@ -1770,15 +1773,17 @@ ul{
     text-transform: capitalize;
     color: var(--blink-color);
     width: 45%;
+    max-height: 18px;
+    overflow: hidden;
     margin: auto;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
 #globalSearch #apiSearch ul li .api-lower div i{
-    margin: auto;
+    margin: auto 0px;
 }
-#globalSearch #apiSearch .load{
+#globalSearch #apiSearch .loadmore{
     width: 100%;
     margin: 0px;
     text-align: center;
@@ -2154,7 +2159,7 @@ ul{
     }
     #globalSearch{
         width: 94%;
-        max-height: 800px;
+        max-height: 840px;
         position: absolute;
         top: 25%;
         right: 3%;
