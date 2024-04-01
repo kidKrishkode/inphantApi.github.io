@@ -11,7 +11,7 @@ let productLib = [
         modified: "22/02/24",
         tutorials: ['C:/Users/JYOTINMOY MITRA/Videos/website.mp4','https://facebook.com'],
         apiName: "LoremApi.js",
-        vanilla: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
+        vanilla: [`LoremApi.js`,`< !-- programe body -- >`,``,`let@ s|a|n = s"Hellow"n;\n`],
         react: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
         angular: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
         android: [`public@ static@ void@ main@{\n
@@ -35,7 +35,7 @@ let productLib = [
         modified: "23/02/24",
         tutorials: ['C:/Users/JYOTINMOY MITRA/Videos/website.mp4','https://facebook.com'],
         apiName: "LoremApi.js",
-        vanilla: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
+        vanilla: [`LoremApi.js`,`< !-- programe body -- >`,``,`let@ s|a|n = s"Hellow"n;\n`],
         react: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
         angular: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
         android: [`public@ static@ void@ main@{\n
@@ -59,7 +59,7 @@ let productLib = [
         modified: "21/02/24",
         tutorials: ['C:/Users/JYOTINMOY MITRA/Videos/website.mp4','https://facebook.com'],
         apiName: "LoremApi.js",
-        vanilla: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
+        vanilla: [`Currency conveter api`,`< !-- programe body -- >`,``,`let@ s|a|n = s"Hellow"n;\n`],
         react: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
         angular: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
         android: [`public@ static@ void@ main@{\n
@@ -83,7 +83,8 @@ let productLib = [
         modified: "22/02/2024",
         tutorials: ['https://youtube.com/','https://youtube.com/','https://youtube.com/','https://youtube.com/'],
         apiName: "animaleApi.js",
-        vanilla: [`< html@ > \n< /html@ > \n`,`let@ s|a|n = s"Hellow"n;\n`],
+        vanilla: [`Animale Pool api`,`< !-- programe body -- >`,``,
+        `let@ s|a|n = s"Hellow"n;\n`],
         react: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
         angular: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
         android: [

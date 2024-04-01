@@ -4,7 +4,7 @@ const HelpPage = {
         <h2>How can we help you?</h2>
         <div class="searchBar">
             <div class="searchText" title="Search APIs">
-                <input type="text" placeholder="Search APIs" id="searchText" onkeyup="search('searchText');">
+                <input type="search" placeholder="Search APIs" id="searchTexts" onkeyup="search('searchTexts');"/>
             </div>
             <div class="searchIcon">
                 <i class="fa fa-search"></i>

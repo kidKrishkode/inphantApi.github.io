@@ -58,7 +58,7 @@ const verifiPage = {
         </div>
         <div class="btnHolder">
             <button class="btn">Cancel</button>
-            <button class="btn btn-primary"onclick="mainPage();">Next</button>
+            <button class="btn btn-primary"onclick="verify();">Refresh</button>
         </div>
     `
 }
