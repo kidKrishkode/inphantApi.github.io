@@ -162,6 +162,8 @@ function nextProgress(id){
             ideDeploy('#plugInReactJs','#plugInReactJs-line');
             htmlCompiler('libExaAngHtml');
             ideDeploy('#libExaAngHtml','#libExaAngHtml-line');
+            htmlCompiler('plugExaAngHtml');
+            ideDeploy('#plugExaAngHtml','#plugExaAngHtml-line');
             docVisited++;
         }
     }else if(id==3){
@@ -337,8 +339,11 @@ function agentListUpdate(){
     document.getElementById('agentList').innerHTML=temp;
 }
 function codeSnippetsUpdate(){
-    document.getElementById('apiInSnipVanillaHtml').innerHTML=currentProduct.vanilla[0];
-    document.getElementById('useInSnipVanillaJs').innerHTML=currentProduct.vanilla[1];
+    let vBody = currentProduct.vanilla[1]==''?'< !-- programe body -- >':currentProduct.vanilla[1];
+    let vlib = currentProduct.vanilla[2]==''?stdlibsrc:currentProduct.vanilla[2];
+    document.getElementById('apiInSnipVanillaHtml').innerHTML=
+    (((vanillaHtmlContent.replaceAll('$|title|$',currentProduct.vanilla[0])).replaceAll('$|body|$',vBody).replaceAll('$|libplugin|$',vlib)).replaceAll('$|apiplugin|$',`&lt; script@ |src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/${currentProduct.apiName}" >< /script@ >`));
+    document.getElementById('useInSnipVanillaJs').innerHTML=currentProduct.vanilla[3];
     document.getElementById('apiInSnipReactHtml').innerHTML=currentProduct.react[0];
     document.getElementById('useInSnipReactJs').innerHTML=currentProduct.react[1];
     document.getElementById('apiInSnipAngularHtml').innerHTML=currentProduct.angular[0];

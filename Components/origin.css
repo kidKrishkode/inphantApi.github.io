@@ -1,6 +1,6 @@
 :root {
     --bg-color: #000000ec;
-    --nv-color: #222831;
+    --nv-color: #343a40;
     --wtxt-color: #fff;
     --blink-color: antiquewhite;
     --nvtxt-color: #cfd2d6;
@@ -1179,18 +1179,20 @@ ul{
 }
 #OpenApiPage .middleBody #middleEnd .littleAbout .littleAboutApi{
     width: auto;
-    max-width: 70%;
+    max-width: 75%;
     max-height: 22px;
+    text-overflow: ellipsis;
     overflow: hidden;
     padding: 2px 5px 2px 10px;
     word-wrap: break-word;
+    white-space: nowrap;
 }
 #OpenApiPage .middleBody #middleEnd .littleAbout .moreAboutApi{
     width: auto;
     color: blue;
     min-height: 30%;
     overflow: hidden;
-    padding: 2px;
+    padding: 2px 4px;
     cursor: pointer;
 }
 #OpenApiPage .middleBody #middleEnd .api-version{
@@ -1631,7 +1633,6 @@ ul{
 #globalSearch #userSearch,#globalSearch #apiSearch{
     width: 100%;
     margin: 10px 0px;
-    border-bottom: 2px solid var(--wtxt-color);
 }
 #globalSearch #closeSearch{
     color: var(--wtxt-color);
@@ -1731,11 +1732,12 @@ ul{
 #globalSearch #apiSearch ul li .api-upper .api-upper-left span{
     width: 20px;
     height: 20px;
+    margin: auto;
     border-radius: 50%;
     background: gray;
-    padding: 0px;
+    padding: 2px 0px;
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
     color: var(--wtxt-color);
 }
@@ -1797,6 +1799,7 @@ ul{
     display: flex;
     flex-wrap: wrap;
     padding: 5px 2px 4px 10px;
+    margin-bottom: 20px;
 }
 #globalSearch #pageSearch ul li{
     width: 30%;

@@ -306,7 +306,7 @@ function testPageRoute(link){
         link = './index.html'+url.search;
     }
     setTimeout(()=>{
-        window.location = link;
+        // window.location = link;
     },2000);
 }
 function linkChecker(m){

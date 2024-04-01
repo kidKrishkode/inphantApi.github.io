@@ -197,6 +197,7 @@
 }
 #rewView pre{
     color: var(--wtxt-color);
+    font-size: 14px;
 }
 @media only screen and (max-width: 900px){
 	.bg_red,.bg_grn,.bg_blu,.bg_gry{
