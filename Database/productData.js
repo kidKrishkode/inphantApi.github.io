@@ -96,5 +96,11 @@ let productLib = [
         reqParams: {'Operation':['add','sub','multi','divi'],'method':['get','pull']},
         optParams: {'Operand':['Operand1, Operand2, ..., Opernad{n}',"Operand should carry int value, range infinity to 0, n th value should possilble."],
         'arr':["[Operand1,...,Operand{n}]","List of operand carry in same range"]},
+    },
+    {
+        id: 4,
+        name: "Jungle Rush",
+        description: `About this api is not require yet to publish`,
+        reference: 2,
     }
 ];
