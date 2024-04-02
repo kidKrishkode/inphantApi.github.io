@@ -1,6 +1,18 @@
 function productCardMaker(id){
     if(id<=productLib.length&&id>=0){
-        let card = productLib[id];
+        let card = productLib[id].valueOf();
+        if(card.reference!=undefined&&card.reference>0){
+            temp = [card.id, card.name, card.description];
+            for(let i=0; i<productLib.length; i++){
+                if(card.reference == productLib[i].id){
+                    card = productLib[i].valueOf();
+                    i=productLib.length+2;
+                }
+            }
+            card.id = temp[0];
+            card.name = temp[1];
+            card.description = temp[2];
+        }
         let tuple = `
         <li class="drop" onclick=pageRout(7);currentProductIdentity('${card.id}');>
             <div class="product">
@@ -306,7 +318,7 @@ function testPageRoute(link){
         link = './index.html'+url.search;
     }
     setTimeout(()=>{
-        // window.location = link;
+        window.location = link;
     },2000);
 }
 function linkChecker(m){
@@ -319,7 +331,7 @@ function linkChecker(m){
         const url = new URL(currentHref);
         const params = url.searchParams;
         if(params.has('page')){
-            if(approximateTest(currentHref)){
+            if(approximateTest(currentHref)==true){
                 if(goToPage(params.get('page'))){
                     if(params.has('search')){
                         activeSearchBar(params.get('page'),params.get('search'));
@@ -352,7 +364,9 @@ function linkChecker(m){
                     testPageRoute('');
                 }
             }else{
-                testPageRoute(currentHref);
+                if(approximateTest(currentHref)==false){
+                    testPageRoute(currentHref);
+                }
             }
         }else{
             document.getElementById('root').innerHTML='';
@@ -598,7 +612,7 @@ function apiProvider(){
             data += `
             <li class="api api-port sg-item" onclick="pageRout(7);currentProductIdentity('${card[i].id}'); gloSearchOff();">
                 <div class="api-upper">
-                    <div class="api-upper-left"><span style="background: ${randomDpColor()};">${(card[i].name[0]).toUpperCase()}</span></div>
+                    <div class="api-upper-left"><span class="btn" style="background: ${randomDpColor()};">${(card[i].name[0]).toUpperCase()}</span></div>
                     <div class="api-upper-right"><span>${card[i].name}</span></div>
                 </div>
                 <div class="api-middle">
@@ -625,4 +639,7 @@ function pageProvider(){
         data += '</ul>';
         document.getElementById('pageSearch').innerHTML = data;
     }
+}
+function foo(){
+    testError(204,"Browser Version unlisted! please update");
 }

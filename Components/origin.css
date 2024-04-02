@@ -1822,6 +1822,28 @@ ul{
     position: relative;
     transition: 1s ease-in-out;
 }
+#errorModel{
+    display: none;
+    background: #00000097;
+    transition: 1s ease-in-out;
+}
+.fade:not(.show) {
+    opacity: 1;
+}
+#errorModel .modal-dialog{
+    position: relative;
+    width: auto;
+    margin: 30% auto;
+    pointer-events: none;
+    transition: transform .3s ease-out;
+}
+#errorModel .modal-title{
+    color: red;
+    font-family: Consolas, 'Courier New', monospace;
+}
+#errorModel .model-body{
+    text-align: justify;
+}
 @media only screen and (max-width: 900px){
     #loading .head{
         margin-top: 45%;
@@ -1874,7 +1896,7 @@ ul{
     }
     section .welbtn{
         width: 50%;
-        margin: auto calc((100% - 50%)/2.1);
+        margin: auto calc((100% - 100%)/2.1);
     }
     section div div button{
         font-size: 8px;
