@@ -1,30 +1,27 @@
 function productCardMaker(id){
     if(id<=productLib.length&&id>=0){
         let card = productLib[id].valueOf();
-        if(card.reference!=undefined&&card.reference>0){
-            temp = [card.id, card.name, card.description];
+        temp = [card.id, card.name, card.description];
+        if(card.reference!=undefined && card.reference>0){
             for(let i=0; i<productLib.length; i++){
-                if(card.reference == productLib[i].id){
+                if(card.reference==productLib[i].id){
                     card = productLib[i].valueOf();
-                    i=productLib.length+2;
+                    break;
                 }
             }
-            card.id = temp[0];
-            card.name = temp[1];
-            card.description = temp[2];
         }
         let tuple = `
-        <li class="drop" onclick=pageRout(7);currentProductIdentity('${card.id}');>
+        <li class="drop" onclick=pageRout(7);currentProductIdentity('${temp[0]}');>
             <div class="product">
                 <div class="product-component-top" style="background: url('${ramdomThumnail()}');background-repeat: no-repeat;background-size: cover;">
                     <div class="product-price">${card.cost==0?'Free':'Premium'}</div>
                 </div>
                 <div class="product-component-middle">
                     <div class="product-headline">
-                        <div class="product-dp"style="background: ${randomDpColor()};">${card.name[0]}</div>
-                        <div class="product-head">${card.name}</div>
+                        <div class="product-dp"style="background: ${randomDpColor()};">${temp[1][0]}</div>
+                        <div class="product-head">${temp[1]}</div>
                     </div>
-                    <div class="product-description">${card.description}</div>
+                    <div class="product-description">${temp[2]}</div>
                     <div class="product-owner">@${card.owner} - ${card.owner=='kidKrishkode'?'Owner':'Volunteer'}</div>
                 </div>
                 <div class="product-tags"></div>
@@ -72,8 +69,8 @@ function currentProductIdentity(id){
     for(let i=0; i<productLib.length; i++){
         if(productLib[i].id==id){
             currentProduct=productLib[i];
-            i=productLib.length+2;
             loc=1;
+            i=productLib.length+2;
         }
     }
     if(loc==0){
@@ -622,7 +619,7 @@ function apiProvider(){
                 <div class="api-lower"><div><i class="fa fa-calendar"></i> ${card[i].modified}</div>|<div><i class="fa fa-dollar"></i> ${(card[i].cost==0?'Free of cost':'Premium Price')}</div></div>
             </li>`;
         }
-        data += '</ul><div class="loadmore" onclick="pageRout(7);">Load More..</div>';
+        data += '</ul><div class="loadmore" onclick="pageRout(1);">Load More..</div>';
         document.getElementById('apiSearch').innerHTML = data;
     }
 }

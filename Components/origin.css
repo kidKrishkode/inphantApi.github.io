@@ -12,6 +12,7 @@
     --product-color: #343a40;
     --product-p-color: gray;
     --blbg-color: #00000077;
+    --demo: aqua;
 }
 body{
     background: var(--bg-color);
@@ -1702,7 +1703,7 @@ ul{
 }
 #globalSearch #apiSearch ul{
     width: 100%;
-    max-height: 300px;
+    max-height: 280px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -2194,6 +2195,7 @@ ul{
     }
     #globalSearch #apiSearch ul li{
         width: 90%;
+        min-height: 122px;
     }
     #globalSearch #pageSearch ul li{
         width: 50%;
