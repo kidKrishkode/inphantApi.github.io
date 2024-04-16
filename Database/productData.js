@@ -1,4 +1,4 @@
-let productLib = [
+const productLib = [
     {
         id: 0,
         name: "Math Magic",
@@ -52,7 +52,7 @@ let productLib = [
         name: "Currency Convter",
         description: `Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ullam, ducimus. Culpa soluta hic itaque debitis natus repudiandae inventore excepturi provident omnis quisquam qui nisi, temporibus porro alias corrupti iste fugit? Fuga nostrum`,
         owner: "kidKrishkode",
-        rating: 6,
+        rating: 6.2,
         cost: 0,
         latency: 391,
         service: 98,

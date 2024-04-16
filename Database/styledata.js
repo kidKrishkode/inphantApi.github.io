@@ -38,5 +38,5 @@ const colorLib = [
         ]
     }
 ];
-const dpColorLib = ['violet','orange','powderblue','pink','green','brown','blue'];
+const dpColorLib = ['violet','orange','#b0e0e6bb','#bb1bd49e','green','brown','blue','cyan','indigo'];
 const thumbnailRange = [1,7];
