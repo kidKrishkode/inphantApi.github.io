@@ -835,7 +835,7 @@ ul{
 #HelpPage .searchText input{
     padding: 5px 12px;
 }
-.flo{
+.flo,.flx{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -983,7 +983,7 @@ ul{
     color: var(--ngtxt-color);
     cursor: pointer;
 }
-#OpenApiPage{
+#OpenApiPage,#portfolioPage{
     width: 100%;
     padding: 20px auto;
     font-family: sans-serif;
@@ -1845,9 +1845,54 @@ ul{
 #errorModel .model-body{
     text-align: justify;
 }
+#portfolioPage{
+    width: 60%;
+    margin: 30px auto;
+    padding: 10px 5px;
+    font-family: sans-serif;
+}
+#portfolioPage .user-dp span{
+    width: 85px;
+    height: 85px;
+    background: green;
+    color: var(--wtxt-color);
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 50%;
+    margin: auto;
+    padding-top: calc((85px / 5));
+}
+#portfolioPage .user-name{
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--wtxt-color);
+}
+#portfolioPage .user-package{
+    font-size: 20px;
+    width: 5%;
+    padding: 4px;
+    color: blueviolet;
+    cursor: pointer;
+}
+#portfolioPage .user-info{
+    padding: 6px 0px;
+    width: 85%;
+}
+#portfolioPage .user-info .flo span{
+    width: 33%;
+    text-align: left;
+    font-size: 16px;
+}
+#portfolioPage .btn-group .btn{
+    width: 120px;
+    margin: 14px 8px;
+}
 @media only screen and (max-width: 900px){
     #loading .head{
         margin-top: 45%;
+    }
+    .flx{
+        flex-direction: column;
     }
     .logo{
         font-size: 16px;

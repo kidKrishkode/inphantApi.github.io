@@ -21,7 +21,7 @@ function productCardMaker(id){
                         <div class="product-dp"style="background: ${randomDpColor()};">${temp[1][0]}</div>
                         <div class="product-head">${temp[1]}</div>
                     </div>
-                    <div class="product-description">${temp[2]}</div>
+                    <div class="product-description">${temp[2]==''?card.description:temp[2]}</div>
                     <div class="product-owner">@${card.owner} - ${card.owner=='kidKrishkode'?'Owner':'Volunteer'}</div>
                 </div>
                 <div class="product-tags"></div>
@@ -604,19 +604,28 @@ function apiProvider(){
     if(productLib.length>0){
         productSwapper();
         let data = '<ul>';
-        let card = productLib;
-        for(let i=0; i<card.length; i++){
+        for(let i=0; i<productLib.length; i++){
+            let card = productLib[i].valueOf();
+            temp = [card.id, card.name, card.description];
+            if(card.reference!=undefined && card.reference>0){
+                for(let i=0; i<productLib.length; i++){
+                    if(card.reference==productLib[i].id){
+                        card = productLib[i].valueOf();
+                        break;
+                    }
+                }
+            }
             data += `
-            <li class="api api-port sg-item" onclick="pageRout(7);currentProductIdentity('${card[i].id}'); gloSearchOff();">
+            <li class="api api-port sg-item" onclick="pageRout(7);currentProductIdentity('${temp[0]}'); gloSearchOff();">
                 <div class="api-upper">
-                    <div class="api-upper-left"><span class="btn" style="background: ${randomDpColor()};">${(card[i].name[0]).toUpperCase()}</span></div>
-                    <div class="api-upper-right"><span>${card[i].name}</span></div>
+                    <div class="api-upper-left"><span class="btn" style="background: ${randomDpColor()};">${(temp[1][0]).toUpperCase()}</span></div>
+                    <div class="api-upper-right"><span>${temp[1]}</span></div>
                 </div>
                 <div class="api-middle">
-                    <p>${card[i].description}</p>
+                    <p>${temp[2]==''?card.description:temp[2]}</p>
                 </div>
-                <div class="tags"> ${card[i].owner} , ${card[i].rating}/10 </div>
-                <div class="api-lower"><div><i class="fa fa-calendar"></i> ${card[i].modified}</div>|<div><i class="fa fa-dollar"></i> ${(card[i].cost==0?'Free of cost':'Premium Price')}</div></div>
+                <div class="tags"> ${card.owner} , ${card.rating}/10 </div>
+                <div class="api-lower"><div><i class="fa fa-calendar"></i> ${card.modified}</div>|<div><i class="fa fa-dollar"></i> ${(card.cost==0?'Free of cost':'Premium Price')}</div></div>
             </li>`;
         }
         data += '</ul><div class="loadmore" onclick="pageRout(1);">Load More..</div>';

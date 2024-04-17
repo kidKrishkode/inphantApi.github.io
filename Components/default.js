@@ -1,12 +1,4 @@
-let nav = 0;
-let cls = 1;
-let SrcPg=-1;
-let homeVisited=0;
-let apiVisited=2000;
-let docVisited=0;
-let helpVisited=0;
-let accountVisited=0;
-let globalVisit=0;
+
 /*
     UserId- Guest@{year}01{browser name}{version}{frequency}{location1}K%5r{location2}W{today}h{month}f
                     24            c         A22       f/m       22             08I        08     03
@@ -15,6 +7,19 @@ let globalVisit=0;
                     c         A22      f/m        D/M     0/1       0/1      08I       A7o99Ao94f274
             IcA22fM1108IA7o99Ao94f274
 */
+function user(){
+    const body = document.getElementById("root");
+    console.clear();
+	setTimeout(() => {
+		document.getElementById("loading").style.display = "none";
+        linkChecker(0);
+        pageRout(8);
+	},2000);
+    document.getElementById("year").textContent = new Date().getFullYear();
+}
+function invalid(){
+	alert("This features is not open for this version.");
+}
 function menubar(){
     if(nav==0){
         document.querySelector(".downMenu").style.display="block";
@@ -28,18 +33,6 @@ function menubar(){
         gloSearchOff();
         nav=0;
     }
-}
-function user(){
-    const body = document.getElementById("root");
-    console.clear();
-	setTimeout(() => {
-		document.getElementById("loading").style.display = "none";
-        linkChecker(0);
-	},2000);
-    document.getElementById("year").textContent = new Date().getFullYear();
-}
-function invalid(){
-	alert("This features is not open for this version.");
 }
 function colorTogule(){
 	for(let j=0; j<colorLib[cls].collist.length; j++){
@@ -204,6 +197,17 @@ function nextProgress(id){
         setTimeout(()=>{
             document.getElementById("loading").style.display = "none";
         },1000);
+    }else if(id==8){
+        document.getElementById("loading").style.display = "block";
+        setTimeout(()=>{
+            document.getElementById("portfolioPage").innerHTML = PortfolioPage.htmlData;
+        },200);
+        setTimeout(()=>{
+            updatePotfolio();
+        },500);
+        setTimeout(()=>{
+            document.getElementById("loading").style.display = "none";
+        },1000);
     }else{
         console.warn("This rout have not any identity!");
     }
@@ -266,33 +270,48 @@ function updateProductView(){
         ideDeploy('#examInConsoleTerm','#examInConsoleTerm-line');
     },200);
 }
+function referenceIdentify(){
+    if(currentProduct.reference!=undefined && currentProduct.reference>0){
+        for(let i=0; i<productLib.length; i++){
+            if(currentProduct.reference==productLib[i].id){
+                referenceProduct = productLib[i].valueOf();
+                newProduct = referenceProduct;
+                break;
+            }
+        }
+    }else{
+        referenceProduct = null;
+        newProduct = currentProduct;
+    }
+}
 function dataSetonProduct(){
+    referenceIdentify();
     document.querySelector('.header-left-left-componet').innerHTML = `<span style="background: ${randomDpColor()};">${currentProduct.name[0]}</span>`;
     document.getElementById('header-api-name').innerText = currentProduct.name;
-    document.getElementById('header-api-cost').innerText = currentProduct.cost==0?'Free':'Premium';
-    document.getElementById('header-api-owner').innerText = "By "+currentProduct.owner;
-    document.getElementById('header-api-update').innerText = getUpdateStatus(reverseDate(currentProduct.modified));
+    document.getElementById('header-api-cost').innerText = newProduct.cost==0?'Free':'Premium';
+    document.getElementById('header-api-owner').innerText = "By "+newProduct.owner;
+    document.getElementById('header-api-update').innerText = getUpdateStatus(reverseDate(newProduct.modified));
     document.getElementById('header-api-resource').innerText = "Media";
-    document.getElementById('header-api-rating').innerText = currentProduct.rating+"/10";
-    document.getElementById('header-api-latency').innerText = currentProduct.latency+"ms";
-    document.getElementById('header-api-service').innerText = currentProduct.service+'%';
-    document.getElementById('header-api-modification').innerText = currentProduct.modified;
-    document.getElementById('littleAboutApi').innerText = currentProduct.description;
-    document.getElementById('api-dualVision-identifier').value = currentProduct.apiName;
+    document.getElementById('header-api-rating').innerText = newProduct.rating+"/10";
+    document.getElementById('header-api-latency').innerText = newProduct.latency+"ms";
+    document.getElementById('header-api-service').innerText = newProduct.service+'%';
+    document.getElementById('header-api-modification').innerText = newProduct.modified;
+    document.getElementById('littleAboutApi').innerText = currentProduct.description==''?newProduct.description:currentProduct.description;
+    document.getElementById('api-dualVision-identifier').value = newProduct.apiName;
     reqParamUpdate();
     optParamUpdate();
     agentListUpdate();
     codeSnippetsUpdate();
-    document.getElementById('middleAbout').innerHTML = "<p>"+currentProduct.description+"</p>";
+    document.getElementById('middleAbout').innerHTML = "<p>"+(currentProduct.description==''?newProduct.description:currentProduct.description)+"</p>";
     if(new URL(window.location['href']).hostname!=''){
-        document.getElementById('littleytvideo').src=currentProduct.tutorials[0];
-        if(currentProduct.tutorials.length!=0){
+        document.getElementById('littleytvideo').src=newProduct.tutorials[0];
+        if(newProduct.tutorials.length!=0){
             document.querySelector(".mainVideo").style.display="block";
-            document.querySelector(".mainVideo").innerHTML=`<iframe src="${currentProduct.tutorials[0]}" alt="loading.."></iframe>`;
-            if(currentProduct.tutorials.length-1!=0&&currentProduct.tutorials.length-1<4){
-                for(let i=1; i<currentProduct.tutorials.length; i++){
+            document.querySelector(".mainVideo").innerHTML=`<iframe src="${newProduct.tutorials[0]}" alt="loading.."></iframe>`;
+            if(newProduct.tutorials.length-1!=0&&newProduct.tutorials.length-1<4){
+                for(let i=1; i<newProduct.tutorials.length; i++){
                     document.querySelector(`.svideo${i}`).style.display="block";
-                    document.querySelector(`.svideo${i}`).innerHTML=`<iframe src="${currentProduct.tutorials[i]}" alt="loading.." onclick="videoSwap(${i});" autoplay="false" controls="false"></iframe>`;
+                    document.querySelector(`.svideo${i}`).innerHTML=`<iframe src="${newProduct.tutorials[i]}" alt="loading.." onclick="videoSwap(${i});" autoplay="false" controls="false"></iframe>`;
                 }
             }
         }
@@ -301,11 +320,11 @@ function dataSetonProduct(){
 function reqParamUpdate(){
     document.getElementById('reqParams').innerHTML="";
     temp ="";
-    for(let key in currentProduct.reqParams){
+    for(let key in newProduct.reqParams){
         temp += `<div class="form-group">
         <label for="api-dualVision-info">${key}</label><ul>`;
-        for(let i=0; i<currentProduct.reqParams[key].length; i++){
-            temp+= `<li><input type="link" class="form-control" value="${currentProduct.reqParams[key][i]}"readonly="true"/></li>`;
+        for(let i=0; i<newProduct.reqParams[key].length; i++){
+            temp+= `<li><input type="link" class="form-control" value="${newProduct.reqParams[key][i]}"readonly="true"/></li>`;
         }
         temp+=`</ul></div>`;
     }
@@ -314,12 +333,12 @@ function reqParamUpdate(){
 function optParamUpdate(){
     document.getElementById('optParams').innerHTML="";
     temp ="";
-    for(let key in currentProduct.optParams){
+    for(let key in newProduct.optParams){
         temp += `<div class="form-group">
         <label for="api-dualVision-info">${key}</label><ul>
             <li>
-                <input type="link" class="form-control" value="${currentProduct.optParams[key][0]}"readonly="true"/>
-                <small class="form-text text-muted">${currentProduct.optParams[key][1]}</small>
+                <input type="link" class="form-control" value="${newProduct.optParams[key][0]}"readonly="true"/>
+                <small class="form-text text-muted">${newProduct.optParams[key][1]}</small>
             </li>
         </ul></div>`;
     }
@@ -329,27 +348,27 @@ function agentListUpdate(){
     document.getElementById('agentList').innerHTML="";
     temp =`<div class="form-group">
     <label for="api-dualVision-info">Agents Identity</label><ul>`;
-    for(let i=0; i<currentProduct.listOfAgents.length; i++){
+    for(let i=0; i<newProduct.listOfAgents.length; i++){
         temp += `
             <li>
-                <input type="link" class="form-control" value="${currentProduct.listOfAgents[i]}(...)"readonly="true"/>
+                <input type="link" class="form-control" value="${newProduct.listOfAgents[i]}(...)"readonly="true"/>
             </li>`;
     }
     temp += "</ul></div>";
     document.getElementById('agentList').innerHTML=temp;
 }
 function codeSnippetsUpdate(){
-    let vBody = currentProduct.vanilla[1]==''?'< !-- programe body -- >':currentProduct.vanilla[1];
-    let vlib = currentProduct.vanilla[2]==''?stdlibsrc:currentProduct.vanilla[2];
+    let vBody = newProduct.vanilla[1]==''?'< !-- programe body -- >':newProduct.vanilla[1];
+    let vlib = newProduct.vanilla[2]==''?stdlibsrc:newProduct.vanilla[2];
     document.getElementById('apiInSnipVanillaHtml').innerHTML=
-    (((vanillaHtmlContent.replaceAll('$|title|$',currentProduct.vanilla[0])).replaceAll('$|body|$',vBody).replaceAll('$|libplugin|$',vlib)).replaceAll('$|apiplugin|$',`&lt; script@ |src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/${currentProduct.apiName}" >< /script@ >`));
-    document.getElementById('useInSnipVanillaJs').innerHTML=currentProduct.vanilla[3];
-    document.getElementById('apiInSnipReactHtml').innerHTML=currentProduct.react[0];
-    document.getElementById('useInSnipReactJs').innerHTML=currentProduct.react[1];
-    document.getElementById('apiInSnipAngularHtml').innerHTML=currentProduct.angular[0];
-    document.getElementById('useInSnipAngularJs').innerHTML=currentProduct.angular[1];
-    document.getElementById('useInSnipAndroidJava').innerHTML=currentProduct.android[0];
-    document.getElementById('examInConsoleTerm').innerHTML=currentProduct.console[0].replaceAll('<|time|>',(new Date).getTime());
+    (((vanillaHtmlContent.replaceAll('$|title|$',newProduct.vanilla[0])).replaceAll('$|body|$',vBody).replaceAll('$|libplugin|$',vlib)).replaceAll('$|apiplugin|$',`&lt; script@ |src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/${newProduct.apiName}" >< /script@ >`));
+    document.getElementById('useInSnipVanillaJs').innerHTML=newProduct.vanilla[3];
+    document.getElementById('apiInSnipReactHtml').innerHTML=newProduct.react[0];
+    document.getElementById('useInSnipReactJs').innerHTML=newProduct.react[1];
+    document.getElementById('apiInSnipAngularHtml').innerHTML=newProduct.angular[0];
+    document.getElementById('useInSnipAngularJs').innerHTML=newProduct.angular[1];
+    document.getElementById('useInSnipAndroidJava').innerHTML=newProduct.android[0];
+    document.getElementById('examInConsoleTerm').innerHTML=newProduct.console[0].replaceAll('<|time|>',(new Date).getTime());
 }
 function videoSwap(id){
     temp = document.querySelector(".mainVideo").innerHTML;
@@ -472,4 +491,29 @@ function gloSearchOff(){
     document.getElementById('globalSearch').style.display = "none";
     document.getElementById('S1').value = '';
     document.getElementById('S2').value = '';
+}
+function updatePotfolio(){
+    openUserPort(0);
+}
+function openUserPort(id){
+    userSearchProvider();
+    let currentPortfolio;
+    if(userPortfolio!=undefined||userPortfolio!=''){
+        for(let i=0; i<userPortfolio.length; i++){
+            if(id==userPortfolio[i].id){
+                currentPortfolio = userPortfolio[i];
+                break;
+            }
+        }
+        document.querySelector(".user-dp").innerHTML = `<span class="btn" style="background: ${randomDpColor()};">${(currentPortfolio.name[0]).toUpperCase()}</span>`;
+        document.querySelector(".user-name").innerText = currentPortfolio.name;
+        document.querySelector(".user-package").innerHTML = currentPortfolio.package=='Premium'?"<i class='fa fa-check-square-o' style='color: #0c8ff0;'></i>":"<i class='fa fa-certificate' style='color: gray;'></i>";
+        document.querySelector(".user-profession").innerText = currentPortfolio.proffesion;
+        document.querySelector(".user-join").innerText = currentPortfolio.join;
+        document.querySelector(".user-post").innerText = currentPortfolio.post==0?"Woner":"Volunteer";
+    }else{
+        if(new URL(window.location['href']).hostname!=''){
+            testError(404,"User not found!");
+        }
+    }
 }
