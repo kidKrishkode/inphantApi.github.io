@@ -100,7 +100,7 @@ const productLib = [
     {
         id: 4,
         name: "Jungle Rush",
-        description: `About this api is not require yet to publish`,
-        reference: 2,
+        description: ``,
+        reference: 3,
     }
 ];

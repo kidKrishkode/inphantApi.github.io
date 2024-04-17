@@ -1,8 +1,19 @@
+let nav = 0;
+let cls = 1;
+let SrcPg=-1;
+let homeVisited=0;
+let apiVisited=2000;
+let docVisited=0;
+let helpVisited=0;
+let accountVisited=0;
+let globalVisit=0;
+let referenceProduct;
+let newProduct;
 let set2 = ["All","Free Api","Premium Api","Data support Api","Fast Api","Voluntiar's Api","Others"];
 let currentProduct=0;
 let pageList = ["HomePage","ApiPage","DocsPage","AboutPage","HelpPage"];
 let aboutList = ["abtn0","abtn1","abtn2"];
-let additionalList = ["SearchPage","AccountPage","OpenApiPage"];
+let additionalList = ["SearchPage","AccountPage","OpenApiPage","portfolioPage"];
 let jsonFilePath, userPortfolio;
 let stdlibsrc = `&lt; script@ |src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/inphantSTDlib.min.js"n >< /script@ >`;
 let vanillaHtmlContent = 
