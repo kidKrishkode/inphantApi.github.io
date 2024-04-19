@@ -14,9 +14,13 @@ const PortfolioPage = {
             </div>
         </div>
     </div>
-    <div class="btn-group">
+    <div class="btn-group" id="port-contacts">
         <div class="btn btn-primary"><i class="fa fa-envelope"></i> Contact</div>
         <div class="btn btn-secondary"><i class="fa fa-ban"></i> Report</div>
     </div>
+    <hr>
+    <ul class="portfolio-product-list">
+
+    </ul>
     `,
 };

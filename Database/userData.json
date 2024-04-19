@@ -4,6 +4,7 @@
         "name": "kidKrishkode",
         "proffesion": "FullStack web developer",
         "post": 0,
+        "email": "krishnendumitra24@gmail.com",
         "join": "21/02/24",
         "package": "Premium"
     },
@@ -12,30 +13,34 @@
         "name": "Krish",
         "proffesion": "AI prompt Engineer",
         "post": 1,
+        "email": "abcd@gmail.com",
         "join": "22/02/24",
         "package": "Free"
     },
     {
-        "id": 3,
+        "id": 2,
         "name": "Harry",
         "proffesion": "Youtuber",
         "post": 1,
+        "email": "harry@gmail.com",
         "join": "20/03/24",
         "package": "Free"
     },
     {
-        "id": 4,
+        "id": 3,
         "name": "Debashmita",
         "proffesion": "Lover of krish",
         "post": 0,
+        "email": "debosmita93mitra@gmail.com",
         "join": "22/02/24",
         "package": "Premium"
     },
     {
-        "id": 5,
+        "id": 4,
         "name": "Codex",
         "proffesion": "Someone",
         "post": 1,
+        "email": "google@yahoo.in",
         "join": "13/07/25",
         "package": "Free"
     }
