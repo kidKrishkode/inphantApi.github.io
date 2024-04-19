@@ -11,7 +11,7 @@ function productCardMaker(id){
             }
         }
         let tuple = `
-        <li class="drop" onclick=pageRout(7);currentProductIdentity('${temp[0]}');>
+        <li class="drop" onclick="pageRout(7);currentProductIdentity('${temp[0]}');">
             <div class="product">
                 <div class="product-component-top" style="background: url('${ramdomThumnail()}');background-repeat: no-repeat;background-size: cover;">
                     <div class="product-price">${card.cost==0?'Free':'Premium'}</div>

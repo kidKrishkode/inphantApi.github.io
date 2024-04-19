@@ -13,7 +13,7 @@ function user(){
 	setTimeout(() => {
 		document.getElementById("loading").style.display = "none";
         linkChecker(0);
-        pageRout(8);
+        // pageRout(8);
 	},2000);
     document.getElementById("year").textContent = new Date().getFullYear();
 }
@@ -289,7 +289,7 @@ function dataSetonProduct(){
     document.querySelector('.header-left-left-componet').innerHTML = `<span style="background: ${randomDpColor()};">${currentProduct.name[0]}</span>`;
     document.getElementById('header-api-name').innerText = currentProduct.name;
     document.getElementById('header-api-cost').innerText = newProduct.cost==0?'Free':'Premium';
-    document.getElementById('header-api-owner').innerText = "By "+newProduct.owner;
+    document.getElementById('header-api-owner').innerHTML = `<span onclick="openPortByName('${newProduct.owner}');">By `+newProduct.owner+"</span>";
     document.getElementById('header-api-update').innerText = getUpdateStatus(reverseDate(newProduct.modified));
     document.getElementById('header-api-resource').innerText = "Media";
     document.getElementById('header-api-rating').innerText = newProduct.rating+"/10";
@@ -505,12 +505,71 @@ function openUserPort(id){
                 break;
             }
         }
-        document.querySelector(".user-dp").innerHTML = `<span class="btn" style="background: ${randomDpColor()};">${(currentPortfolio.name[0]).toUpperCase()}</span>`;
+        if(currentPortfolio.name=='kidKrishkode'){
+            document.querySelector(".user-dp").innerHTML = `<img src="./fav-icon/icon-m-o-c.png" alt="loading.."/>`;
+        }else{
+            document.querySelector(".user-dp").innerHTML = `<span class="btn" style="background: ${randomDpColor()};">${(currentPortfolio.name[0]).toUpperCase()}</span>`;
+        }
         document.querySelector(".user-name").innerText = currentPortfolio.name;
         document.querySelector(".user-package").innerHTML = currentPortfolio.package=='Premium'?"<i class='fa fa-check-square-o' style='color: #0c8ff0;'></i>":"<i class='fa fa-certificate' style='color: gray;'></i>";
         document.querySelector(".user-profession").innerText = currentPortfolio.proffesion;
         document.querySelector(".user-join").innerText = currentPortfolio.join;
-        document.querySelector(".user-post").innerText = currentPortfolio.post==0?"Woner":"Volunteer";
+        document.querySelector(".user-post").innerText = currentPortfolio.post==0?"Owner":"Volunteer";
+        portfoliProductListMaker(currentPortfolio.id,currentPortfolio.name);
+        document.getElementById("port-contacts").innerHTML = `
+            <div class="btn btn-primary" onclick="portfolioMail('${currentPortfolio.email}');"><i class="fa fa-envelope"></i> Contact</div>
+            <div class="btn btn-secondary" onclick="portfolioReport('${currentPortfolio.email}');"><i class="fa fa-ban"></i> Report</div>
+        `;
+    }else{
+        if(new URL(window.location['href']).hostname!=''){
+            testError(404,"User not found!");
+        }
+    }
+}
+function portfoliProductListMaker(id,name){
+    temp = '';
+    for(let i=0; i<productLib.length; i++){
+        if(productLib[i].owner==id || productLib[i].owner==name){
+            temp += `
+            <li class="api api-port" onclick="pageRout(7);currentProductIdentity('${productLib[i].id}');">
+                <div class="api-thumbnail" style="background: url('${ramdomThumnail()}');background-repeat: no-repeat;background-size: cover;"></div>
+                <div class="api-upper">${productLib[i].name}</div>
+                <div class="api-middle"><p>${productLib[i].description}</p></div>
+                <div class="api-lower flw"><div>${productLib[i].modified}</div>|<div>Get It..</div></div>
+            </li>
+            `;
+        }
+    }
+    if(temp==''||temp==undefined){
+        document.querySelector(".portfolio-product-list").innerHTML = "&times; No Contribution Found Yet!";
+    }else{
+        document.querySelector(".portfolio-product-list").innerHTML = temp;
+    }
+}
+function portfolioMail(reciver){
+    window.location = `mailto:${reciver}?&Subject=Query form visitor in Inphant API.&body=`;
+}
+function portfolioReport(reciver){
+    if(reciver!='krishnendumitra24@gmail.com'){
+        window.location = `mailto:${reciver},krishnendumitra24@gmail.com?&Subject=Report form visitor in Inphant API.&body=`;
+    }else{
+        window.location = `mailto:krishnendumitra24@gmail.com?&Subject=Report form visitor in Inphant API.&body=`;
+    }
+}
+function openPortByName(name){
+    try{
+        userSearchProvider();
+    }catch(e){
+        alert("Previous process going to faild, Try again!");
+    }
+    if(userPortfolio!=undefined||userPortfolio!=''){
+        for(let i=0; i<userPortfolio.length; i++){
+            if(name==userPortfolio[i].name){
+                pageRout(8);
+                openUserPort(userPortfolio[i].id);
+                break;
+            }
+        }
     }else{
         if(new URL(window.location['href']).hostname!=''){
             testError(404,"User not found!");

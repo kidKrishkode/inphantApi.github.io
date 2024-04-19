@@ -1742,7 +1742,7 @@ ul{
     font-weight: bold;
     color: var(--wtxt-color);
 }
-#globalSearch #apiSearch ul li .api-upper .api-upper-right{
+#globalSearch #apiSearch ul li .api-upper .api-upper-right,#portfolioPage .portfolio-product-list .api-port .api-upper{
     width: 80%;
     font-size: 14px;
     font-weight: bold;
@@ -1751,11 +1751,11 @@ ul{
     max-height: 22px;
     overflow: hidden;
 }
-#globalSearch #apiSearch ul li .api-middle,#globalSearch #apiSearch ul li .api-lower{
+#globalSearch #apiSearch ul li .api-middle,#globalSearch #apiSearch ul li .api-lower,#portfolioPage .portfolio-product-list .api-port .api-middle{
     width: 100%;
     padding: 2px;
 }
-#globalSearch #apiSearch ul li .api-middle p{
+#globalSearch #apiSearch ul li .api-middle p,#portfolioPage .portfolio-product-list .api-port .api-middle p{
     font-size: 12px;
     text-align: justify;
     color: var(--gry-color);
@@ -1769,7 +1769,7 @@ ul{
 #globalSearch #apiSearch ul li .tags{
     display: none;
 }
-#globalSearch #apiSearch ul li .api-lower div{
+#globalSearch #apiSearch ul li .api-lower div,#portfolioPage .portfolio-product-list .api-port .api-lower div{
     font-size: 12px;
     font-weight: 800;
     font-family: Consolas, 'Courier New', monospace;
@@ -1862,6 +1862,13 @@ ul{
     margin: auto;
     padding-top: calc((85px / 5));
 }
+#portfolioPage .user-dp img{
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    margin: auto;
+    position: relative;
+}
 #portfolioPage .user-name{
     font-size: 24px;
     font-weight: bold;
@@ -1886,6 +1893,41 @@ ul{
 #portfolioPage .btn-group .btn{
     width: 120px;
     margin: 14px 8px;
+}
+#portfolioPage hr{
+    border: 1px solid grey;
+    border-radius: 10px;
+}
+#portfolioPage .portfolio-product-list{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0px;
+}
+#portfolioPage .portfolio-product-list .api-port{
+    background: var(--product-color);
+    width: 30%;
+    border-radius: 10px;
+    margin: 10px 0px;
+    cursor: pointer;
+}
+#portfolioPage .portfolio-product-list .api-port .api-upper,#portfolioPage .portfolio-product-list .api-port .api-middle,#portfolioPage .portfolio-product-list .api-port .api-lower{
+    padding: 4px 8px;
+}
+#portfolioPage .portfolio-product-list .api-port .api-middle{
+    height: 60px;
+}
+#portfolioPage .portfolio-product-list .api-port .api-thumbnail{
+    width: 100%;
+    border-radius: 10px;
+    height: 80px;
+    background-image: url('../img/Api-thumbnail001.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 4px;
 }
 @media only screen and (max-width: 900px){
     #loading .head{
@@ -2221,7 +2263,7 @@ ul{
         background: var(--gry-color);
         overflow: hidden;
     }
-    #AccountPage .accountBox{
+    #AccountPage .accountBox,#portfolioPage .user-info .flo span{
         width: 90%;
     }
     #accountName{
@@ -2244,6 +2286,25 @@ ul{
     }
     #globalSearch #pageSearch ul li{
         width: 50%;
+    }
+    #portfolioPage{
+        width: 90%;
+        padding: 0%;
+    }
+    #portfolioPage .user-info .flo{
+        flex-direction: column;
+    }
+    #portfolioPage .portfolio-product-list .api-port{
+        width: 48%;
+    }
+    #portfolioPage .user-dp{
+        margin-right: 10px;
+    }
+    #portfolioPage .flx{
+        flex-direction: row;
+    }
+    #portfolioPage .user-name {
+        width: 90%;
     }
 }
 @media only screen and (min-width: 900px) and (max-width: 1023px){
