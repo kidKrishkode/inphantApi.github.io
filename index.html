@@ -143,19 +143,46 @@ body #verifiWindow .security{
 </style>
 <body onload="user();">
     <section id="verifiWindow"></section>
+    <section id="testWindow">
+        <header>
+            <nav class="navbar navbar-light">
+                <a class="navbar-brand" href="./index.html?page=HomePage&test=null&env=false">
+                   <img src="./fav-icon/icon-l-o-c.png" class="d-inline-block align-top" alt="logo">
+                    <!-- <span class="logo">Inphant Api</span>width="30" height="30" -->
+                </a>
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            </nav>
+        </header>
+        <div class="api-dualVision-left-head">
+            <div>GET</div>
+            <span class="btn btn-primary" onclick="window.open('./main.html?page=DocsPage&amp;test=ok&amp;search=Why Library File Inclusion is Required');"><i class="fa fa-code"></i> Libary Plugins</span>
+        </div>
+        <div class="api-dualVision">
+            <div class="api-dualVision-left">
+                <div class="api-dualVision-left-head">
+                    <div>Execute Pannel</div>
+                    <span class="btn btn-secondary"><i class="fa fa-recycle"></i> Re-set</span>
+                </div>
+                <div class="api-dualVision-left-body"></div>
+            </div>
+            <div class="api-dualVision-right">
+                <div class="api-dualVision-left-head">
+                    <div>Code Snippets</div>
+                    <span class="btn btn-primary"><i class="fa fa-gear"></i> SAVE & RUN</span>
+                </div>
+                <div class="api-dualVision-left-body"></div>
+            </div>
+        </div>
+    </section>
 </body>
-<script>
-function user(){
-    verify();
-}
-function mainPage(){
-    window.location = './main.html';
-}
-</script>
 <script src="./Database/asset.js"></script>
+<script src="./Database/productData.js"></script>
 <script src="./Database/VerifiPage.js"></script>
 <script src="./Components/security.min.js"></script>
 <script src="./Components/auth.min.js"></script>
+<script src="./Components/script.hex.js"></script>
 
 <script src="./APIs/inphantSTDlib.min.js"></script>
 <script src="./APIs/erudaApi.js"></script>
