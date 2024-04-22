@@ -203,9 +203,6 @@ function nextProgress(id){
             document.getElementById("portfolioPage").innerHTML = PortfolioPage.htmlData;
         },200);
         setTimeout(()=>{
-            updatePotfolio();
-        },500);
-        setTimeout(()=>{
             document.getElementById("loading").style.display = "none";
         },1000);
     }else{
@@ -289,7 +286,7 @@ function dataSetonProduct(){
     document.querySelector('.header-left-left-componet').innerHTML = `<span style="background: ${randomDpColor()};">${currentProduct.name[0]}</span>`;
     document.getElementById('header-api-name').innerText = currentProduct.name;
     document.getElementById('header-api-cost').innerText = newProduct.cost==0?'Free':'Premium';
-    document.getElementById('header-api-owner').innerHTML = `<span onclick="openPortByName('${newProduct.owner}');">By `+newProduct.owner+"</span>";
+    document.getElementById('header-api-owner').innerHTML = `<span onclick="openPortByName('${newProduct.owner}');" style="cursor: pointer;">By `+newProduct.owner+"</span>";
     document.getElementById('header-api-update').innerText = getUpdateStatus(reverseDate(newProduct.modified));
     document.getElementById('header-api-resource').innerText = "Media";
     document.getElementById('header-api-rating').innerText = newProduct.rating+"/10";
@@ -396,10 +393,12 @@ function deactiveShare(){
 }
 function currentLinkUpdate(id){
     if(id=='OpenApiPage'){
-        document.getElementById('customFile').textContent = `${window.location['origin']}${window.location['pathname']}?page=ApiPage&test=ok&pid=${currentProduct.id}&search=All`;
+        document.getElementById('api-link-name').textContent = `${currentProduct.name}`;
+        document.getElementById('customFile').textContent = `${window.location['origin']}${window.location['pathname']}?page=ApiPage&test=ok&pid=${currentProduct.id}&env=false`;
     }
     if(id=='ApiPage'){
-        document.getElementById('customFile').textContent = `${window.location['origin']}${window.location['pathname']}?page=ApiPage&test=ok&search=${document.getElementById('searchData').value||'All'}`;
+        document.getElementById('api-link-name').textContent = `Search:= ${document.getElementById('searchData').value||'All'}`;
+        document.getElementById('customFile').textContent = `${window.location['origin']}${window.location['pathname']}?page=ApiPage&test=ok&search=${(document.getElementById('searchData').value||'All').replaceAll(" ","%20")}`;
     }
 }
 function dualvisionPageRout(id,page){
@@ -429,7 +428,8 @@ function commentMe(){
     rate = "";
 }
 function apiTest(){
-    alert("Test inviroment not present now, \nuse the plugin in our system.");
+    // alert("Test inviroment not present now, \nuse the plugin in your system.");
+    window.location = './index.html?'+(`${new URL(window.location['href'])}`).split('?')[1];
 }
 function codeLangUpdate(name){
     try{
@@ -492,39 +492,48 @@ function gloSearchOff(){
     document.getElementById('S1').value = '';
     document.getElementById('S2').value = '';
 }
-function updatePotfolio(){
-    openUserPort(0);
+function updatePotfolio(id){
+    try{
+        openUserPort(id);
+    }catch(e){
+        alert("Error to found user");
+    }
 }
 function openUserPort(id){
     userSearchProvider();
-    let currentPortfolio;
-    if(userPortfolio!=undefined||userPortfolio!=''){
-        for(let i=0; i<userPortfolio.length; i++){
-            if(id==userPortfolio[i].id){
-                currentPortfolio = userPortfolio[i];
-                break;
+    let currentPortfolio='';
+    setTimeout(()=>{
+        if(userPortfolio!=undefined||userPortfolio!=''){
+            for(let i=0; i<userPortfolio.length; i++){
+                if(id==userPortfolio[i].id){
+                    currentPortfolio = userPortfolio[i];
+                    break;
+                }
+            }
+            if(currentPortfolio==''){
+                wrongUser();
+            }
+            if(currentPortfolio.name=='kidKrishkode'){
+                document.querySelector(".user-dp").innerHTML = `<img src="./fav-icon/icon-m-o-c.png" alt="loading.."/>`;
+            }else{
+                document.querySelector(".user-dp").innerHTML = `<span class="btn" style="background: ${randomDpColor()};">${(currentPortfolio.name[0]).toUpperCase()}</span>`;
+            }
+            document.querySelector(".user-name").innerText = currentPortfolio.name;
+            document.querySelector(".user-package").innerHTML = currentPortfolio.package=='Premium'?"<i class='fa fa-check-square-o' style='color: #0c8ff0;'></i>":"<i class='fa fa-certificate' style='color: gray;'></i>";
+            document.querySelector(".user-profession").innerText = currentPortfolio.proffesion;
+            document.querySelector(".user-join").innerText = currentPortfolio.join;
+            document.querySelector(".user-post").innerText = currentPortfolio.post==0?"Owner":"Volunteer";
+            portfoliProductListMaker(currentPortfolio.id,currentPortfolio.name);
+            document.getElementById("port-contacts").innerHTML = `
+                <div class="btn btn-primary" onclick="portfolioMail('${currentPortfolio.email}');"><i class="fa fa-envelope"></i> Contact</div>
+                <div class="btn btn-secondary" onclick="portfolioReport('${currentPortfolio.email}');"><i class="fa fa-ban"></i> Report</div>
+            `;
+        }else{
+            if(new URL(window.location['href']).hostname!=''){
+                testError(404,"User not found!");
             }
         }
-        if(currentPortfolio.name=='kidKrishkode'){
-            document.querySelector(".user-dp").innerHTML = `<img src="./fav-icon/icon-m-o-c.png" alt="loading.."/>`;
-        }else{
-            document.querySelector(".user-dp").innerHTML = `<span class="btn" style="background: ${randomDpColor()};">${(currentPortfolio.name[0]).toUpperCase()}</span>`;
-        }
-        document.querySelector(".user-name").innerText = currentPortfolio.name;
-        document.querySelector(".user-package").innerHTML = currentPortfolio.package=='Premium'?"<i class='fa fa-check-square-o' style='color: #0c8ff0;'></i>":"<i class='fa fa-certificate' style='color: gray;'></i>";
-        document.querySelector(".user-profession").innerText = currentPortfolio.proffesion;
-        document.querySelector(".user-join").innerText = currentPortfolio.join;
-        document.querySelector(".user-post").innerText = currentPortfolio.post==0?"Owner":"Volunteer";
-        portfoliProductListMaker(currentPortfolio.id,currentPortfolio.name);
-        document.getElementById("port-contacts").innerHTML = `
-            <div class="btn btn-primary" onclick="portfolioMail('${currentPortfolio.email}');"><i class="fa fa-envelope"></i> Contact</div>
-            <div class="btn btn-secondary" onclick="portfolioReport('${currentPortfolio.email}');"><i class="fa fa-ban"></i> Report</div>
-        `;
-    }else{
-        if(new URL(window.location['href']).hostname!=''){
-            testError(404,"User not found!");
-        }
-    }
+    },1000);
 }
 function portfoliProductListMaker(id,name){
     temp = '';
@@ -572,7 +581,10 @@ function openPortByName(name){
         }
     }else{
         if(new URL(window.location['href']).hostname!=''){
-            testError(404,"User not found!");
+            wrongUser();
         }
     }
+}
+function wrongUser(){
+    testError(404, "User not found");
 }

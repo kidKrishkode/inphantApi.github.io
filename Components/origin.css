@@ -1217,27 +1217,27 @@ ul{
     cursor: pointer;
     transition: 1s ease-in-out;
 }
-#OpenApiPage .middleBody .api-dualVision{
+#OpenApiPage .middleBody .api-dualVision,#testWindow .api-dualVision{
     width: 100%;
     display: flex;
     flex-direction: row;
     transition: 1s ease-in-out;
 }
-#OpenApiPage .middleBody .api-dualVision .api-dualVision-left{
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-left,#testWindow .api-dualVision .api-dualVision-left{
     width: 50%;
     border-right: 2px solid var(--gry-color);
 }
-#OpenApiPage .middleBody .api-dualVision .api-dualVision-right{
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-right,#testWindow .api-dualVision .api-dualVision-right{
     width: 50%;
 }
-#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-head{
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-head,#testWindow .api-dualVision-left-head{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     padding: 8px;
     background: var(--product-color);
 }
-#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-head div{
+#OpenApiPage .middleBody .api-dualVision .api-dualVision-left .api-dualVision-left-head div,#testWindow .api-dualVision-left-head div{
     color: green;
     font-weight: bold;
     padding: 4px 0px;
@@ -1660,12 +1660,14 @@ ul{
     margin: 10px 5px;
     border-radius: 10px;
     box-shadow: 0px 0px 4px 1px #000;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
     padding: 4px 0px;
     transition: 1s ease-in-out;
     cursor: pointer;
+}
+#globalSearch #userSearch ul li .user-flx{
+    display: flex!important;
+    flex-direction: row;
+    justify-content: space-around;
 }
 #globalSearch #userSearch ul li .user-left{
     width: 20%;
@@ -1929,6 +1931,29 @@ ul{
     background-position: center;
     margin-bottom: 4px;
 }
+#testWindow{
+    display: none;
+}
+#testWindow header{
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+}
+#testWindow header .navbar{
+    width: 100%;
+}
+#testWindow header .navbar a img{
+    width: 120px;
+    height: 50px;
+    position: absolute;
+    top: 0px;
+    left: 20px
+}
+#testWindow .api-dualVision-left-head{
+    border-top: 1px solid gray;
+}
+#testWindow .api-dualVision .api-dualVision-left-head div{
+    color: var(--wtxt-color);
+}
 @media only screen and (max-width: 900px){
     #loading .head{
         margin-top: 45%;
@@ -2188,12 +2213,12 @@ ul{
     .link-area .card-body .flo{
         width: 80%;
     }
-    #OpenApiPage .middleBody .api-dualVision{
+    #OpenApiPage .middleBody .api-dualVision,#testWindow .api-dualVision{
         width: 100%;
         display: flex;
         flex-direction: column-reverse;
     }
-    #OpenApiPage .middleBody .api-dualVision .api-dualVision-left,#OpenApiPage .middleBody .api-dualVision .api-dualVision-right{
+    #OpenApiPage .middleBody .api-dualVision .api-dualVision-left,#OpenApiPage .middleBody .api-dualVision .api-dualVision-right,#testWindow .api-dualVision .api-dualVision-left,#testWindow .api-dualVision .api-dualVision-right{
         width: 100%;
         border: none;
     }
