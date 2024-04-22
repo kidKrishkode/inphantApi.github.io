@@ -351,6 +351,12 @@ function linkChecker(m){
                             alert("Sorry, your product not identify.\nEigther it is not present or deleted or link will corapted!");
                         }
                     }
+                    if(params.has('uid')){
+                        pageRout(8);
+                        setTimeout(()=>{
+                            updatePotfolio(params.get('uid'));
+                        },500);
+                    }
                     if(params.has('color')){
                         if(params.get('color')=='light'){
                             colorTogule();
@@ -585,12 +591,14 @@ function userSearchSetStyle(){
             }
             for(let i=0; i<userPortfolio.length; i++){
                 temp += `
-                <li class="user user-port sg-item" onclick="openUserPort(${userPortfolio[i].id}); gloSearchOff();">
-                    <div class="user-left"><span>${(userPortfolio[i].name[0]).toUpperCase()}</span></div>
-                    <div class="user-right">
-                        <div class="user-right-upper">${userPortfolio[i].name}</div>
-                        <div class="user-right-lower">${userPortfolio[i].post==0?'Owner':'Volunteer'} | ${userPortfolio[i].join}</div>
-                    </div>
+                <li class="user user-port sg-item" onclick="pageRout(8); updatePotfolio(${userPortfolio[i].id}); gloSearchOff();">
+                    <span class="user-flx">
+                        <div class="user-left"><span>${(userPortfolio[i].name[0]).toUpperCase()}</span></div>
+                        <div class="user-right">
+                            <div class="user-right-upper">${userPortfolio[i].name}</div>
+                            <div class="user-right-lower">${userPortfolio[i].post==0?'Owner':'Volunteer'} | ${userPortfolio[i].join}</div>
+                        </div>
+                    </span>
                 </li>`;
             }
         }
