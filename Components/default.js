@@ -429,7 +429,9 @@ function commentMe(){
 }
 function apiTest(){
     // alert("Test inviroment not present now, \nuse the plugin in your system.");
-    window.location = './index.html?'+(`${new URL(window.location['href'])}`).split('?')[1];
+    let params = (new URL(window.location['href'])).searchParams;
+    window.location = `./index.html?page=${pageList[1]}&test=${params.get('test')}&pid=${currentProduct.id}&env=true`;
+    // window.location = './index.html?'+(`${new URL(window.location['href'])}`).split('?')[1];
 }
 function codeLangUpdate(name){
     try{

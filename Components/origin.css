@@ -1953,6 +1953,48 @@ ul{
 }
 #testWindow .api-dualVision .api-dualVision-left-head div{
     color: var(--wtxt-color);
+    cursor: pointer;
+}
+#testWindow .api-dualVision .api-dualVision-left-body .api-dualVision-left-pannel{
+    margin: 20px 0px;
+    /* height: 600px; */
+    /* max-height: 600px;
+    overflow-y: auto; */
+    padding-bottom: 20px;
+}
+#testWindow .api-dualVision .api-dualVision-left-body .api-dualVision-left-pannel i{
+    width: 10%;
+    margin: auto 0px;
+}
+#testWindow .api-dualVision .api-dualVision-left-body .api-dualVision-left-pannel .rout-link{
+    color: blue;
+    width: 20%;
+    cursor: pointer;
+    overflow-x: auto;
+}
+#testWindow .api-dualVision .api-dualVision-left-body .api-dualVision-left-pannel .mess{
+    width: 70%;
+    padding-right: 4px;
+    max-width: 70%;
+    overflow-x: auto;
+}
+#testWindow .api-dualVision #execute-body{
+    margin: 0%;
+    padding: 0%;
+}
+#testWindow .api-dualVision #execute-body #exectionOutput{
+    width: 100%;
+    height: 100vh;
+    border: none;
+    margin: 0px;
+    padding: 0px;
+    overflow: auto;
+}
+#testWindow .api-dualVision .api-dualVision-left-body .api-dualVision-left-pannel .code-editor{
+    max-height: 100%;
+}
+#testWindow .api-dualVision .api-dualVision-left-body .api-dualVision-left-pannel .code-editor pre{
+    outline: none;
 }
 @media only screen and (max-width: 900px){
     #loading .head{

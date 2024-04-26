@@ -46,6 +46,36 @@
     border-top: 1px solid #e4e4e4;
     border-bottom: 1px solid #e4e4e4;
 }
+.bg_log{
+    display: inherit;
+    background: #1a2026d0;
+    padding: 0px 4px;
+    display: flex;
+    flex-direction: row;
+    color: var(--wtxt-color);
+    border-radius: 5px;
+    margin-bottom: 4px;
+}
+.bg_warn{
+    display: inherit;
+    background: #fffbe5;
+    padding: 0px 4px;
+    color: #7d7c2f;
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    margin-bottom: 4px;
+}
+.bg_error{
+    display: inherit;
+    background: #fff0f0;
+    padding: 0px 4px;
+    display: flex;
+    flex-direction: row;
+    color: #ff0e0e;
+    border-radius: 5px;
+    margin-bottom: 4px;
+}
 .codeheader_html{
     background-color: #0074D9;
 }
