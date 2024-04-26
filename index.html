@@ -1,18 +1,18 @@
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="theme-color" content="#ffffff">
-    <meta name="description" content="Welcome to inphantApi, a powerful and free API system provided by kidKrishkode for public use, Our API system is completely free and designed to be accessible to everyone, with no need for any monetary transactions.">
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="theme-color" content="#ffffff"/>
+    <meta name="description" content="Welcome to inphantApi, a powerful and free API system provided by kidKrishkode for public use, Our API system is completely free and designed to be accessible to everyone, with no need for any monetary transactions."/>
     <meta name="author" contant="Krishnendu Mitra">
-    <meta name="keywords" content="kidKrishkode, inphantApi, inphant api, github, api, krishnendu mitra, rest api, free, bookmylib, elephant api, Inphant" lang="en-us">
-    <meta name="og:image" property="og:image" content="./fav-icon/logo-l-c-o.png">
+    <meta name="keywords" content="kidKrishkode, inphantApi, inphant api, github, api, krishnendu mitra, rest api, free, bookmylib, elephant api, Inphant" lang="en-us"/>
+    <meta name="og:image" property="og:image" content="./fav-icon/logo-l-c-o.png"/>
     <title version="1.0">Inphant Api</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="icon" href="./fav-icon/icon-o-c.png">
-    <link rel="stylesheet" href="./Components/origin.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+    <link rel="icon" href="./fav-icon/icon-o-c.png"/>
+    <link rel="stylesheet" href="./Components/origin.css"/>
+    <link rel="stylesheet" href="./Components/compiler.css"/>
 </head>
 <style>
 body{
@@ -162,17 +162,63 @@ body #verifiWindow .security{
         <div class="api-dualVision">
             <div class="api-dualVision-left">
                 <div class="api-dualVision-left-head">
-                    <div>Execute Pannel</div>
+                    <div id="execute-head" onclick="changePanel('execute','console');">Execute Pannel</div>
+                    <div id="console-head" onclick="changePanel('console','execute');">Console Pannel</div>
                     <span class="btn btn-secondary"><i class="fa fa-recycle"></i> Re-set</span>
                 </div>
-                <div class="api-dualVision-left-body"></div>
+                <div class="api-dualVision-left-body">
+                    <div class="api-dualVision-left-pannel" id="console-body">
+                        <div class="code-editor">
+                            <ul class="tabs codeheader_terMinal">
+                                <li class="tab" title="File name with extension">Console Pannel</li>
+                                <li class="tabi"><span onclick="Copy('consoleOutput');" title="Copy this code">&#128203;</span>
+                                <span title="Feedback of this code"onclick="codeFeed();">&#x1F44D;</span><span onclick="downloadCode('consoleOutput','console.txt');" title="Download it in text file">&#x1F4E5;</span></li>
+                            </ul>
+                            <div class="code-wrapper">
+                                <div class="line-numbers" id="consoleOutput-line"></div>
+                                <pre class="code language-Js" contenteditable="false" spellcheck="false" id="consoleOutput">
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="api-dualVision-left-pannel" id="execute-body">
+                        <iframe src="" alt="compling..." id="exectionOutput"></iframe>
+                    </div>
+                </div>
             </div>
             <div class="api-dualVision-right">
                 <div class="api-dualVision-left-head">
                     <div>Code Snippets</div>
-                    <span class="btn btn-primary"><i class="fa fa-gear"></i> SAVE & RUN</span>
+                    <span class="btn btn-primary" onclick="runCode();"><i class="fa fa-gears"></i> SAVE & RUN</span>
                 </div>
-                <div class="api-dualVision-left-body"></div>
+                <div class="api-dualVision-left-body">
+                    <div class="api-dualVision-left-pannel">
+                        <div class="code-editor">
+                            <ul class="tabs codeheader_html">
+                                <li class="tab" title="File name with extension">index.html</li>
+                                <li class="tabi"><span onclick="Copy('codeInput');" title="Copy this code">&#128203;</span><span onclick="editmode('codeInput')" title="Edit the code in Note Pade" class="word">Edit</span>
+                                <span title="Feedback of this code"onclick="codeFeed();">&#x1F44D;</span><span onclick="downloadCode('codeInput','index.html');" title="Download it in text file">&#x1F4E5;</span></li>
+                            </ul>
+                            <div class="code-wrapper">
+                                <div class="line-numbers" id="codeInput-line"></div>
+                                <pre class="code language-html" contenteditable="false" spellcheck="false" id="codeInput" onkeydown="ideDeploy('#codeInput','#codeInput-line');">&#128221;
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="code-editor">
+                            <ul class="tabs codeheader_Js">
+                                <li class="tab" title="File name with extension">main.js</li>
+                                <li class="tabi"><span onclick="Copy('codeInputJs');" title="Copy this code">&#128203;</span><span onclick="editmode('codeInputJs')" title="Edit the code in Note Pade" class="word">Edit</span>
+                                <span title="Feedback of this code"onclick="codeFeed();">&#x1F44D;</span><span onclick="downloadCode('codeInputJs','main.js');" title="Download it in text file">&#x1F4E5;</span></li>
+                            </ul>
+                            <div class="code-wrapper">
+                                <div class="line-numbers" id="codeInputJs-line"></div>
+                                <pre class="code language-Js" contenteditable="false" spellcheck="false" id="codeInputJs">
+                                </pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -182,6 +228,7 @@ body #verifiWindow .security{
 <script src="./Database/VerifiPage.js"></script>
 <script src="./Components/security.min.js"></script>
 <script src="./Components/auth.min.js"></script>
+<script src="./Components/compiler.js"></script>
 <script src="./Components/script.hex.js"></script>
 
 <script src="./APIs/inphantSTDlib.min.js"></script>
