@@ -84,7 +84,11 @@ const productLib = [
         tutorials: ['https://youtube.com/','https://youtube.com/','https://youtube.com/','https://youtube.com/'],
         apiName: "animaleApi.js",
         vanilla: [`Animale Pool api`,`< !-- programe body -- >`,``,
-        `let@ s|a|n = s"Hellow"n;\n`],
+        `\tlet@ s|op1|n = 5, s|op2|n = 2;
+        let@ s|requestUrl|n = s#|https:/|/kidKrishkode.github.io/inphantApi.github.io/APIs/erudaApi.js?operation=add&operand1=$ {op1}$&operand2=$ {op2}$|#n;
+        let@ s|response|n = f|mathCalc|f(s|requestUrl|n);
+        console@|.log(s|response|n);
+        document@|.body|.innerHTML += s' result: 'n+s|response|n.s|result|n;\n`],
         react: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
         angular: [`< html@ > \n< /html@ >\n`,`let@ s|a|n = s"Hellow"n;\n`],
         android: [
