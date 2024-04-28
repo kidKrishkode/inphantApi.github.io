@@ -164,7 +164,7 @@ body #verifiWindow .security{
                 <div class="api-dualVision-left-head">
                     <div id="execute-head" onclick="changePanel('execute','console');">Execute Pannel</div>
                     <div id="console-head" onclick="changePanel('console','execute');">Console Pannel</div>
-                    <span class="btn btn-secondary"><i class="fa fa-recycle"></i> Re-set</span>
+                    <span class="btn btn-secondary" onclick="resetLab();"><i class="fa fa-recycle"></i> Re-set</span>
                 </div>
                 <div class="api-dualVision-left-body">
                     <div class="api-dualVision-left-pannel" id="console-body">
@@ -189,7 +189,10 @@ body #verifiWindow .security{
             <div class="api-dualVision-right">
                 <div class="api-dualVision-left-head">
                     <div>Code Snippets</div>
-                    <span class="btn btn-primary" onclick="runCode();"><i class="fa fa-gears"></i> SAVE & RUN</span>
+                    <span>
+                        <span class="btn btn-danger" onclick="runCancel();"><i class="fa fa-stop"></i> Run Cancel</span>
+                        <span class="btn btn-primary" onclick="runCode();"><i class="fa fa-gears"></i> SAVE & RUN</span>
+                    </span>
                 </div>
                 <div class="api-dualVision-left-body">
                     <div class="api-dualVision-left-pannel">
