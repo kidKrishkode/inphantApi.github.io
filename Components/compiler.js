@@ -147,6 +147,7 @@ function jsCompiler(fieldName){
     frog = frog.replaceAll(`document@`, `<span class='red'>document</span>`);
     frog = frog.replaceAll(`&amp;&amp;`, `<span class='red'>&&</span>`);
     frog = frog.replaceAll(`||`, `<span class='red'>||</span>`);
+    frog = frog.replaceAll("$ {", '${');
     frog = frog.replaceAll("${", `<span class='red'>$</span>{<span class="sky">`);
     frog = frog.replaceAll("}$", `</span>}`);
     frog = frog.replaceAll(`s#|`, `<span class='gld'>&#96;`);
@@ -167,6 +168,7 @@ function jsCompiler(fieldName){
     frog = frog.replaceAll(`|.src`, `.<span class='sky'>src</span>`);
     frog = frog.replaceAll(`|.herf`, `.<span class='sky'>herf</span>`);
     frog = frog.replaceAll(`|.log`, `.<span class='gry'>log</span>`);
+    frog = frog.replaceAll(`|.body`, `.<span class='gry'>body</span>`);
     frog = frog.replaceAll(`|.location`, `.<span class='gry'>location</span>`);
     frog = frog.replaceAll(`|.requestAnimationFrame`, `.<span class='gry'>requestAnimationFrame</span>`);
     frog = frog.replaceAll(`|.requestIdleCallback`, `.<span class='gry'>requestIdleCallback</span>`);

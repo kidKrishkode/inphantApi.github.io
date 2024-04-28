@@ -131,12 +131,19 @@ function ideDeploy(code,line){
     lineNumbers = document.querySelector(line);
     codeElement.addEventListener("input", updateLineNumbers);
     updateLineNumbers();
+    codeStyleRecover(codeElement);
 }
 function updateLineNumbers(){
     const code = codeElement.innerText;
     const lines = code.split("\n");
     const lineCount = lines.length;
     lineNumbers.innerHTML = Array.from({ length: lineCount-1 }, (_, i) => i + 1).join("<br>");
+}
+function codeStyleRecover(codeElement){
+    codeElement.style.fontSize = "87.5%";
+    codeElement.style.fontFamily = "monospace";
+    codeElement.style.lineHeight = "1.6";
+    codeElement.style.color = "#fff";
 }
 function changePanel(id1,id2){
     document.getElementById(id1+'-head').style.boxShadow = "0px 6px 4px -6px #fff";
@@ -146,7 +153,7 @@ function changePanel(id1,id2){
 }
 function runCode(){
     let iframe = document.getElementById("exectionOutput");
-    let htmlcode = ((document.getElementById("codeInput").textContent).replace('<script src="./main.js"></script>',`<script>\n${document.getElementById('codeInputJs').innerText}</script>`)).replace("</head>",`</head><style>body{background: #fff;color: #0c8ff9;padding: 20px;font-family: sans-serif;}p{color: green;}</style>`);;
+    let htmlcode = ((document.getElementById("codeInput").textContent).replace('<script src="./main.js"></script>',`<script>\n${document.getElementById('codeInputJs').innerText}</script>`)).replace("</head>",`</head><style>body{background: #fff;color: #0c8ff9;padding: 20px;font-family: sans-serif;}p{color: green;}</style>`);
     let iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
     iframeDoc.open();
     iframeDoc.write(htmlcode);
@@ -170,4 +177,20 @@ function editmode(id){
     }else{
         alert("Already Edit mode is onn!");
     }
+}
+function runCancel(){
+    let iframe = document.getElementById("exectionOutput");
+    let htmlcode = " ";
+    let iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
+    iframeDoc.open();
+    iframeDoc.write(htmlcode);
+    iframeDoc.close();
+    console.clear();
+}
+function resetLab(){
+    document.getElementById('consoleOutput').innerHTML='';
+    document.getElementById('codeInput').contentEditable = "false";
+    document.getElementById('codeInputJs').contentEditable = "false";
+    console.clear();
+    testInviromentDeploy();
 }
