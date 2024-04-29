@@ -157,14 +157,14 @@ body #verifiWindow .security{
         </header>
         <div class="api-dualVision-left-head">
             <div>GET</div>
-            <span class="btn btn-primary" onclick="window.open('./main.html?page=DocsPage&amp;test=ok&amp;search=Why Library File Inclusion is Required');"><i class="fa fa-code"></i> Libary Plugins</span>
+            <span class="btn btn-primary" onclick="window.open('./main.html?page=DocsPage&amp;test=ok&amp;search=Why Library File Inclusion is Required');"><i class="fa fa-code"></i> <span class="btn-content">Libary Plugins</span></span>
         </div>
         <div class="api-dualVision">
             <div class="api-dualVision-left">
                 <div class="api-dualVision-left-head">
                     <div id="execute-head" onclick="changePanel('execute','console');">Execute Pannel</div>
                     <div id="console-head" onclick="changePanel('console','execute');">Console Pannel</div>
-                    <span class="btn btn-secondary" onclick="resetLab();"><i class="fa fa-recycle"></i> Re-set</span>
+                    <span class="btn btn-secondary" onclick="resetLab();"><i class="fa fa-recycle"></i> <span class="btn-content">Re-set</span></span>
                 </div>
                 <div class="api-dualVision-left-body">
                     <div class="api-dualVision-left-pannel" id="console-body">
@@ -190,8 +190,8 @@ body #verifiWindow .security{
                 <div class="api-dualVision-left-head">
                     <div>Code Snippets</div>
                     <span>
-                        <span class="btn btn-danger" onclick="runCancel();"><i class="fa fa-stop"></i> Run Cancel</span>
-                        <span class="btn btn-primary" onclick="runCode();"><i class="fa fa-gears"></i> SAVE & RUN</span>
+                        <span class="btn btn-danger" onclick="runCancel();"><i class="fa fa-stop"></i> <span class="btn-content">Run Cancel</span></span>
+                        <span class="btn btn-primary" onclick="runCode();"><i class="fa fa-play"></i> <span class="btn-content">SAVE & RUN</span></span>
                     </span>
                 </div>
                 <div class="api-dualVision-left-body">
@@ -204,7 +204,7 @@ body #verifiWindow .security{
                             </ul>
                             <div class="code-wrapper">
                                 <div class="line-numbers" id="codeInput-line"></div>
-                                <pre class="code language-html" contenteditable="false" spellcheck="false" id="codeInput" onkeydown="ideDeploy('#codeInput','#codeInput-line');">&#128221;
+                                <pre class="code language-html" contenteditable="false" spellcheck="false" id="codeInput" onkeyup="ideDeploy('#codeInput','#codeInput-line');completeTags();">&#128221;
                                 </pre>
                             </div>
                         </div>
@@ -234,10 +234,10 @@ body #verifiWindow .security{
 <script src="./Components/compiler.js"></script>
 <script src="./Components/script.hex.js"></script>
 
-<script src="./APIs/inphantSTDlib.min.js"></script>
+<!-- <script src="./APIs/inphantSTDlib.min.js"></script>
 <script src="./APIs/erudaApi.js"></script>
 <script src="./APIs/animaleApi.js"></script>
-<script src="./APIs/speakApi.js"></script>
+<script src="./APIs/speakApi.js"></script> -->
 <!-- <script src="D:\.vscode\Vs programmes\inphantApi\APIs\erudaApi.js"></script> -->
 <!-- <script src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/inphantSTDlib.min.js"></script>
 <script src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/erudaApi.js"></script>
