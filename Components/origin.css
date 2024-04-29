@@ -2373,6 +2373,12 @@ ul{
     #portfolioPage .user-name {
         width: 90%;
     }
+    .btn-content{
+        display: none;
+    }
+    #testWindow .api-dualVision #execute-body #exectionOutput{
+        height: 400px;
+    }
 }
 @media only screen and (min-width: 900px) and (max-width: 1023px){
     #desktopVision{

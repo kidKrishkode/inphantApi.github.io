@@ -108,7 +108,7 @@ function copyCode(id){
     document.body.appendChild(tempTextarea);
     tempTextarea.select();
     tempTextarea.setSelectionRange(0, 99999);
-    document.exeCommand("copy");
+    // document.exeCommand("copy");
     document.body.removeChild(tempTextarea);
     alert("Code has been copied to the clipboard!");
 }
@@ -136,7 +136,7 @@ function ideDeploy(code,line){
 function updateLineNumbers(){
     const code = codeElement.innerText;
     const lines = code.split("\n");
-    const lineCount = lines.length;
+    const lineCount = lines.length+1;
     lineNumbers.innerHTML = Array.from({ length: lineCount-1 }, (_, i) => i + 1).join("<br>");
 }
 function codeStyleRecover(codeElement){
@@ -152,14 +152,16 @@ function changePanel(id1,id2){
     document.getElementById(id2+'-body').style.display = "none";
 }
 function runCode(){
-    let iframe = document.getElementById("exectionOutput");
     let htmlcode = ((document.getElementById("codeInput").textContent).replace('<script src="./main.js"></script>',`<script>\n${document.getElementById('codeInputJs').innerText}</script>`)).replace("</head>",`</head><style>body{background: #fff;color: #0c8ff9;padding: 20px;font-family: sans-serif;}p{color: green;}</style>`);
+    resetIframeContent();
+    let iframe = document.getElementById("exectionOutput");
     let iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
     iframeDoc.open();
     iframeDoc.write(htmlcode);
     iframeDoc.close();
     ideDeploy('#codeInput','#codeInput-line');
     ideDeploy('#codeInputJs','#codeInputJs-line');
+    document.getElementById("codeInputJs").innerHTML = (document.getElementById("codeInputJs").innerHTML).replaceAll('        ','');
 }
 function productCodeLoad(){
     let newProduct = productLib[(new URL(window.location['href']).searchParams).get('pid')];
@@ -193,4 +195,77 @@ function resetLab(){
     document.getElementById('codeInputJs').contentEditable = "false";
     console.clear();
     testInviromentDeploy();
+}
+function resetIframeContent(){
+    var iframe = document.getElementById('exectionOutput');
+    if(iframe){
+        iframe.src = 'about:blank';
+    }
+    console.clear();
+}
+// document.getElementById('codeInput').addEventListener('input', function(event){
+//     var code = event.target.innerText;
+//     var caretPosition = getCaretCharacterOffsetWithin(event.target);
+//     console.log(caretPosition);
+//     if(code.charAt(caretPosition) === '>'){
+//         var openingTagIndex = code.lastIndexOf('<', caretPosition - 1);
+//         if(openingTagIndex !== -1){
+//             var tagName = code.substring(openingTagIndex + 1, caretPosition);
+//             var closingTag = '</' + tagName + '>';
+//             document.getElementById('codeInput').innerText = code.slice(0, caretPosition+1) + closingTag + code.slice(caretPosition+1);
+//             setCaretPosition(event.target, caretPosition + closingTag.length);
+//             console.log(event.target.childNodes[0]);
+//         }
+//     }
+// });
+function completeTags(){
+    // let code = document.getElementById('codeInput').innerText;
+    // let target = document.getElementById('codeInput');
+    // let caretPosition = getCaretCharacterOffsetWithin(target);
+    // if(code.charAt(caretPosition) == '>'){
+    //     let openingTagIndex = code.lastIndexOf('<', caretPosition);
+    //     if(openingTagIndex !== -1 && code.charAt(openingTagIndex+1) != '/'){
+    //         let tagName = code.substring(openingTagIndex + 1, caretPosition);
+    //         let closingTag = '</' + tagName + '>';
+    //         document.getElementById('codeInput').innerText = code.slice(0, caretPosition+1) + closingTag + code.slice(caretPosition+1);
+    //         setCaretPosition(target, caretPosition + closingTag.length);
+    //         // console.log(target.childNodes[0]);
+    //     }
+    // }
+}
+function getCaretCharacterOffsetWithin(element){
+    let caretOffset = 0;
+    let doc = element.ownerDocument || element.document;
+    let win = doc.defaultView || doc.parentWindow;
+    let sel;
+    if(typeof win.getSelection != 'undefined'){
+        sel = win.getSelection();
+        if(sel.rangeCount > 0){
+            let range = win.getSelection().getRangeAt(0);
+            let preCaretRange = range.cloneRange();
+            preCaretRange.selectNodeContents(element);
+            preCaretRange.setEnd(range.endContainer, range.endOffset);
+            caretOffset = preCaretRange.toString().length;
+        }
+    }else if((sel = doc.selection) && sel.type != 'Control'){
+        let textRange = sel.createRange();
+        let preCaretTextRange = doc.body.createTextRange();
+        preCaretTextRange.moveToElementText(element);
+        preCaretTextRange.setEndPoint('EndToEnd', textRange);
+        caretOffset = preCaretTextRange.text.length;
+    }
+    return caretOffset;
+}
+function setCaretPosition(el, position){
+    try{
+        let range = document.createRange();
+        let sel = window.getSelection();
+        range.setStart(el.childNodes, position);
+        range.collapse(true);
+        sel.removeAllRanges();
+        sel.addRange(range);
+        el.focus();
+    }catch(e){
+        console.log("Error to modified!");
+    }
 }
