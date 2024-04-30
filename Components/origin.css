@@ -287,7 +287,7 @@ header{
     text-align: center;
     margin-bottom: 5px;
 }
-#HomePage,#ApiPage{
+#HomePage,#AboutPage,#ApiPage{
     width: 100%;
     padding: 20px auto;
     text-align: center;
@@ -419,6 +419,9 @@ footer{
 .footer-copyright p span{
     margin-left: 10%;
 }
+#AboutPage{
+    margin-bottom: 0px;
+}
 .side{
     display: flex;
     flex-direction: row;
@@ -431,9 +434,11 @@ footer{
     padding: 20px;
     font-family: sans-serif;
     margin: 0px 0px;
+    text-align: left;
 }
 .side-l{
     background: var(--side-l-color);
+    /* background: linear-gradient(180deg, transparent, var(--side-l-color), transparent); */
     display: flex;
     flex-direction: column;
     width: 20%;
@@ -449,7 +454,6 @@ footer{
     cursor: pointer;
     width: 60%;
     margin: 10px 20%;
-    font-size: 22px;
     outline: none;
 }
 .side-l button:hover,#blink{
@@ -471,10 +475,10 @@ footer{
 }
 .side-r p{
     text-align: justify;
-    color: grey;
+    font-weight: normal!important;
 }
 .side-r p a,.side-r p o{
-    color:var(--sg-color);
+    color: var(--sg-color);
     cursor: pointer;
 }
 .side-r div{
@@ -489,8 +493,8 @@ ul{
     list-style: none;
 }
 .side-r ul li{
-    font-size: 18px;
-    line-height: 35px;
+    font-size: 16px;
+    line-height: 28px;
 }
 .side-r .scroller{
     display: flex;
@@ -793,7 +797,7 @@ ul{
     padding: 0px;
     margin: 2px 0px;
 }
-.docs-content h4{
+.docs-content h4,#AboutPage .side .side-r h3{
     color: var(--wtxt-color);
     font-family: sans-serif;
     font-size: 16px;
@@ -801,7 +805,7 @@ ul{
     padding: 0px;
     margin: 2px 0px;
 }
-.docs-content p{
+.docs-content p,#AboutPage .side .side-r p{
     color: var(--gry-color);
     font-size: 15px;
     font-weight: 600;
@@ -2082,12 +2086,10 @@ ul{
     .side-r #logo1,.side-r #logo3{
         width: 60%;
         margin: 2px calc((100% - 60%)/2);
-        display: none;
     }
     .side-r #logo2{
     	width: 80%;
         margin: 2px 10%;
-        display: none;
     }
     .side-r .scroller{
         width: 80%;
