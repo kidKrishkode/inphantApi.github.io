@@ -98,7 +98,7 @@ const AboutPage = {
         </div>
         <div class="side-r" id="ad1">
             <h3>About kidKrishkode</h3>
-            <img src="https://kidKrishkode.github.io/projectPulse.github.io/fav-icon/kidKrishkode.png" alt="kidKrishkode Logo" id="logo2">
+            <img src="https://kidkrishkode.github.io/ProjectPulse.github.io/fav-icon/kidKrishkode.png" alt="kidKrishkode Logo" id="logo2">
             <p>kidKrishkode, a name that transcends mere nomenclature, is the brainchild of <o onclick="aboutRout(2);">Krishnendu Mitra</o>—a 
                 visionary in the realm of programming education and innovation. As the driving force behind this digital haven, Krishnendu, 
                 affectionately known as Krish, has curated an environment where technology becomes a playground for the curious minds eager to explore 
@@ -121,7 +121,7 @@ const AboutPage = {
         </div>
         <div class="side-r" id="ad2">
             <h3>About Krishnendu Mitra</h3>
-            <img src="https://kidKrishkode.github.io/projectPulse.github.io/fav-icon/Krishdp.jpg" alt="Krishnendu Mitra" id="logo3">
+            <img src="https://kidkrishkode.github.io/ProjectPulse.github.io/fav-icon/Krishdp.jpg" alt="Krishnendu Mitra" id="logo3">
             <p>Krishnendu Mitra, affectionately known as <o>Krish</o>, is a passionate student pursuing a Bachelor's degree in Computer Science and Engineering. 
                 Hailing from the vibrant city of Kolkata in West Bengal, India, Krish embodies a multifaceted skill set and a relentless enthusiasm for 
                 technology.<br><br>As a versatile <o>Full-stack web developer</o> and <o>AI prompt engineer</o>, Krish has honed his 
@@ -136,7 +136,7 @@ const AboutPage = {
             </p>
             <div class="scroller">
                 <div class="btn" id="krishleft" onclick="ksmPrev();">&lt;</div>
-                <div class="screen"><img src="https://kidKrishkode.github.io/projectPulse.github.io/img/ksm006.jpg" id="krishimg"></div>
+                <div class="screen"><img src="https://kidkrishkode.github.io/ProjectPulse.github.io/img/ksm006.jpg" id="krishimg"></div>
                 <div class="btn" id="krishright" onclick="ksmNext();">&gt;</div>
             </div>
             <p>Open to new opportunities, Krish is not just a coder; he's a <o>storyteller</o>, weaving 

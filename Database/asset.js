@@ -18,27 +18,27 @@ let ksm=0;
 const KrishSlider = [
     {
         id: 5,
-        src: "https://kidKrishkode.github.io/projectPulse.github.io/img/ksm006.jpg"
+        src: "https://kidkrishkode.github.io/ProjectPulse.github.io/img/ksm006.jpg"
     },
     {
         id: 0,
-        src: "https://kidKrishkode.github.io/projectPulse.github.io/img/ksm001.png"
+        src: "https://kidkrishkode.github.io/ProjectPulse.github.io/img/ksm001.png"
     },
     {
         id: 1,
-        src: "https://kidKrishkode.github.io/projectPulse.github.io/img/ksm002.jpg"
+        src: "https://kidkrishkode.github.io/ProjectPulse.github.io/img/ksm002.jpg"
     },
     {
         id: 2,
-        src: "https://kidKrishkode.github.io/projectPulse.github.io/img/ksm003.jpg"
+        src: "https://kidkrishkode.github.io/ProjectPulse.github.io/img/ksm003.jpg"
     },
     {
         id: 3,
-        src: "https://kidKrishkode.github.io/projectPulse.github.io/img/ksm004.jpg"
+        src: "https://kidkrishkode.github.io/ProjectPulse.github.io/img/ksm004.jpg"
     },
     {
         id: 4,
-        src: "https://kidKrishkode.github.io/projectPulse.github.io/img/ksm005.jpg"
+        src: "https://kidkrishkode.github.io/ProjectPulse.github.io/img/ksm005.jpg"
     }
 ];
 let jsonFilePath, userPortfolio;
