@@ -14,6 +14,33 @@ let currentProduct=0;
 let pageList = ["HomePage","ApiPage","DocsPage","AboutPage","HelpPage"];
 let aboutList = ["abtn0","abtn1","abtn2"];
 let additionalList = ["SearchPage","AccountPage","OpenApiPage","portfolioPage"];
+let ksm=0;
+const KrishSlider = [
+    {
+        id: 5,
+        src: "https://kidKrishkode.github.io/projectPulse.github.io/img/ksm006.jpg"
+    },
+    {
+        id: 0,
+        src: "https://kidKrishkode.github.io/projectPulse.github.io/img/ksm001.png"
+    },
+    {
+        id: 1,
+        src: "https://kidKrishkode.github.io/projectPulse.github.io/img/ksm002.jpg"
+    },
+    {
+        id: 2,
+        src: "https://kidKrishkode.github.io/projectPulse.github.io/img/ksm003.jpg"
+    },
+    {
+        id: 3,
+        src: "https://kidKrishkode.github.io/projectPulse.github.io/img/ksm004.jpg"
+    },
+    {
+        id: 4,
+        src: "https://kidKrishkode.github.io/projectPulse.github.io/img/ksm005.jpg"
+    }
+];
 let jsonFilePath, userPortfolio;
 let stdlibsrc = `&lt; script@ |src="https://kidKrishkode.github.io/inphantApi.github.io/APIs/inphantSTDlib.min.js"n >< /script@ >`;
 let vanillaHtmlContent = 
